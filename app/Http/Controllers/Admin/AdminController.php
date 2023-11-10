@@ -5,45 +5,36 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AdminController extends Controller implements ICRUD
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function list()
     {
-        //
+        return view('be/layout');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function add()
     {
-        //
+        // TODO: Implement add() method.
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function doAdd($id, \Illuminate\Support\Facades\Request $request)
     {
-        //
+        // TODO: Implement doAdd() method.
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function edit($id)
     {
-        //
+        // TODO: Implement edit() method.
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function doEdit($id, \Illuminate\Support\Facades\Request $request)
     {
-        //
+        // TODO: Implement doEdit() method.
+    }
+
+    public function delete($id)
+    {
+        // TODO: Implement delete() method.
     }
 }

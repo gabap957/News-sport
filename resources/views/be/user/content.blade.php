@@ -1,0 +1,2 @@
+
+@include('be.user.category')
