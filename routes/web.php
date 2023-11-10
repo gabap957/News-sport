@@ -22,4 +22,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('be.login.loginAdmin');
 });
+Route::get('/404', function () {
+    return view('404.404');
+});
 include_once __DIR__.'/be.php';
