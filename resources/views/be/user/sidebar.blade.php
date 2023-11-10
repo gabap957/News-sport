@@ -28,7 +28,7 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item" onclick="{{route('admin.category.list')}}">
+    <li class="nav-item" onclick="window.location='{{ URL::route('admin.category.list')}}'">
         <a class="nav-link collapsed" >
             <i class="fas fa-fw fa-cog"></i>
             <span>Quản lý chuyên mục</span>

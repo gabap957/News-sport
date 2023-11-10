@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class post extends Model
 {
     use HasFactory;
-    protected $post = ['name','description','active','created_date','title','url','category_id','image_id'];
+    protected $fillable  = ['name','description','active','created_date','title','url','category_id','image_id'];
     public function image() :HasOne
     {
         return $this->hasOne(image::class);

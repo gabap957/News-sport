@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class category extends Model
 {
     use HasFactory;
-    protected $category =['name' ,'parent_id','cate_url','active'];
+    protected $fillable  =['name' ,'parent_id','cate_url','active'];
 
     public function post(): HasOne
     {
