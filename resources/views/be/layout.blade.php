@@ -100,5 +100,4 @@
 <script src="{{asset('/adminlte/js/sb-admin-2.min.js')}}"></script>
 <script href="{{asset('/js/layout.js')}}"></script>
 </body>
-
 </html>
