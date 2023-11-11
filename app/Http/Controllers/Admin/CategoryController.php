@@ -3,34 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller implements ICRUD
 {
-    //
+
     public function list()
     {
-        return view('be.layout');
+      return view('be.layout');
     }
 
-    public function add()
+    public function add(Request $request)
     {
         // TODO: Implement add() method.
     }
 
-    public function doAdd($id, Request $request)
-    {
-        // TODO: Implement doAdd() method.
-    }
-
-    public function edit($id)
+    public function edit(Request $request)
     {
         // TODO: Implement edit() method.
-    }
-
-    public function doEdit($id, Request $request)
-    {
-        // TODO: Implement doEdit() method.
     }
 
     public function delete($id)
