@@ -237,7 +237,33 @@ button {
 button:focus:not(:focus-visible) {
   outline: 0;
 }
+.button-88 {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0.7em 1.4em 0.7em 1.1em;
+    color: white;
+    background: #ad5389;
+    background: linear-gradient(0deg, rgba(20,167,62,1) 0%, rgba(102,247,113,1) 100%);
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+    letter-spacing: 0.05em;
+    border-radius: 20em;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
 
+.button-88:hover {
+    box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+}
+
+.button-88:active {
+    box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+}
 input,
 button,
 select,
@@ -288,7 +314,25 @@ button::-moz-focus-inner,
   padding: 0;
   border-style: none;
 }
+.button-33 {
+    border-radius: 100px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
 
+.button-33:hover {
+    transform: scale(1.05) rotate(-1deg);
+}
 input[type="radio"],
 input[type="checkbox"] {
   box-sizing: border-box;
@@ -1485,7 +1529,6 @@ pre code {
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #858796;
 }
 
 .table th,
@@ -4558,6 +4601,11 @@ input[type="button"].btn-block {
 
 .card-header:first-child {
   border-radius: calc(0.35rem - 1px) calc(0.35rem - 1px) 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .card-footer {

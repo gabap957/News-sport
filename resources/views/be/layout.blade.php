@@ -19,7 +19,9 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{asset('/adminlte/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/adminlte/css/sb-admin-2.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/main.css')}}">
+
 
 </head>
 
@@ -99,5 +101,7 @@
 <!-- Custom scripts for all pages-->
 <script src="{{asset('/adminlte/js/sb-admin-2.min.js')}}"></script>
 <script href="{{asset('/js/layout.js')}}"></script>
+
 </body>
+
 </html>

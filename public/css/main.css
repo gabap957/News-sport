@@ -1,0 +1,7 @@
+.card-header-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: center;
+    justify-content: space-between;
+}
