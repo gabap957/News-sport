@@ -23,7 +23,7 @@
                         <td>{{$item->name}}</td>
                         <td>{{$item->email}}</td>
                         <td>
-                            <button array="{{$item}}" id="{{$item->id}}" class="edituser btn btn-warning">Sửa</button>
+                            <button array="{{$item}}" id="{{$item->id}}" class="btnedituser btn btn-warning" >Sửa</button>
                             <a class="btn btn-danger" onclick="return confirm('bạn có muốn xóa?')" href="{{route('admin.user.delete',['id'=>$item->id])}}">Xóa</a>
                         </td>
                     </tr>
@@ -97,8 +97,6 @@
                                 <input type="password" class="form-control" id="epassword" name="password"   value="" onblur="checkPass();" Required>
                             </div>
 
-
-
                         </div>
 
                         <div class="modal-footer">
@@ -110,5 +108,4 @@
             </div>
         </div>
     </div>
-
 @endsection
