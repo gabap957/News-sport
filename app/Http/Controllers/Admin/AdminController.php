@@ -47,6 +47,19 @@ class AdminController extends Controller implements ICRUD
 
     public function edit(Request $request)
     {
-        // TODO: Implement edit() method.
+        try {
+            $data = $request->all();
+            $user = Admin::find($data['id']);
+            $data['password'] = Hash::make($data['password']);
+            $user->name = $data['name'];
+            $user->email = $data['email'];
+            $user->password = $data['password'];
+            $user->phone = $data['phone'];
+            $user->save();
+        }
+        catch (Exception $exception){
+            return redirect()->back()->with('error','Sửa thất bại!');
+        }
+        return redirect()->back()->with('success','Sửa thành công!');
     }
 }

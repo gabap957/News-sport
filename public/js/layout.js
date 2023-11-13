@@ -1,9 +1,17 @@
-$(document).on('click', '.edituser', function (){
+$(document).on('click', '.btnedituser', function (){
+    var array = $(this).attr('array');
+    var obj = JSON.parse(array);    
+    $('#eid').val(obj['id']);
+    $('#ename').val(obj['name']);
+    $('#eemail').val(obj['email']);
+    $("#modalupdate").modal('show');
+});
+$(document).on('click', '.editcategory', function ()
+{
     var array = $(this).attr('array');
     var obj = JSON.parse(array);
     $('#eid').val(obj['id']);
     $('#ename').val(obj['name']);
-    $('#eemail').val(obj['email']);
-    $('#ephone').val(obj['phone']);
-    $("#modalupdate").modal('show');
-});
+    $('#eurl').val(obj['cate_url']);
+    $("#modaledit").modal('show');
+})

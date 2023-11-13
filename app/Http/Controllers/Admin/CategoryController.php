@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use PHPUnit\Exception;
 
@@ -23,8 +24,8 @@ class CategoryController extends Controller implements ICRUD
         try {
             $data = $request ->all();
             unset($data['_token']);
-            $data['password'] = Hash::make($data['password']);
-            Admin::create($data);
+            unset($data['insert']);
+            DB::table('categories')->insert($data);
         }
         catch (Exception $exception){
             return redirect()->back()->with('error','thêm thất bại!');
@@ -34,11 +35,27 @@ class CategoryController extends Controller implements ICRUD
 
     public function edit(Request $request)
     {
-        // TODO: Implement edit() method.
+        try {
+            $data = $request->all();
+            unset($data['_token']);
+            unset($data['_insert']);
+            Category::where('id',$data['id'])->update($data);
+        }
+        catch (\Exception $exception){
+            return redirect()->back()->with('error','thêm thất bại!');
+        }
+        // return redirect()->back()->with('succes','thêm thanh cong!');
     }
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+
+        try{
+            category::where('id',$id)->delete();
+        }
+        catch (Exception $exception){
+            return redirect()->back()->with('error','xóa thất bại');
+        }
+        return redirect()->back()->with('success','Xóa thành công');
     }
 }

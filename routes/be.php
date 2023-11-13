@@ -15,6 +15,9 @@ Route::prefix('/admin')->group(function (){
     });
     Route::prefix('/category')->group(function (){
         Route::get('/',[CategoryController::class, 'list'])->name('admin.category.list');
+        Route::post('/add',[CategoryController::class, 'add'])->name('admin.category.add');
+        Route::post('/edit',[CategoryController::class, 'edit'])->name('admin.category.edit');
+        Route::get('/delete/{id}',[CategoryController::class, 'delete'])->name('admin.category.delete');
     });
     Route::prefix('/post')->group(function (){
         Route::get('/',[PostController::class, 'list'])->name('admin.post.list');

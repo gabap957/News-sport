@@ -115,8 +115,7 @@
 
 <!-- Custom scripts for all pages-->
 <script src="{{asset('/adminlte/js/sb-admin-2.min.js')}}"></script>
-<script href="{{asset('/js/layout.js')}}"></script>
-
+<script src="{{asset('/js/layout.js')}}"></script>
 </body>
 
 </html>
