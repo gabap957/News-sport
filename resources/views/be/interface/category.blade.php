@@ -1,5 +1,8 @@
 @extends('be.layout')
 @section('content')
+    <head>
+        <link href="">
+    </head>
     <div class="card shadow mb-4">
         <div class="card-header card-header-flex py-3">
             <div>

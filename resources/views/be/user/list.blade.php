@@ -24,7 +24,7 @@
                         <td>{{$item->email}}</td>
                         <td>
                             <button array="{{$item}}" id="{{$item->id}}" class="edituser btn btn-warning">Sửa</button>
-                            <a class="btn btn-danger">Xóa</a>
+                            <a class="btn btn-danger" onclick="return confirm('bạn có muốn xóa?')" href="{{route('admin.user.delete',['id'=>$item->id])}}">Xóa</a>
                         </td>
                     </tr>
                 @endforeach

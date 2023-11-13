@@ -31,23 +31,22 @@ class AdminController extends Controller implements ICRUD
         return redirect()->back()->with('succes','thêm thành công!');
     }
 
-    public function doAdd($id, \Illuminate\Support\Facades\Request $request)
-    {
-        // TODO: Implement doAdd() method.
-    }
 
-    public function edit($id)
-    {
-        // TODO: Implement edit() method.
-    }
-
-    public function doEdit($id, \Illuminate\Support\Facades\Request $request)
-    {
-        // TODO: Implement doEdit() method.
-    }
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+
+        try{
+            $test =Admin::where('id',$id)->delete();
+        }
+        catch (Exception $exception){
+            return redirect()->back()->with('error','xóa thất bại');
+        }
+        return redirect()->back()->with('success','Xóa thành công');
+    }
+
+    public function edit(Request $request)
+    {
+        // TODO: Implement edit() method.
     }
 }
