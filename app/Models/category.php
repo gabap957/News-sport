@@ -11,8 +11,4 @@ class category extends Model
     use HasFactory;
     protected $fillable  =['name' ,'parent_id','cate_url','active'];
 
-    public function post(): HasOne
-    {
-        return $this->hasOne(post::class);
-    }
 }
