@@ -21,6 +21,9 @@ Route::prefix('/admin')->group(function (){
     });
     Route::prefix('/post')->group(function (){
         Route::get('/',[PostController::class, 'list'])->name('admin.post.list');
+        Route::post('/add',[PostController::class, 'add'])->name('admin.post.add');
+        Route::post('/edit',[PostController::class, 'edit'])->name('admin.post.edit');
+        Route::get('/delete/{id}',[PostController::class, 'delete'])->name('admin.post.delete');
     });
     Route::prefix('/image')->group(function (){
         Route::get('/',[ImageController::class, 'list'])->name('admin.image.list');

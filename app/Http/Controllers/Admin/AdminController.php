@@ -37,7 +37,7 @@ class AdminController extends Controller implements ICRUD
     {
 
         try{
-            $test =Admin::where('id',$id)->delete();
+            Admin::where('id',$id)->delete();
         }
         catch (Exception $exception){
             return redirect()->back()->with('error','xóa thất bại');
