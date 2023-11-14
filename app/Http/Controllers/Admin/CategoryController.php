@@ -23,7 +23,7 @@ class CategoryController extends Controller implements ICRUD
             $data = $request ->all();
             unset($data['_token']);
             unset($data['insert']);
-            DB::table('categories')->insert($data);
+            category::create($data);
         }
         catch (Exception $exception){
             return redirect()->back()->with('error','thêm thất bại!');

@@ -25,7 +25,7 @@
                 <td>{{$item->description}}</td>
                 <td>{{$item->title}}</td>
                 <td>{{$item->created_at}}</td>
-                <td></td>
+                <td>{{$item->category->name}}</td>
                 <td>
                 <button array="{{$item}}" id="{{$item->id}}" class="edituser btn btn-warning">Sửa</button>
                 <a class="btn btn-danger">Xóa</a>
