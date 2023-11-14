@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->boolean('active');
-            $table->date('created_date');
             $table->string('title');
             $table->string('url');
             $table->bigInteger('category_id');
