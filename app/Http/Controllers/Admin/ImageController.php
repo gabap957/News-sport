@@ -12,7 +12,7 @@ class ImageController extends Controller implements ICRUD
     public function list()
     {
         $list = image::all();
-        return view('be.interface.image');
+        return view('be.interface.image',compact('list'));
     }
 
     public function add(Request $request)

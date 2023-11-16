@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class category extends Model
 {
     use HasFactory;
-    protected $fillable  =['name' ,'parent_id','cate_url','active'];
+    protected $fillable  =['name' ,'parent_id','cate_url'];
 
 }

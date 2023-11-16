@@ -1,6 +1,6 @@
 @extends('be.layout')
 @section('content')
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4 min-height-card">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
         </div>
@@ -15,7 +15,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($list as $item)
+                    <!-- @foreach($list as $item)
                         <tr>
                             <td>{{$item->name}}</td>
                             <td>{{$item->cate_url}}</td>
@@ -24,7 +24,7 @@
                                 <a class="btn btn-danger">Xóa</a>
                             </td>
                         </tr>
-                    @endforeach
+                    @endforeach -->
                     </tbody>
                 </table>
             </div>

@@ -39,7 +39,7 @@
             <span>Quản lý bài viết </span>
         </a>
     </li>
-    <li class="nav-item" onclick="window.location='{{ URL::route('admin.image.list')}}'">
+    <li class="nav-item" onclick="window.location='{{ URL::route('admin.album.list')}}'">
         <a class="nav-link collapsed" >
             <i class="fas fa-fw fa-cog"></i>
             <span>Kho ảnh</span>

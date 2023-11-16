@@ -3,7 +3,7 @@
     <head>
         <link href="">
     </head>
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4 min-height-card">
         <div class="card-header card-header-flex py-3">
             <div>
             <h6 class="m-0 font-weight-bold text-primary">Chuyên mục</h6>

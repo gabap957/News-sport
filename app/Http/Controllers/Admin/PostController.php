@@ -30,7 +30,7 @@ class PostController extends Controller implements ICRUD
         } catch (Exception $exception) {
             return redirect()->back()->with('error', 'thêm thất bại!');
         }
-        return redirect()->back()->with('succes', 'thêm thành công!');
+        return redirect()->back()->with('success', 'thêm thành công!');
     }
 
     public function edit(Request $request)

@@ -1,6 +1,6 @@
 @extends('be.layout')
 @section('content')
-<div class="card shadow mb-4">
+<div class="card shadow mb-4 min-vh-100">
     <div class="card-header py-3"> <div> <h6 class="m-0 font-weight-bold text-primary">Bài Viết</h6>
         </div> <div> <button class="button-33" data-toggle="modal" data-target="#modalinsert" style="color: green;
             background-color: #c2fbd7;" role="button">Thêm</button> </div> </div>

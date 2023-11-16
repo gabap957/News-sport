@@ -4537,7 +4537,9 @@ input[type="button"].btn-block {
   border: 1px solid #e3e6f0;
   border-radius: 0.35rem;
 }
-
+.min-height-card{
+  min-height: 770px;
+}
 .card > hr {
   margin-right: 0;
   margin-left: 0;

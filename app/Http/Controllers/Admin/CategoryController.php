@@ -28,7 +28,7 @@ class CategoryController extends Controller implements ICRUD
         catch (Exception $exception){
             return redirect()->back()->with('error','thêm thất bại!');
         }
-        return redirect()->back()->with('succes','thêm thành công!');
+        return redirect()->back()->with('success','thêm thành công!');
     }
 
     public function edit(Request $request)
@@ -36,13 +36,13 @@ class CategoryController extends Controller implements ICRUD
         try {
             $data = $request->all();
             unset($data['_token']);
-            unset($data['_insert']);
-            Category::where('id',$data['id'])->update($data);
+            unset($data['insert']);
+            DB::table('categories')->where('id','=',$data['id'])->update($data);
         }
         catch (\Exception $exception){
-            return redirect()->back()->with('error','thêm thất bại!');
+            return redirect()->back()->with('error','sửa thất bại!');
         }
-        // return redirect()->back()->with('succes','thêm thanh cong!');
+        return redirect()->back()->with('success','Sửa thanh cong!');
     }
 
     public function delete($id)
