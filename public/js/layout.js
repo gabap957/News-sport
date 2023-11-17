@@ -15,3 +15,7 @@ $(document).on('click', '.editcategory', function ()
     $('#eurl').val(obj['cate_url']);
     $("#modaledit").modal('show');
 })
+$(document).on('click', '.delete-folder', function ()
+{
+    confirm('Bạn có muốn xóa thư mục');
+})

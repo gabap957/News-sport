@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\category;
+use App\Models\image;
 use App\Models\post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -26,7 +27,18 @@ class PostController extends Controller implements ICRUD
             $data = $request->all();
             unset($data['_token']);
             unset($data['insert']);
-            DB::table('posts')->insert($data);
+            $array = $data['image'];
+            $mainImageName = time().'1'.$array->getClientOriginalName();
+            $array->storeAs('/album', $mainImageName, 'public');
+            $urlImage= 'storage/album/' . $mainImageName;
+            $dataImage = [
+                'name' => $array->getClientOriginalName(),
+                'OriginalName' => $mainImageName,
+                'path_url' => $urlImage,
+                'album_id' => $data['category_id']
+            ];
+            DB::table('images')->where('album_id', '=', $data['category_id'])->insert($dataImage);
+            // DB::table('posts')->insert($data);
         } catch (Exception $exception) {
             return redirect()->back()->with('error', 'thêm thất bại!');
         }
