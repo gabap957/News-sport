@@ -27,18 +27,23 @@ class PostController extends Controller implements ICRUD
             $data = $request->all();
             unset($data['_token']);
             unset($data['insert']);
-            $array = $data['image'];
-            $mainImageName = time().'1'.$array->getClientOriginalName();
-            $array->storeAs('/album', $mainImageName, 'public');
-            $urlImage= 'storage/album/' . $mainImageName;
-            $dataImage = [
-                'name' => $array->getClientOriginalName(),
-                'OriginalName' => $mainImageName,
-                'path_url' => $urlImage,
-                'album_id' => $data['category_id']
-            ];
-            DB::table('images')->where('album_id', '=', $data['category_id'])->insert($dataImage);
-            // DB::table('posts')->insert($data);
+            if(isset($data['image_id']))
+            {
+                $array = $data['image_id'];
+                $mainImageName = time().'1'.$array->getClientOriginalName();
+                $array->storeAs('/album', $mainImageName, 'public');
+                $urlImage= 'storage/album/' . $mainImageName;
+                $cate_id=$data['category_id'];
+                $dataImage = [
+                    'name' => $array->getClientOriginalName(),
+                    'OriginalName' => $mainImageName,
+                    'path_url' => $urlImage,
+                    'album_id' => $cate_id
+                ];
+                $id = $dataImage = image::where('album_id', '=',$cate_id)->insertGetId($dataImage);
+                $data['image_id'] = $id;
+            }
+            DB::table('posts')->insert($data);
         } catch (Exception $exception) {
             return redirect()->back()->with('error', 'thêm thất bại!');
         }
