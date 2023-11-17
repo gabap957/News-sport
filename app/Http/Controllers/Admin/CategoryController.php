@@ -45,7 +45,11 @@ class CategoryController extends Controller implements ICRUD
             $data = $request->all();
             unset($data['_token']);
             unset($data['insert']);
+            $dataAlbum = [
+                'name' => $data['name'],
+            ];
             DB::table('categories')->where('id','=',$data['id'])->update($data);
+            DB::table('albums')->where('category_id','=',$data['id'])->update($dataAlbum);
         }
         catch (\Exception $exception){
             return redirect()->back()->with('error','sửa thất bại!');

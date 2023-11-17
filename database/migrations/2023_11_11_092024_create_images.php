@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('OriginalName');
             $table->string('path_url');
-            $table->binary('album_id');
+            $table->BigInteger('album_id');
             $table->timestamps();
         });
     }
