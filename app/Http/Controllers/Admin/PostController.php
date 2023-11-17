@@ -17,8 +17,9 @@ class PostController extends Controller implements ICRUD
     {
         $list = post::all();
         $categories = category::all();
+        $image = image::all();
         // dd($list);
-        return view('be.interface.post', compact('list','categories'));
+        return view('be.interface.post', compact('list','categories','image'));
     }
 
     public function add(Request $request)

@@ -20,7 +20,7 @@
             <tbody>
                 @foreach($list as $item)
                 <tr>
-                <td></td>
+                <td><img style="width: 100px; height: 100px;" src="{{asset($item->image->path_url)}}"></td>
                 <td>{{$item->name}}</td>
                 <td>{{$item->description}}</td>
                 <td>{{$item->title}}</td>
