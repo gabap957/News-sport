@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class album extends Model
 {
     use HasFactory;
-    protected $fillable =['name' ,'url','cate_id'];
+    protected $fillable =['name' ,'url','category_id'];
     public function category_album()
     {
         return $this->belongsTo(category::class);

@@ -1,7 +1,7 @@
 @extends('be.layout')
 @section('content')
 <div class="card shadow mb-4 min-vh-100">
-    <div class="card-header py-3"> <div> <h6 class="m-0 font-weight-bold text-primary">Bài Viết</h6>
+    <div class="card-header py-3"> <div> <h5 class="m-0 font-weight-bold text-primary">Bài Viết</h5>
         </div> <div> <button class="button-33" data-toggle="modal" data-target="#modalinsert" style="color: green;
             background-color: #c2fbd7;" role="button">Thêm</button> </div> </div>
         <div class="card-body"> <div class="table-responsive"> <table class="table table-bordered" id="dataTable"
@@ -10,7 +10,7 @@
             <tr>
             <th>Ảnh</th>
             <th>Tên</th>
-            <th>Mô tả</th>
+            <th>Nội dung</th>
             <th>Tiêu đề</th>
             <th>Ngày đăng</th>
             <th>Danh mục</th>
@@ -59,7 +59,7 @@
                             Required />
                     </div>
                     <div class="form-group">
-                        <label for="">Mô tả</label> <span id="errordes"></span>
+                        <label for="">Nội dung</label> <span id="errordes"></span>
                         <input type="text" class="form-control" id="description" name="description" value=""
                             onblur="checkurl()" ; Required />
                     </div>

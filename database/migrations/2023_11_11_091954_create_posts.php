@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->boolean('active');
+            $table->boolean('active')->nullable();
             $table->string('title');
             $table->string('url');
             $table->bigInteger('category_id');
