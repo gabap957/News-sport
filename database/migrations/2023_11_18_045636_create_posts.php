@@ -16,9 +16,8 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description')->nullable();
-            $table->boolean('active')->nullable();
             $table->string('title');
+            $table->string('content');
             $table->string('url')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

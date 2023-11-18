@@ -18,8 +18,11 @@ class PostController extends Controller implements ICRUD
         $list = post::all();
         $categories = category::all();
         $image = image::all();
-        // dd($list);
-        return view('be.interface.post', compact('list','categories','image'));
+        return view('be.interface.post.post', compact('list','categories','image'));
+    }
+    public function doadd(){
+        $categories = category::all();
+        return view('be.interface.post.post-add', compact('categories'));
     }
 
     public function add(Request $request)
@@ -41,19 +44,51 @@ class PostController extends Controller implements ICRUD
                     'path_url' => $urlImage,
                     'album_id' => $cate_id
                 ];
-                $id = $dataImage = image::where('album_id', '=',$cate_id)->insertGetId($dataImage);
+                $id = image::insertGetId($dataImage);
                 $data['image_id'] = $id;
             }
             DB::table('posts')->insert($data);
         } catch (Exception $exception) {
             return redirect()->back()->with('error', 'thêm thất bại!');
         }
-        return redirect()->back()->with('success', 'thêm thành công!');
+        return redirect(route('admin.post.list'))->with('success', 'thêm thành công!');
     }
 
-    public function edit(Request $request)
+    public function doedit($id){
+        $list=post::find($id);
+        $categories=category::all();
+        return view('be.interface.post.post-edit', compact('list','categories'));
+    }
+        public function edit(Request $request)
     {
-        // TODO: Implement edit() method.
+       try {
+        $data = $request->all();
+        unset($data['_token']);
+        unset($data['insert']);
+        if(isset($data['image-upload']))
+        {
+            $array = $data['image-upload'];
+            $mainImageName = time().'1'.$array->getClientOriginalName();
+            $array->storeAs('/album', $mainImageName, 'public');
+            $urlImage= 'storage/album/' . $mainImageName;
+            $cate_id=$data['category_id'];
+            $id =$data['image_id'];
+            $dataImage = [
+                'name' => $array->getClientOriginalName(),
+                'OriginalName' => $mainImageName,
+                'path_url' => $urlImage,
+                'album_id' => $cate_id,
+                'updated_at' => date('Y-m-d H:i:s')
+            ];
+            image::where('id', '=',$id )->update($dataImage);
+            unset($data['image-upload']);
+        }
+        DB::table('posts')->where('id', '=', $data['id'])->update($data);
+       }
+       catch (Exception $exception) {
+           return redirect()->back()->with('error', 'Sửa thất bại!');
+       }
+       return redirect(route('admin.post.list'))->with('success', 'Sửa thành công!');
     }
 
     public function delete($id)

@@ -21,7 +21,8 @@
     <link href="{{asset('/adminlte/css/sb-admin-2.css')}}" rel="stylesheet">
     <link href="{{asset('/css/main.css')}}">
     <link href="{{asset('/adminlte/css/toast.css')}}" rel="stylesheet">
-
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 </head>
 
 <body id="page-top">
@@ -153,7 +154,8 @@
     <!-- Custom scripts for all pages-->
     <script src="{{asset('/adminlte/js/sb-admin-2.min.js')}}"></script>
     <script src="{{asset('/js/layout.js')}}"></script>
-    <script src="{{asset('adminlte/js/toast.js')}}"></script>
+    <script src="{{asset('/adminlte/js/toast.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
 </body>
-
 </html>

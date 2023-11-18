@@ -35,42 +35,4 @@
         <div></div>
     </div>
 </div>
-<div class="modal fade" id="modalinsert">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <form action="{{route('admin.album.add')}}" method="post" role="form" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-header">
-                    <legend>Thêm Thư mục</legend>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="">Tên thư mục:</label> <span id="errorname"></span>
-                        <input type="text" class="form-control" id="name" name="name" value="" onblur="checkname();"
-                            Required />
-                    </div>
-                    <div class="form-group">
-                        <label for="">Chọn danh mục</label> <span id="errortitle"></span><br>
-                        <select class="form-select" name="cate_id" aria-label="Default select example">
-                            <option selected>Danh mục</option>
-                            @foreach($categories as $item)
-                            <option value="{{$item->id}}">{{$item->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <?php
-                    date_default_timezone_set('Asia/Ho_Chi_Minh');
-                    $date = date('Y-m-d H:i:s');
-                    ?>
-                    <input type="hidden" id="created_at" name="created_at" value="{{$date}}">
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                    <button type="submit" name="insert" class="btn btn-primary">Thêm</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 @endsection
