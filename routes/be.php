@@ -22,8 +22,10 @@ Route::prefix('/admin')->group(function (){
     });
     Route::prefix('/post')->group(function (){
         Route::get('/',[PostController::class, 'list'])->name('admin.post.list');
+        Route::get('/add',[PostController::class, 'doadd'])->name('admin.post.doadd');
         Route::post('/add',[PostController::class, 'add'])->name('admin.post.add');
         Route::post('/edit',[PostController::class, 'edit'])->name('admin.post.edit');
+        Route::get('/edit/{id}',[PostController::class, 'doedit'])->name('admin.post.doedit');
         Route::get('/delete/{id}',[PostController::class, 'delete'])->name('admin.post.delete');
     });
     Route::prefix('/album')->group(function (){

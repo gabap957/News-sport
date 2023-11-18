@@ -14,8 +14,19 @@ $(document).on('click', '.editcategory', function ()
     $('#ename').val(obj['name']);
     $('#eurl').val(obj['cate_url']);
     $("#modaledit").modal('show');
-})
-$(document).on('click', '.delete-folder', function ()
-{
-    confirm('Bạn có muốn xóa thư mục');
-})
+});
+
+ClassicEditor
+.create( document.querySelector( '#editor' ) )
+.catch( error => {
+    console.error( error );
+} );
+
+const input = document.getElementById('image-upload');
+const image = document.getElementById('image_id');
+input.addEventListener('change', (e) => {
+    if (e.target.files.length) {
+        const src = URL.createObjectURL(e.target.files[0]);
+        image.src = src;
+    }
+});

@@ -1,0 +1,47 @@
+.ck-editor__editable[role="textbox"] {
+    /* editing area */
+    min-height: 220px;
+    border: 1em soid #ccced1;
+}
+.ck-content .image {
+    /* block images */
+    max-width: 80%;
+    margin: 20px auto;
+}
+.update_box{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .update_box .image{
+    position: relative;
+    height: 220px;
+    width: 100%;
+  }
+  .update_box .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+  }
+  .update_box img{
+    width: 100%;
+    object-fit: fill;
+  }
+  .update_box span{
+    color: #212529;
+  }
+  .filter-option-inner{
+    font-size: 18px;
+  }
+  .text{
+    font-size: 16px;
+  }
+  .boder{
+    border: 1px solid rgb(32, 126, 126);
+    border-radius: 5px;
+    font-size: 19px;
+  }
+  label{
+    font-size: 17px;
+    font-weight: 600;
+  }
