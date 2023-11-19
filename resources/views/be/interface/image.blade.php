@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="{{asset('adminlte/css/image.css')}}">
+    <script src="{{asset('adminlte/js/image.js')}}"></script>
 </head>
 <div class="card shadow mb-4 min-height-card">
     <div class="card-header py-3">
@@ -27,19 +28,6 @@
                 <div class="card-body">
                     <div>
                         <h5 class="card-title" title="{{$item->name}}" id="nameimage">{{$item->name}}</h5>
-                        <script>
-                            const nameImage = document.getElementById('nameimage');
-                            var isRed = true;
-                            nameImage.setAttribute('style', 'text-overflow: ellipsis;overflow: hidden ; white-space: nowrap;');
-                            nameImage.addEventListener('click', function () {
-                                isRed = !isRed;
-                                if (!isRed) {
-                                    nameImage.setAttribute('style', 'text-overflow: unset;overflow: unset ; white-space: unset;');
-                                } else {
-                                    nameImage.setAttribute('style', 'text-overflow: ellipsis;overflow: hidden ; white-space: nowrap;');
-                                }
-                            });
-                        </script>
                     </div>
                     <div>
                         <a href="#" class="btn btn-primary">Sửa</a>

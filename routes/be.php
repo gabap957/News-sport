@@ -33,6 +33,7 @@ Route::prefix('/admin')->group(function (){
     });
     Route::prefix('/image')->group(function (){
         Route::get('/{id}',[ImageController::class, 'list'])->name('admin.image.list');
+        Route::get('/',[ImageController::class, 'listall'])->name('admin.image.list');
     });
 });
 ?>
