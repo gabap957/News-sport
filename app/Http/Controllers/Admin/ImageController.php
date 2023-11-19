@@ -17,6 +17,11 @@ class ImageController extends Controller
         return view('be.interface.image',compact('list', 'albumname'));
     }
 
+    public function listall(){
+        $list = image::all();
+        $albumname = 'Tất cả';
+        return view('be.interface.image',compact('list', 'albumname'));
+    }
     public function add(Request $request)
     {
         // TODO: Implement add() method.
