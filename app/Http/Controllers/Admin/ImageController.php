@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\album;
 use App\Models\image;
 use Illuminate\Http\Request;
 
-class ImageController extends Controller implements ICRUD
+class ImageController extends Controller 
 {
     //
-    public function list()
+    public function list($id)
     {
-        $list = image::all();
-        return view('be.interface.image',compact('list'));
+        $list = image::where('album_id',$id)->get();
+        $albumname = album::where('id',$id)->get()->first()->name;
+        return view('be.interface.image',compact('list', 'albumname'));
     }
 
     public function add(Request $request)

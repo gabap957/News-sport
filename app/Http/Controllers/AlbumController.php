@@ -20,15 +20,7 @@ class AlbumController extends Controller implements ICRUD
 
     public function add(Request $request)
     {
-       try { $data=$request->all();
-        unset($data['_token']);
-        unset($data['insert']);
-        DB::table('albums')->insert($data);
-       }
-       catch (Exception $exception){
-           return redirect()->back()->with('error','Thêm thất bại!');
-       }
-       return redirect()->back()->with('success','Thêm thành công!');
+       
     }
 
     public function doAdd($id, \Illuminate\Support\Facades\Request $request)

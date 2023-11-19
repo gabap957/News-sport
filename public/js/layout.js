@@ -19,14 +19,8 @@ $(document).on('click', '.editcategory', function ()
 ClassicEditor
 .create( document.querySelector( '#editor' ) )
 .catch( error => {
+
     console.error( error );
 } );
 
-const input = document.getElementById('image-upload');
-const image = document.getElementById('image_id');
-input.addEventListener('change', (e) => {
-    if (e.target.files.length) {
-        const src = URL.createObjectURL(e.target.files[0]);
-        image.src = src;
-    }
-});
+
