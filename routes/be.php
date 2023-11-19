@@ -30,12 +30,9 @@ Route::prefix('/admin')->group(function (){
     });
     Route::prefix('/album')->group(function (){
         Route::get('/',[AlbumController::class, 'list'])->name('admin.album.list');
-        Route::post('/add',[AlbumController::class, 'add'])->name('admin.album.add');
-        Route::post('/edit',[AlbumController::class, 'edit'])->name('admin.album.edit');
-        Route::get('/delete/{id}',[AlbumController::class, 'delete'])->name('admin.album.delete');
     });
     Route::prefix('/image')->group(function (){
-        Route::get('/',[ImageController::class, 'list'])->name('admin.image.list');
+        Route::get('/{id}',[ImageController::class, 'list'])->name('admin.image.list');
     });
 });
 ?>
