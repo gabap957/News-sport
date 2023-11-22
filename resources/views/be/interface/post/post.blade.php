@@ -29,7 +29,18 @@
                 <tbody>
                     @foreach($list as $item)
                     <tr>
-                        <td><img style="width: 200px; height: 120px" src="{{asset($item->image->path_url)}}"></td>
+                        <td><img style="width: 200px; height: 120px" 
+                        src="
+                        <?php 
+                            if($item->image_id){
+                                $url = asset($item->image->path_url);
+                                echo($url);
+                            }
+                            else{
+                                echo(asset('/img/default.png'));
+                            }
+                        ?>
+                        "></td>
                         <td>
                             <div class=name>
                             {{$item->name}}
