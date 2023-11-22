@@ -19,7 +19,7 @@
                             <textarea type="text" class="form-control" rows="4" cols="70" id="name" name="name" value=""
                                 onblur="checkname();" Required></textarea>
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group .">
                             <label for="">Tiêu đề</label> <span id="errortitle"></span>
                             <textarea type="text" class="form-control" rows="4" cols="70" id="title" name="title"
                                 value="" onblur="checkname();" Required></textarea>

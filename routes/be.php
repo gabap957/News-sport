@@ -33,7 +33,10 @@ Route::prefix('/admin')->group(function (){
     });
     Route::prefix('/image')->group(function (){
         Route::get('/{id}',[ImageController::class, 'list'])->name('admin.image.list');
-        Route::get('/',[ImageController::class, 'listall'])->name('admin.image.list');
+        Route::get('/',[ImageController::class, 'listall'])->name('admin.image.listall');
+        Route::post('/add',[ImageController::class, 'add'])->name('admin.image.add');
+        Route::post('/edit',[ImageController::class, 'edit'])->name('admin.image.edit');
+        Route::get('/delete/{id}',[ImageController::class, 'delete'])->name('admin.image.delete');
     });
 });
 ?>

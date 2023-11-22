@@ -156,6 +156,7 @@
     <script src="{{asset('/js/layout.js')}}"></script>
     <script src="{{asset('/js/showimage.js')}}"></script>
     <script src="{{asset('/adminlte/js/toast.js')}}"></script>
+    <script src="{{asset('adminlte/js/image.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
 </body>
