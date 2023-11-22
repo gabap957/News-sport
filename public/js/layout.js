@@ -15,7 +15,9 @@ $(document).on('click', '.editcategory', function ()
     $('#eurl').val(obj['cate_url']);
     $("#modaledit").modal('show');
 });
-
+$(document).on('click','.editimage',function(){
+    $("#modalupdate").modal('show');
+  })
 ClassicEditor
 .create( document.querySelector( '#editor' ) )
 .catch( error => {

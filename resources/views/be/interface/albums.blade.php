@@ -32,7 +32,7 @@
             </div>
             @endforeach
             <div class="col-2 text-center box-album p-4"
-                onclick="window.location='{{ URL::route('admin.image.list')}}'">
+                onclick="window.location='{{ URL::route('admin.image.listall')}}'">
                 <div class="backgroud-album p-1">
                     <div class="box-album-image">
                         <div class="img-folder"><img src="https://img.icons8.com/3d-fluency/94/folder-invoices--v1.png"
