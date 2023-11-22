@@ -18,11 +18,5 @@ $(document).on('click', '.editcategory', function ()
 $(document).on('click','.editimage',function(){
     $("#modalupdate").modal('show');
   })
-ClassicEditor
-.create( document.querySelector( '#editor' ) )
-.catch( error => {
-
-    console.error( error );
-} );
 
 

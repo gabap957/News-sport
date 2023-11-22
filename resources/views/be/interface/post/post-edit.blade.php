@@ -23,13 +23,13 @@
                     <div class=col-6>
                         <div class="form-group">
                             <label for="">Tên Bài Viết</label> <span id="errorname"></span>
-                            <textarea type="text" class="form-control" rows="4" cols="70" id="name" name="name" value=""
+                            <textarea type="text" class="form-control" rows="2" cols="70" id="name" name="name" value=""
                                 onblur="checkname();" Required>{{$list->name}}</textarea>
                         </div>
                         <div class="form-group ">
                             <label for="">Tiêu đề</label> <span id="errortitle"></span>
-                            <textarea type="text" class="form-control" rows="4" cols="70" id="title" name="title"
-                                value="" onblur="checkname();" Required>{{$list->title}}</textarea>
+                            <textarea type="text" class="form-control"id="editortitle" name="title"
+                            Required>{{$list->title}}</textarea>
                         </div>
                     </div>
                     <div class="col-6">
