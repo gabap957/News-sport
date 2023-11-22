@@ -21,7 +21,7 @@
     <link href="{{asset('/adminlte/css/sb-admin-2.css')}}" rel="stylesheet">
     <link href="{{asset('/css/main.css')}}">
     <link href="{{asset('/adminlte/css/toast.css')}}" rel="stylesheet">
-    <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 </head>
 
@@ -159,5 +159,28 @@
     <script src="{{asset('adminlte/js/image.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+    <script>
+        ClassicEditor
+.create( document.querySelector( '#editor' ),{
+    ckfinder: {
+        uploadUrl: '{{route('ckeditor.upload').'?_token='.csrf_token()}}',
+    }
+    } )
+.catch( error => {
+
+    console.error( error );
+} );
+ClassicEditor
+.create( document.querySelector( '#editortitle' ),{
+    ckfinder: {
+        uploadUrl: '{{route('ckeditor.upload').'?_token='.csrf_token()}}',
+    }
+})
+.catch( error => {
+
+    console.error( error );
+} );
+
+    </script>
 </body>
 </html>

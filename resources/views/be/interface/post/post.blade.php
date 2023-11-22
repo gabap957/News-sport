@@ -1,5 +1,8 @@
 @extends('be.layout')
 @section('content')
+<head>
+    <link href="{{asset('/adminlte/css/post.css')}}" rel="stylesheet">
+</head>
 <div class="card shadow mb-4 min-vh-100">
     <div class="card-header py-3">
         <div>
@@ -15,9 +18,8 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th class="col-1">Ảnh</th>
+                        <th class="col-1">Ảnh bìa</th>
                         <th class="col-2">Tên Bài Viết</th>
-                        <th class="col-3">Nội dung</th>
                         <th class="col-1">Tiêu đề</th>
                         <th class="col-1">Ngày đăng</th>
                         <th class="col-1">Danh mục</th>
@@ -28,9 +30,18 @@
                     @foreach($list as $item)
                     <tr>
                         <td><img style="width: 200px; height: 120px" src="{{asset($item->image->path_url)}}"></td>
-                        <td>{{$item->name}}</td>
-                        <td>{{$item->content}}</td>
-                        <td>{{$item->title}}</td>
+                        <td>
+                            <div class=name>
+                            {{$item->name}}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="title">
+                            <?php
+                            echo($item->title)
+                            ?>
+                            </div>
+                        </td>
                         <td>{{$item->created_at}}</td>
                         <td>{{$item->category->name}}</td>
                         <td>

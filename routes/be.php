@@ -38,5 +38,7 @@ Route::prefix('/admin')->group(function (){
         Route::post('/edit',[ImageController::class, 'edit'])->name('admin.image.edit');
         Route::get('/delete/{id}',[ImageController::class, 'delete'])->name('admin.image.delete');
     });
+    Route::post('/upload', [PostController::class, 'upload'])->name('ckeditor.upload');
+    
 });
 ?>

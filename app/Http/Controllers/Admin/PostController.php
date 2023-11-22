@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\image;
 use App\Models\post;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PHPUnit\Exception;
@@ -24,6 +25,16 @@ class PostController extends Controller implements ICRUD
         $categories = category::all();
         return view('be.interface.post.post-add', compact('categories'));
     }
+    public function upload(Request $request){
+        if ($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName . '_' . time() . '.' . $extension;
+            $request->file('upload')->move(public_path('images'), $fileName);
+            return response()->json(['fileName' => $fileName, 'uploaded'=> 1]);
+        }
+    } 
 
     public function add(Request $request)
     {

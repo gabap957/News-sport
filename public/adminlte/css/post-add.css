@@ -1,6 +1,6 @@
 .ck-editor__editable[role="textbox"] {
     /* editing area */
-    min-height: 220px;
+    min-height: 117px;
     border: 1em soid #ccced1;
 }
 .ck-content .image {

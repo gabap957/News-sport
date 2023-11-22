@@ -21,7 +21,6 @@ class CategoryController extends Controller implements ICRUD
     {
         try {
             $data = $request ->all();
-            dd($data);
             unset($data['_token']);
             unset($data['insert']);
             $dataCate=category::create($data);
