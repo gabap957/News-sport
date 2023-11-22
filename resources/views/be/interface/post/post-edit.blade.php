@@ -28,8 +28,8 @@
                         </div>
                         <div class="form-group ">
                             <label for="">Tiêu đề</label> <span id="errortitle"></span>
-                            <textarea type="text" class="form-control"id="editortitle" name="title"
-                            Required>{{$list->title}}</textarea>
+                            <textarea class="form-control"id="editortitle" name="title"
+                            >{{$list->title}}</textarea>
                         </div>
                     </div>
                     <div class="col-6">
