@@ -52,10 +52,7 @@
                     <select class="selectpicker p-2" data-style="btn-primary" data-size="6">
                     @foreach($category as $item)
                         <option class="" selected disable>Danh mục</option>
-                        <option name="category_id" <?php if ($item->id == $albumId->category_id) {
-                            echo "selected=selected";
-                            } ?>
-                         id="category_id" value="{{$item->id}}">{{$item->name}}</option>
+                        <option name="category_id"id="category_id" value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
                     </select>
                     <input type="hidden" id="category_id" name="category_id" value="{{$item->id}}">
@@ -101,10 +98,8 @@
                     <select class="selectpicker p-2" data-style="btn-primary" data-size="6">
                     @foreach($category as $item)
                         <option class="" selected disable>Danh mục</option>
-                        <option name="category_id" <?php if ($item->id == $albumId->category_id) {
-                            echo "selected=selected";
-                            } ?>
-                         id="category_id" value="{{$item->id}}">{{$item->name}}</option>
+                        <option name="category_id" 
+                         id="ecategory_id" value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
                     </select>
                     <input type="hidden" id="category_id" name="category_id" value="{{$item->id}}">

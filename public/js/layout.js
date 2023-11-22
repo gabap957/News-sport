@@ -16,6 +16,14 @@ $(document).on('click', '.editcategory', function ()
     $("#modaledit").modal('show');
 });
 $(document).on('click','.editimage',function(){
+    var array = $(this).attr('array');
+    console.log(array);
+    var obj = JSON.parse(array);
+    if(document.getElementById('ecategory_id').value == obj['category_id'])
+    {
+        $('#ecategory_id').selectpicker('selected');
+
+    }
     $("#modalupdate").modal('show');
   })
 
