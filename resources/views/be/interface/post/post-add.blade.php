@@ -19,9 +19,9 @@
                             <textarea type="text" class="form-control" rows="2" cols="70" id="name" name="name" value=""
                                 onblur="checkname();" Required></textarea>
                         </div>
-                        <div class="form-group .">
+                        <div class="form-group">
                             <label for="">Tiêu đề</label> <span id="errortitle"></span>
-                            <textarea type="text" class="form-control" id="editortitle" name="title" Required></textarea>
+                            <textarea  class="form-control" id="editortitle" name="title"></textarea>
                         </div>
                     </div>
                     <div class="col-6">
