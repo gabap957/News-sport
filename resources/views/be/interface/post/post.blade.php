@@ -46,7 +46,7 @@
                         <td>{{$item->category->name}}</td>
                         <td>
                             <a array="{{$item}}" id="{{$item->id}}" href="{{route('admin.post.doedit',['id'=>$item->id])}}" class=" btn btn-warning">Sửa</a>
-                            <a class="btn btn-danger">Xóa</a>
+                            <a class="btn btn-danger" onclick="return confirm('bạn có muốn xóa?')" href="{{route('admin.post.delete',['id'=>$item->id])}}" onclick="com">Xóa</a>
                         </td>
                     </tr>
                     @endforeach
