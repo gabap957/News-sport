@@ -31,7 +31,7 @@
                     </div>
                     <div>
                         <button class="btn btn-primary editimage" onclick="eekUpload()" array="{{$item1}}">Sửa</button>
-                        <a href="{{route('admin.image.delete', $item1->id)}}" class="btn btn-danger">Xóa</a>
+                        <a onclick="return confirm('bạn có muốn xóa?')"  href="{{route('admin.image.delete', $item1->id)}}" class="btn btn-danger">Xóa</a>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                     <h2>Sửa đổi hình ảnh</h2>
                 </div>
                 <div class="mt-1 ml-3">
-                    <select class="selectpicker p-2" name="album" data-style="btn-primary" data-size="6">
+                    <select class="selectpicker p-2" name="album_id" data-style="btn-primary" data-size="6">
                     @foreach($album as $item)
                         <option name="album_id" id="ealbum_id" 
                          <?php
@@ -109,7 +109,6 @@
                          value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
                     </select>
-                    <input type="hidden" id="album_id" name="album_id" value="{{$item->id}}">
                 </div>
                 <div class="modal-body mx-auto">
                     <!-- Upload  -->
@@ -125,6 +124,7 @@
                             </div>
                         </label>
                     </legend>
+                    <input type="hidden" id="eid" name="id" value="{{$id}}">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
