@@ -22,7 +22,8 @@
     <link href="{{asset('/css/main.css')}}">
     <link href="{{asset('/adminlte/css/toast.css')}}" rel="stylesheet">
     <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 </head>
 
 <body id="page-top">
@@ -35,7 +36,7 @@
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column marginleft">
 
             <!-- Main Content -->
             <div id="content">
@@ -152,35 +153,35 @@
     <script src="{{asset('/adminlte/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{asset('/adminlte/js/sb-admin-2.min.js')}}"></script>
+    <script src="{{asset('/adminlte/js/sb-admin-2.js')}}"></script>
     <script src="{{asset('/js/layout.js')}}"></script>
     <script src="{{asset('/js/showimage.js')}}"></script>
     <script src="{{asset('/adminlte/js/toast.js')}}"></script>
     <script src="{{asset('adminlte/js/image.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
     <script>
         ClassicEditor
-.create( document.querySelector( '#editor' ),{
-    ckfinder: {
-        uploadUrl: '{{route('ckeditor.upload').'?_token='.csrf_token()}}',
-    }
-    } )
-.catch( error => {
+            .create(document.querySelector('#editor'), {
+                ckfinder: {
+                    uploadUrl: '{{route('ckeditor.upload').'?_token = '.csrf_token()}}',
+                }
+            })
+            .catch(error => {
 
-    console.error( error );
-} );
-ClassicEditor
-.create( document.querySelector( '#editortitle' ),{
-    ckfinder: {
-        uploadUrl: '{{route('ckeditor.upload').'?_token='.csrf_token()}}',
-    }
-})
-.catch( error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editortitle'), {
+                ckfinder: {
+                    uploadUrl: '{{route('ckeditor.upload').'?_token = '.csrf_token()}}',
+                }
+            })
+            .catch(error => {
 
-    console.error( error );
-} );
+                console.error(error);
+            });
 
     </script>
 </body>
+
 </html>

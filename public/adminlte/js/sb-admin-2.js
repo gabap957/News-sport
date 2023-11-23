@@ -5,15 +5,19 @@
   $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
     $("body").toggleClass("sidebar-toggled");
     $(".sidebar").toggleClass("toggled");
+    $(".marginleft").toggleClass("ml-110");
     if ($(".sidebar").hasClass("toggled")) {
       $('.sidebar .collapse').collapse('hide');
+      $('.marginleft').collapse('hide');
     };
   });
 
   // Close any open menu accordions when window is resized below 768px
   $(window).resize(function() {
-    if ($(window).width() < 768) {
+    if ($(window).width() < 768 && $(window).height() > 480) {
       $('.sidebar .collapse').collapse('hide');
+      $('#content-wrapper .marginleft').collapse('hide');
+      $('#content-wrapper').addClass('ml-110');
     };
     
     // Toggle the side navigation when window is resized below 480px
@@ -21,6 +25,7 @@
       $("body").addClass("sidebar-toggled");
       $(".sidebar").addClass("toggled");
       $('.sidebar .collapse').collapse('hide');
+      $('#content-wrapper').addClass('ml-0');
     };
   });
 

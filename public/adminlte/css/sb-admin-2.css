@@ -9848,8 +9848,9 @@ a:focus {
   background-color: #f8f9fc;
   width: 100%;
   overflow-x: hidden;
+  transition: 0.7s;
 }
-
+  
 #wrapper #content-wrapper #content {
   flex: 1 0 auto;
 }
@@ -10214,6 +10215,13 @@ a:focus {
   height: 2rem;
   width: 2rem;
 }
+.marginleft{
+  margin-left: 220px;
+}
+.ml-110{
+  margin-left: 105px;
+}
+
 
 .topbar {
   height: 4.375rem;
@@ -10366,7 +10374,10 @@ a:focus {
 .topbar.navbar-light .navbar-nav .nav-item .nav-link:active {
   color: #858796;
 }
-
+#accordionSidebar{
+  position: fixed;
+  z-index: 1;
+}
 .sidebar {
   width: 6.5rem;
   min-height: 100vh;

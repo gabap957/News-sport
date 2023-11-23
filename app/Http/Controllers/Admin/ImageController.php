@@ -8,6 +8,7 @@ use App\Models\category;
 use App\Models\image;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ImageController extends Controller 
 {
@@ -16,17 +17,17 @@ class ImageController extends Controller
     {
         $list = image::where('album_id',$id)->get();
         $albumId = album::find($id);
+        $album = album::all();
         $albumname = $albumId->name;
-        $category = category::all();
-        return view('be.interface.image',compact('list', 'albumname','category','albumId'));
+        return view('be.interface.image',compact('list', 'albumname','id','album'));
     }
 
     public function listall(){
         $list = image::all();
+        $album = album::all();
         $albumname = 'Tất cả';
-        $category = category::all();
         $id=0;
-        return view('be.interface.image',compact('list', 'albumname','category','id'));
+        return view('be.interface.image',compact('list', 'albumname','album','id'));
     }
     public function add(Request $request)
     {
@@ -38,18 +39,17 @@ class ImageController extends Controller
                 $mainImageName = time().'1'.$array->getClientOriginalName();
                 $array->storeAs('/album', $mainImageName, 'public');
                 $urlImage= 'storage/album/' . $mainImageName;
-                $cate_id=$data['category_id'];
+                $album_id=$data['album_id'];
                 $dataImage = [
                     'name' => $array->getClientOriginalName(),
                     'OriginalName' => $mainImageName,
                     'path_url' => $urlImage,
-                    'album_id' => $cate_id
+                    'album_id' => $album_id
                 ];
-                $id = image::insertGetId($dataImage);
-                $data['image_id'] = $id;
+            DB::table('images')->insert($dataImage);
         }
         catch (Exception $exception){
-            return redirect()->back()->with('error', 'thêm thát bị!');
+            return redirect()->back()->with('error', 'thêm thất bại!');
         }
         return redirect()->back()->with('success', 'thêm thanh cong!');
     }
