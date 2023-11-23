@@ -17,21 +17,21 @@
         </div>
         <div>
             <button class="button-33" style="color: green; background-color: #c2fbd7;" data-toggle="modal"
-                data-target="#modalinsert" role="button">Thêm</button>
+                data-target="#modalinsert" onclick="ekUpload()" role="button">Thêm</button>
         </div>
     </div>
     <div class="card-body ">
         <div class="row">
-            @foreach($list as $item)
+            @foreach($list as $item1)
             <div class="card mr-2" style="width: 15rem;">
-                <img src="{{asset($item->path_url)}}" class="card-img-top" alt="$item->name">
+                <img src="{{asset($item1->path_url)}}" id="image" class="card-img-top" name="{{$item1->id}}" alt="{{$item1->name}}">
                 <div class="card-body">
                     <div>
-                        <h5 class="card-title showname" title="{{$item->name}}" id="{{$item->id}}">{{$item->name}}</h5>
+                        <h5 class="card-title showname" title="{{$item1->name}}" id="{{$item1->id}}">{{$item1->name}}</h5>
                     </div>
                     <div>
-                        <button class="btn btn-primary editimage" array="{{$item}}" >Sửa</button>
-                        <a href="{{route('admin.image.delete', $item->id)}}" class="btn btn-danger">Xóa</a>
+                        <button class="btn btn-primary editimage" onclick="eekUpload()" array="{{$item1}}">Sửa</button>
+                        <a href="{{route('admin.image.delete', $item1->id)}}" class="btn btn-danger">Xóa</a>
                     </div>
                 </div>
             </div>
@@ -49,13 +49,12 @@
                     <h2>Thêm ảnh mới</h2>
                 </div>
                 <div class="mt-1 ml-3">
-                    <select class="selectpicker p-2" data-style="btn-primary" data-size="6">
-                    @foreach($category as $item)
-                        <option class="" selected disable>Danh mục</option>
-                        <option name="category_id"id="category_id" value="{{$item->id}}">{{$item->name}}</option>
+                <select class="selectpicker p-2" name="album_id" data-style="btn-primary" data-size="6">
+                        <option class="" disable>Danh mục</option>
+                        @foreach($album as $item)
+                        <option  id="album_id" value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
                     </select>
-                    <input type="hidden" id="category_id" name="category_id" value="{{$item->id}}">
                 </div>
                 <div class="modal-body mx-auto">
                     <!-- Upload  -->
@@ -95,22 +94,30 @@
                     <h2>Sửa đổi hình ảnh</h2>
                 </div>
                 <div class="mt-1 ml-3">
-                    <select class="selectpicker p-2" data-style="btn-primary" data-size="6">
-                    @foreach($category as $item)
-                        <option class="" selected disable>Danh mục</option>
-                        <option name="category_id" 
-                         id="ecategory_id" value="{{$item->id}}">{{$item->name}}</option>
+                    <select class="selectpicker p-2" name="album" data-style="btn-primary" data-size="6">
+                    @foreach($album as $item)
+                        <option name="album_id" id="ealbum_id" 
+                         <?php
+                            if($item->id == $id){
+                                echo "selected=selected";
+                            }
+                            else
+                            {
+                                echo "";
+                            }
+                         ?>
+                         value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
                     </select>
-                    <input type="hidden" id="category_id" name="category_id" value="{{$item->id}}">
+                    <input type="hidden" id="album_id" name="album_id" value="{{$item->id}}">
                 </div>
                 <div class="modal-body mx-auto">
                     <!-- Upload  -->
                     <legend id="file-upload-form">
-                        <input id="file-upload" type="file" name="image_id" accept="image/*" />
-                        <label for="file-upload" id="file-drag">
-                            <img id="file-image" src="" alt="Preview" class="hidden">
-                            <div id="start">
+                        <input id="efile-upload" type="file" name="image_id" accept="image/*" />
+                        <label for="efile-upload" id="efile-drag">
+                            <img id="efile-image" src="" alt="Preview" class="hidden">
+                            <div id="estart" class="">
                                 <i class="fa fa-download" aria-hidden="true"></i>
                                 <div>Select a file or drag here</div>
                                 <div id="notimage" class="hidden">Please select an image</div>
@@ -121,7 +128,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                    <button type="submit" name="insert" onclick="reload();" class="btn btn-primary">Thêm</button>
+                    <button type="submit" name="insert" onclick="reload();" class="btn btn-primary">Sửa</button>
                     <script>
                         function reload() {
                             location.reload();

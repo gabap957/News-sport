@@ -3,7 +3,7 @@
 <head>
     <link href="{{asset('/adminlte/css/post.css')}}" rel="stylesheet">
 </head>
-<div class="card shadow mb-4 min-vh-100">
+<div class="card shadow mb-4  min-height-card">
     <div class="card-header py-3">
         <div>
             <h5 class="m-0 font-weight-bold text-primary">Bài Viết</h5>

@@ -74,6 +74,9 @@ p {
   margin-bottom: 1rem;
   transition: all 0.2s ease-in-out;
 }
+#estart{
+  display: none;
+}
 .uploader #response {
   float: left;
   clear: both;
@@ -85,7 +88,12 @@ p {
 .uploader #response #messages {
   margin-bottom: 0.5rem;
 }
-.uploader #file-image {
+.uploader #file-image  {
+  display: inline;
+  height: 320px;
+  max-width: 580px;
+}
+#efile-image{
   display: inline;
   height: 320px;
   max-width: 580px;
