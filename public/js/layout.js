@@ -18,12 +18,12 @@ $(document).on('click', '.editimage', function () {
     $("#modalupdate").modal('show');
     var array = $(this).attr('array');
     var obj = JSON.parse(array);
-    id = obj['id'];
-  var url = document.querySelectorAll('#image');
-  var urlArray = Array.from(url);
-  urlArray.forEach(function(div) {
-    if(id==div.name){
-        $('#efile-image').attr('src',div['src'] );
-    }
-});
+    var url = document.querySelectorAll('#image');
+    var urlArray = Array.from(url);
+    urlArray.forEach(function (div) {
+        if (obj['id'] == div.name) {
+            $('#efile-image').attr('src', div['src']);
+            $('#eid').val(obj['id']);
+        }
+    });
 });
