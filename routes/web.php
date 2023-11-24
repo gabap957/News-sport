@@ -19,9 +19,6 @@ Route::get('/', function () {
 //Route::get('/login', function () {
 //    return view('authentication.login');
 //});
-Route::get('/login', function () {
-    return view('be.login.loginAdmin');
-});
 Route::get('/404', function () {
     return view('404.404');
 });

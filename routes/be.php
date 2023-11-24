@@ -5,14 +5,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ImageController;
 
 Route::prefix('/admin')->group(function (){
-    Route::prefix('/user')->group(function (){
-        Route::get('/',[AdminController::class, 'list'])->name('admin.user.list');
-        Route::post('/add',[AdminController::class, 'add'])->name('admin.user.add');
-        Route::post('/edit',[AdminController::class, 'edit'])->name('admin.user.edit');
-        Route::get('/delete/{id}',[AdminController::class, 'delete'])->name('admin.user.delete');
+    Route::prefix('/user')->middleware('admin')->group(function (){
+        Route::get('/',[UserController::class, 'list'])->name('admin.user.list');
+        Route::post('/add',[UserController::class, 'add'])->name('admin.user.add');
+        Route::post('/edit',[UserController::class, 'edit'])->name('admin.user.edit');
+        Route::get('/delete/{id}',[UserController::class, 'delete'])->name('admin.user.delete');
     });
     Route::prefix('/category')->group(function (){
         Route::get('/',[CategoryController::class, 'list'])->name('admin.category.list');
@@ -39,6 +41,7 @@ Route::prefix('/admin')->group(function (){
         Route::get('/delete/{id}',[ImageController::class, 'delete'])->name('admin.image.delete');
     });
     Route::post('/upload', [PostController::class, 'upload'])->name('ckeditor.upload');
-    
 });
+    Route::get('/admin',[loginController::class,'viewLogin'])->name('login');
+    Route::post('/admin',[loginController::class,'login'])->name('admin.login');
 ?>

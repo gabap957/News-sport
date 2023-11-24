@@ -56,6 +56,7 @@
                                 <label for="">password</label> <span id="errorpassword"></span>
                                 <input type="password" class="form-control" id="password" name="password"   value="" onblur="checkPass();" Required>
                             </div>
+                            <input class="d-none" name="level" value="1">
 
                         </div>
 
