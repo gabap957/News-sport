@@ -31,7 +31,7 @@
                     </div>
                     <div>
                         <button class="btn btn-primary editimage" onclick="eekUpload()" array="{{$item1}}">Sửa</button>
-                        <a onclick="return confirm('bạn có muốn xóa?')"  href="{{route('admin.image.delete', $item1->id)}}" class="btn btn-danger">Xóa</a>
+                        <a onclick="return confirm('bạn có muốn xóa?')" href="{{route('admin.image.delete', $item1->id)}}" class="btn btn-danger">Xóa</a>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                 <div class="mt-1 ml-3">
                     <select class="selectpicker p-2" name="album_id" data-style="btn-primary" data-size="6">
                     @foreach($album as $item)
-                        <option name="album_id" id="ealbum_id" 
+                        <option name="{{$item->id}}" id="album_id" 
                          <?php
                             if($item->id == $id){
                                 echo "selected=selected";

@@ -17,7 +17,7 @@
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th class="col-1">Ảnh bìa</th>
                         <th class="col-2">Tên Bài Viết</th>
                         <th class="col-1">Tiêu đề</th>
@@ -29,7 +29,8 @@
                 <tbody>
                     @foreach($list as $item)
                     <tr>
-                        <td><img style="width: 200px; height: 120px" 
+                        <td class="text-center">
+                            <img style="width: auto; height: 120px" 
                         src="
                         <?php 
                             if($item->image_id){
@@ -40,22 +41,23 @@
                                 echo(asset('/img/default.png'));
                             }
                         ?>
-                        "></td>
-                        <td>
-                            <div class=name>
+                        ">
+                        </td>
+                        <td class="text-center">
+                            <div class="mx-auto">
                             {{$item->name}}
                             </div>
                         </td>
                         <td>
-                            <div class="title">
+                            <div class="title mx-auto">
                             <?php
                             echo($item->title)
                             ?>
                             </div>
                         </td>
-                        <td>{{$item->created_at}}</td>
-                        <td>{{$item->category->name}}</td>
-                        <td>
+                        <td class="text-center">{{$item->created_at}}</td>
+                        <td class="text-center">{{$item->category->name}}</td>
+                        <td class="text-center">
                             <a array="{{$item}}" id="{{$item->id}}" href="{{route('admin.post.doedit',['id'=>$item->id])}}" class=" btn btn-warning">Sửa</a>
                             <a class="btn btn-danger" onclick="return confirm('bạn có muốn xóa?')" href="{{route('admin.post.delete',['id'=>$item->id])}}" onclick="com">Xóa</a>
                         </td>

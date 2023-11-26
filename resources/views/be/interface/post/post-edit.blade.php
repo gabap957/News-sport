@@ -20,10 +20,10 @@
                         <label for="">IDimage</label> <span id="eid"></span>
                         <input type="text" class="form-control" name="image_id" value="{{$list->image_id}}" readonly />
                     </div>
-                    <div class=col-6>
+                    <div class=col-8>
                         <div class="form-group">
                             <label for="">Tên Bài Viết</label> <span id="errorname"></span>
-                            <textarea type="text" class="form-control" rows="2" cols="70" id="name" name="name" value=""
+                            <textarea type="text" class="form-control" rows="3" cols="70" id="name" name="name" value=""
                                 onblur="checkname();" Required>{{$list->name}}</textarea>
                         </div>
                         <div class="form-group ">
@@ -32,7 +32,7 @@
                             >{{$list->title}}</textarea>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <div class="form-group update_box">
                             <label>Ảnh bìa</label>
                             <div class="text-input">

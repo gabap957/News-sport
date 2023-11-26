@@ -18,6 +18,7 @@ $(document).on('click', '.editimage', function () {
     $("#modalupdate").modal('show');
     var array = $(this).attr('array');
     var obj = JSON.parse(array);
+    console.log(obj);
     var url = document.querySelectorAll('#image');
     var urlArray = Array.from(url);
     urlArray.forEach(function (div) {

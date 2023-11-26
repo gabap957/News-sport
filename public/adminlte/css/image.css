@@ -91,12 +91,12 @@ p {
 .uploader #file-image  {
   display: inline;
   height: 320px;
-  max-width: 580px;
+  max-width: 510px;
 }
 #efile-image{
   display: inline;
   height: 320px;
-  max-width: 580px;
+  max-width: 510px;
 }
 .uploader #file-image.hidden {
   display: none;
