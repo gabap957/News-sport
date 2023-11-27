@@ -17,7 +17,8 @@ class loginController extends Controller
         }
         return back();
     }
-    public function register(Request $request){
-        dd($request->all());
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

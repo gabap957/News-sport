@@ -30,9 +30,9 @@
                     @foreach($list as $item)
                     <tr>
                         <td class="text-center">
-                            <img style="width: auto; height: 120px" 
+                            <img style="width: auto; height: 120px"
                         src="
-                        <?php 
+                        <?php
                             if($item->image_id){
                                 $url = asset($item->image->path_url);
                                 echo($url);
@@ -59,7 +59,7 @@
                         <td class="text-center">{{$item->category->name}}</td>
                         <td class="text-center">
                             <a array="{{$item}}" id="{{$item->id}}" href="{{route('admin.post.doedit',['id'=>$item->id])}}" class=" btn btn-warning">Sửa</a>
-                            <a class="btn btn-danger" onclick="return confirm('bạn có muốn xóa?')" href="{{route('admin.post.delete',['id'=>$item->id])}}" onclick="com">Xóa</a>
+                            <a class="btn btn-danger" onclick="return confirm('bạn có muốn xóa?')" href="{{route('admin.post.delete',['id'=>$item->id])}}">Xóa</a>
                         </td>
                     </tr>
                     @endforeach
