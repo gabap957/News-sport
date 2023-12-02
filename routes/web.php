@@ -23,3 +23,4 @@ Route::get('/404', function () {
     return view('404.404');
 });
 include_once __DIR__.'/be.php';
+include_once __DIR__.'/fe.php';

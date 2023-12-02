@@ -31,8 +31,12 @@ class PostController extends Controller implements ICRUD
             $fileName = pathinfo($originName, PATHINFO_FILENAME);
             $extension = $request->file('upload')->getClientOriginalExtension();
             $fileName = $fileName . '_' . time() . '.' . $extension;
+
             $request->file('upload')->move(public_path('images'), $fileName);
-            return response()->json(['fileName' => $fileName, 'uploaded'=> 1]);
+
+            $url = asset('images/'. $fileName);
+
+            return response()->json(['fileName' => $fileName, 'uploaded'=> 1, 'url' => $url]);
         }
     } 
 
@@ -83,7 +87,6 @@ class PostController extends Controller implements ICRUD
             $array->storeAs('/album', $mainImageName, 'public');
             $urlImage= 'storage/album/' . $mainImageName;
             $cate_id=$data['category_id'];
-            $id =$data['image_id'];
             $dataImage = [
                 'name' => $array->getClientOriginalName(),
                 'OriginalName' => $mainImageName,
@@ -91,7 +94,15 @@ class PostController extends Controller implements ICRUD
                 'album_id' => $cate_id,
                 'updated_at' => date('Y-m-d H:i:s')
             ];
-            image::where('id', '=',$id )->update($dataImage);
+            if(isset($data['image_id']))
+            {
+                $id = $data['image_id'];
+                image::where('id', '=',$id )->update($dataImage);
+            }
+            else{
+                $id = image::insertGetId($dataImage);
+                $data['image_id'] = $id;
+            }
             unset($data['image-upload']);
         }
         DB::table('posts')->where('id', '=', $data['id'])->update($data);

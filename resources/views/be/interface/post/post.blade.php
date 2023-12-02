@@ -38,7 +38,7 @@
                                 echo($url);
                             }
                             else{
-                                echo(asset('/img/default.png'));
+                                echo(asset('/img/default.jpg'));
                             }
                         ?>
                         ">

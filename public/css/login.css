@@ -33,6 +33,9 @@ body {
     border-radius: 12px;
     overflow: hidden;
 }
+ 
+
+
 @media (max-width: 1200px) {
     .main {
         transform: scale(0.7);
