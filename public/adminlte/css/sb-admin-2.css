@@ -1884,7 +1884,9 @@ pre code {
   border-radius: 0.35rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-
+.hover:hover {
+  background-color: rgb(52 180 241 / 58%);;
+}
 @media (prefers-reduced-motion: reduce) {
   .form-control {
     transition: none;
@@ -2023,6 +2025,27 @@ textarea.form-control {
   height: auto;
 }
 
+.box select {
+  background-color: #0563af;
+  color: white;
+  border: none;
+  position: absolute;
+  width: 50%;
+  padding: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+.box:hover::before {
+  transition: 1s;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.box option{
+  padding: 10px ;
+  transition: 1s height;
+}
 .form-group {
   margin-bottom: 1rem;
 }

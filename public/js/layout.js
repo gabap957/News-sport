@@ -12,13 +12,14 @@ $(document).on('click', '.editcategory', function () {
     $('#eid').val(obj['id']);
     $('#ename').val(obj['name']);
     $('#eurl').val(obj['cate_url']);
-    $("#modaledit").modal('show');
+    $("#eparent_id").val(obj['parent_id']);
+    $("#modaleditCategory").modal('show');
 });
+
 $(document).on('click', '.editimage', function () {
     $("#modalupdate").modal('show');
     var array = $(this).attr('array');
     var obj = JSON.parse(array);
-    console.log(obj);
     var url = document.querySelectorAll('#image');
     var urlArray = Array.from(url);
     urlArray.forEach(function (div) {
@@ -27,4 +28,16 @@ $(document).on('click', '.editimage', function () {
             $('#eid').val(obj['id']);
         }
     });
+});
+$("select").on("focus", function(){
+    this.size = 5;
+});
+
+$("select").on("change", function(){
+    this.blur();
+});
+
+$("select").on("blur", function(){
+    this.size = 1;
+    this.blur();
 });

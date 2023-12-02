@@ -94,19 +94,9 @@
                     <h2>Sửa đổi hình ảnh</h2>
                 </div>
                 <div class="mt-1 ml-3">
-                    <select class="selectpicker p-2" name="album_id" data-style="btn-primary" data-size="6">
+                    <select class="selectpicker p-2" id="album_id" name="album_id" data-style="btn-primary" data-size="6">
                     @foreach($album as $item)
-                        <option name="{{$item->id}}" id="album_id" 
-                         <?php
-                            if($item->id == $id){
-                                echo "selected=selected";
-                            }
-                            else
-                            {
-                                echo "";
-                            }
-                         ?>
-                         value="{{$item->id}}">{{$item->name}}</option>
+                        <option name="album_id" value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
                     </select>
                 </div>
