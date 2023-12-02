@@ -7,9 +7,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/css/login.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div class="main">
+    <div class="main ">
         <div class="container a-container" id="a-container">
             <form action="{{route('admin.login')}}" class="form" id="b-form" method="post">
                 @csrf
@@ -59,8 +58,9 @@
                 <button class="switch__button button switch-btn">SIGN IN</button>
             </div>
         </div>
-    </div>
-    <script src="{{asset('/js/login.js')}}"></script>
+</div>
+<script src="{{asset('/js/login.js')}}"></script>
+
 </body>
 
 </html>

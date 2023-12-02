@@ -37,7 +37,17 @@
                             <label>Ảnh bìa</label>
                             <div class="text-input">
                                 <div class="image borderInput p-0">
-                                    <img src="{{asset($list->image->path_url)}}" id="image_id" alt="" appHideMissing>
+                                    <img src="
+                                    <?php
+                            if($list->image_id){
+                                $url = asset($list->image->path_url);
+                                echo($url);
+                            }
+                            else{
+                                echo(asset('/img/default.jpg'));
+                            }
+                        ?>
+                                    " id="image_id" alt="" appHideMissing>
                                 </div>
                                 <input class="p-1 p-md-2 w-100 border" id="image-upload" name="image-upload"
                                     accept="image/png, image/jpeg" type="file" value="select">
