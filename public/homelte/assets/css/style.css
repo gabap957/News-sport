@@ -2193,7 +2193,7 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%,
 }
 .main-header .main-menu ul ul.submenu > li > a {
   padding: 6px 10px !important;
-  font-size: 14px;
+  font-size: 15px;
   color: #0b1c39;
   text-transform: capitalize;
 }
