@@ -14,7 +14,11 @@
         </div>
         @endforeach
     </div>
-    <div class="home-center col-6" >â</div>
+    <div class="home-center col-6">
+        <div>
+            <img src="{{asset('')}}">
+        </div>
+    </div>
     <div class="home-right col-3">a</div>
 </div>
 @endsection

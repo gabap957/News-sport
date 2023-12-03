@@ -3,7 +3,7 @@
 
     <!-- Sidebar - Brand -->
     <div class="logo">
-        <img src="{{asset('/img/logo.jpg')}}" style="width: 40%"/>
+       <a href="{{ URL::route('home')}}"> <img src="{{asset('/img/logo.jpg')}}" style="width: 40%"/></a>
     </div>
 
     <!-- Divider -->

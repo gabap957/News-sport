@@ -18,32 +18,31 @@ use App\Models\category;
         </div>
     </div>
     <div class="card-body">
-        <div class="table-responsive col-6 mx-auto">
+        <div class="table-responsive col-8 mx-auto">
             <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr class="text-center">
                         <th>STT</th>
-                        <th>Tên</th>
-                        <th>Số lượng nhánh</th>
+                        <th>Tên nhánh chính</th>
+                        <th>Tên nhánh con</th>
                         <th>Đường dẫn</th>
                         <th>Thao tác</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center">
                     @foreach($list as $index =>$item)
+                    <?php
+                            $arrayData = category::where('parent_id',$item->id)->get();
+                            $count = count($arrayData);
+                    ?>
                     <tr>
-                        <td class="text-center">{{$index+1}}</td>
-                        <td>
-                            {{$item->name}}</td>
-                        <td class="text-center">
-                            <?php
-                                    $arrayData = category::where('parent_id',$item->id)->get();
-                                    $count = count($arrayData);
-                                    echo $count
-                                    ?>
+                        <td rowspan="{{$count+1}}" style="vertical-align: middle">{{$index+1}}</td>
+                        <td rowspan="{{$count+1}}" style="vertical-align: middle">
+                            <div>{{$item->name}}</div>
                         </td>
-                        <td class="text-center">{{$item->cate_url}}</td>
-                        <td class="text-center">
+                        <td > </td>
+                        <td>{{$item->cate_url}}</td>
+                        <td>
                             <button array="{{$item}}" id="{{$item->id}}" class="editcategory button-33"
                                 style="color: white; background-color: #e0a800">Sửa</button>
                             <a class="button-33" onclick="return confirm('bạn có muốn xóa?')"
@@ -53,13 +52,10 @@ use App\Models\category;
                     </tr>
                     @if($count>0)
                     @foreach($arrayData as $key => $value)
-                <tbody>
                     <tr class="tr-{{$value['id']}} ml-5">
-                        <td class="text-center">{{$key+1}}</td>
-                        <td class="text-center">
+                        <td class="text-center" >
                             <div>{{$value->name}}</div>
                         </td>
-                        <td></td>
                         <td class="text-center">
                             {{$value->cate_url}}
                         </td>
@@ -71,7 +67,6 @@ use App\Models\category;
                                 style="color: white; background-color: red">Xóa</a>
                         </td>
                     </tr>
-                </tbody>
                 @endforeach
                 @endif
                 @endforeach

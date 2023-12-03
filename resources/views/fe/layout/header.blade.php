@@ -1,4 +1,7 @@
 <!-- Header Start -->
+<?php
+use App\Models\category;
+?>
 <div class="header-area">
     <div class="main-header ">
         <div class="header-top top-bg d-none d-lg-block">
@@ -24,8 +27,20 @@
                                                         </path>
                                                     </svg>
                                                 </a></li>
-                                            @foreach($category as $item)
-                                            <li><a href="#">{{$item->name}}</a></li>
+                                            @foreach($categorParent as $item)
+                                            <?php
+                                                   $categorChild = category::where('parent_id',$item->id)->get();
+                                                   ?>
+                                            <li>
+                                                <a href="#">{{$item->name}}</a>
+                                                @if($categorChild->count() > 0)
+                                                <ul class="submenu">
+                                                    @foreach($categorChild as $item)
+                                                    <li><a href="#">{{$item->name}}</a></li>
+                                                    @endforeach
+                                                </ul>
+                                                @endif
+                                        </li>
                                             @endforeach
                                             <li><img width="25" height="25"
                                                     src="https://img.icons8.com/ios/50/expand-arrow--v2.png"
