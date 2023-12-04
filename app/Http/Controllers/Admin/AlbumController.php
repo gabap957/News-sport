@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Admin\ICRUD;
+use App\Http\Controllers\Controller;
 use App\Models\album;
 use App\Models\category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use PHPUnit\Exception;
 
 class AlbumController extends Controller implements ICRUD
 {
@@ -20,7 +18,7 @@ class AlbumController extends Controller implements ICRUD
 
     public function add(Request $request)
     {
-       
+
     }
 
     public function doAdd($id, \Illuminate\Support\Facades\Request $request)

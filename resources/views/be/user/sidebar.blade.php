@@ -31,7 +31,12 @@
             <span>Quản lý chuyên mục</span>
         </a>
     </li>
-
+    <li class="nav-item" onclick="window.location='{{ URL::route('admin.type.list')}}'">
+        <a class="nav-link collapsed" >
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Phân loại tin tức </span>
+        </a>
+    </li>
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item" onclick="window.location='{{ URL::route('admin.post.list')}}'">
         <a class="nav-link collapsed" >

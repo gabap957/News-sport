@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\AlbumController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AlbumController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\PostController;
-use App\Http\Controllers\loginController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\loginController;
+use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\Admin\TypeController;
 
 Route::prefix('/admin')->group(function (){
-    Route::prefix('/user')->middleware('admin')->group(function (){
+    Route::prefix('/user')->group(function (){
         Route::get('/',[UserController::class, 'list'])->name('admin.user.list');
         Route::post('/add',[UserController::class, 'add'])->name('admin.user.add');
         Route::post('/edit',[UserController::class, 'edit'])->name('admin.user.edit');
@@ -20,6 +21,12 @@ Route::prefix('/admin')->group(function (){
         Route::post('/add',[CategoryController::class, 'add'])->name('admin.category.add');
         Route::post('/edit',[CategoryController::class, 'edit'])->name('admin.category.edit');
         Route::get('/delete/{id}',[CategoryController::class, 'delete'])->name('admin.category.delete');
+    });
+    Route::prefix('/type')->group(function (){
+        Route::get('/',[TypeController::class, 'list'])->name('admin.type.list');
+        Route::post('/add',[TypeController::class, 'add'])->name('admin.type.add');
+        Route::post('/edit',[TypeController::class, 'edit'])->name('admin.type.edit');
+        Route::get('/delete/{id}',[TypeController::class, 'delete'])->name('admin.type.delete');
     });
     Route::prefix('/post')->group(function (){
         Route::get('/',[PostController::class, 'list'])->name('admin.post.list');
