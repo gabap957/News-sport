@@ -17,15 +17,17 @@ class ImageController extends Controller
     {
         $list = image::where('album_id', $id)->get();
         $albumId = album::find($id);
+        $albumParent = album::find($albumId->parent_id);
         $album = album::all();
         $albumname = $albumId->name;
-        return view('be.interface.image', compact('list', 'albumname', 'id', 'album'));
+        return view('be.interface.image', compact('list', 'albumname', 'id', 'album', 'albumParent'));
     }
 
     public function listall()
     {
         $list = image::all();
         $album = album::all();
+        $albumParent = '';
         $albumname = 'Tất cả';
         $id = 0;
         return view('be.interface.image', compact('list', 'albumname', 'album', 'id'));

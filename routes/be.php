@@ -38,6 +38,7 @@ Route::prefix('/admin')->group(function (){
     });
     Route::prefix('/album')->group(function (){
         Route::get('/',[AlbumController::class, 'list'])->name('admin.album.list');
+        Route::get('/{id}',[AlbumController::class, 'dolist'])->name('admin.album.dolist');
     });
     Route::prefix('/image')->group(function (){
         Route::get('/{id}',[ImageController::class, 'list'])->name('admin.image.list');

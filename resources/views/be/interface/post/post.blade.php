@@ -21,8 +21,8 @@
                         <th class="col-1">Ảnh bìa</th>
                         <th class="col-2">Tên Bài Viết</th>
                         <th class="col-1">Tiêu đề</th>
-                        <th class="col-1">Ngày đăng</th>
                         <th class="col-1">Danh mục</th>
+                        <th class="col-1">Loại tin tức</th>
                         <th class="col-1">Thao tác</th>
                     </tr>
                 </thead>
@@ -55,8 +55,8 @@
                             ?>
                             </div>
                         </td>
-                        <td class="text-center">{{$item->created_at}}</td>
                         <td class="text-center">{{$item->category->name}}</td>
+                        <td class="text-center">{{$item->type->name}}</td>
                         <td class="text-center">
                             <a array="{{$item}}" id="{{$item->id}}" href="{{route('admin.post.doedit',['id'=>$item->id])}}" class=" btn btn-warning">Sửa</a>
                             <a class="btn btn-danger" onclick="return confirm('bạn có muốn xóa?')" href="{{route('admin.post.delete',['id'=>$item->id])}}">Xóa</a>

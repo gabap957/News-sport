@@ -28,6 +28,7 @@ class CategoryController extends Controller implements ICRUD
             $dataAlbum = [
                 'name' => $dataCateNew->name,
                 'category_id'=>$dataCateNew['id'],
+                'parent_id'=>$dataCateNew['parent_id'],
                 'created_at'=>$dataCateNew['created_at'],
                 'updated_at'=>$dataCateNew['updated_at']
             ];

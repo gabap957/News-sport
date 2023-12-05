@@ -46,10 +46,22 @@
                     <select class="selectpicker p-2" data-style="btn-primary" data-size="6">
                         <option class="" selected disable>Danh mục</option>
                         @foreach($categories as $item)
+                        @if($item->parent_id > 0)
                         <option name="category_id" id="category_id" value="{{$item->id}}">{{$item->name}}</option>
+                        @endif
                         @endforeach
                     </select>
                     <input type="hidden" id="category_id" name="category_id" value="{{$item->id}}">
+                </div>
+                <div class="form-group">
+                    <label for="">Chọn loại tin tức</label> <span id="errortitle"></span><br>
+                    <select class="selectpicker p-2" data-style="btn-primary" data-size="6">
+                        <option class="" selected disable>Loại tin tức</option>
+                        @foreach($type as $item)
+                        <option name="type_id" id="type_id" value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
+                    </select>
+                    <input type="hidden" id="type_id" name="type_id" value="{{$item->id}}">
                 </div>
                 <?php
                     date_default_timezone_set('Asia/Ho_Chi_Minh');

@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\image;
 use App\Models\post;
+use App\Models\type;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 use PHPUnit\Exception;
 
 class PostController extends Controller implements ICRUD
@@ -18,12 +20,12 @@ class PostController extends Controller implements ICRUD
     {
         $list = post::all();
         $categories = category::all();
-        $image = image::all();
-        return view('be.interface.post.post', compact('list','categories','image'));
+        return view('be.interface.post.post', compact('list','categories'));
     }
     public function doadd(){
-        $categories = category::all();
-        return view('be.interface.post.post-add', compact('categories'));
+        $categories = category::where('parent_id','<>', 0)->orWhere()->get();
+        $type = type::all();
+        return view('be.interface.post.post-add', compact('categories','type'));
     }
     public function upload(Request $request){
         if ($request->hasFile('upload')) {
