@@ -46,9 +46,7 @@
                     <select class="selectpicker p-2" data-style="btn-primary" data-size="6">
                         <option class="" selected disable>Danh mục</option>
                         @foreach($categories as $item)
-                        @if($item->parent_id > 0)
                         <option name="category_id" id="category_id" value="{{$item->id}}">{{$item->name}}</option>
-                        @endif
                         @endforeach
                     </select>
                     <input type="hidden" id="category_id" name="category_id" value="{{$item->id}}">
