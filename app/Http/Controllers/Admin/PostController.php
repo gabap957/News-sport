@@ -7,7 +7,6 @@ use App\Models\category;
 use App\Models\image;
 use App\Models\post;
 use App\Models\type;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +22,13 @@ class PostController extends Controller implements ICRUD
         return view('be.interface.post.post', compact('list','categories'));
     }
     public function doadd(){
-        $categories = category::where('parent_id','<>', 0)->orWhere()->get();
+        $categories = DB::table('categories')
+        ->whereNotIn('id', function ($query) {
+            $query->select('c1.id')
+                ->from('categories as c1')
+                ->join('categories as c2', 'c1.id', '=', 'c2.parent_id');
+        })
+        ->get();
         $type = type::all();
         return view('be.interface.post.post-add', compact('categories','type'));
     }
