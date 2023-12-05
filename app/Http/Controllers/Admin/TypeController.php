@@ -17,7 +17,17 @@ class TypeController extends Controller implements ICRUD
 
     public function add(Request $request)
     {
-        // TODO: Implement add() method.
+      try{
+        $data = $request->all();
+        unset($data['_token']);
+        unset($data['insert']);
+        $data['created_at'] = date('Y-m-d H:i:s');
+        type::insert($data);
+      }
+      catch (\Exception $exception){
+        return redirect()->back()->with('error', 'Sửa thất bại!');
+      }
+      return redirect(route('admin.type.list'))->with('success', 'Sửa thành công!');
     }
 
     public function edit(Request $request)

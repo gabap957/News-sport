@@ -11,8 +11,12 @@
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('admin.album.list')}}">
                         <h5 class="m-0 font-weight-bold text-primary">Kho ảnh</h5>
-                    </a></li>
-                <li class="breadcrumb-item"><a class="text-primary">{{$albumname}}</a></li>
+                    </a>
+                </li>
+                
+                <li class="breadcrumb-item">
+                    <a class="text-primary">{{$albumname}}</a>
+                </li>
             </ul>
         </div>
         <div>

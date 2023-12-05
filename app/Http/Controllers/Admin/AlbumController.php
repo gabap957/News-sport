@@ -4,40 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\album;
-use App\Models\category;
 use Illuminate\Http\Request;
 
-class AlbumController extends Controller implements ICRUD
+class AlbumController extends Controller
 {
     public function list()
     {
-        $list=album::all();
-        $categories = category::all();
-        return view('be.interface.albums',compact('list', 'categories'));
+        $list=album::where('parent_id',0)->get();
+        return view('be.interface.albums',compact('list'));
     }
 
-    public function add(Request $request)
+    public function dolist($id, Request $request)
     {
-
-    }
-
-    public function doAdd($id, \Illuminate\Support\Facades\Request $request)
-    {
-        // TODO: Implement doAdd() method.
-    }
-
-    public function edit($id)
-    {
-        // TODO: Implement edit() method.
-    }
-
-    public function doEdit($id, \Illuminate\Support\Facades\Request $request)
-    {
-        // TODO: Implement doEdit() method.
-    }
-
-    public function delete($id)
-    {
-        // TODO: Implement delete() method.
+        $list=album::where('parent_id',$id)->get();
+        $albumByid =album::where('id',$id)->first();
+        return view('be.interface.albumsByid',compact('list','albumByid'));
     }
 }

@@ -35,7 +35,6 @@
                             <td>
                                 <div>{{$item->name}}</div>
                             </td>
-                            <td > </td>
                             <td>{{$item->quantity}}</td>
                             <td>
                                 <button array="{{$item}}" id="{{$item->id}}" class="editType button-33"
@@ -66,7 +65,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Số lượng bài viết</label> <span id="errorname"></span>
-                            <input type="text" class="form-control" id="name" name="name" value="" Required />
+                            <input type="text" class="form-control" id="quantity" name="quantity" value="" Required />
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>

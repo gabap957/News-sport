@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('parent_id')->nullable();
+            $table->bigInteger('quantityCateChild')->nullable();
             $table->string('cate_url');
             $table->timestamps();
         });
