@@ -2,74 +2,81 @@
 <?php
 use App\Models\category;
 ?>
-<div class="header-area">
-    <div class="main-header ">
-        <div class="header-top top-bg d-none d-lg-block">
-            <div class="header-bottom  header-sticky">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-2 col-lg-2">
-                            <div class="logo">
-                                <img src="{{asset('/img/logo.jpg')}}" style="width: 100%" alt="">
-                            </div>
-                        </div>
-                        <div class="col-xl-10 col-lg-10">
-                            <div class="menu-wrapper  d-flex align-items-center justify-content-end">
-                                <div class="main-menu d-none d-lg-block mr-3">
-                                    <nav>
-                                        <ul id="navigation">
-                                            <li><a class="home" style=" padding: 8px; height: 40px;width: 40px;" href="/" 
-                                            title="Trang chủ Bongdaplus" aria-label="Trang chủ Bongdaplus">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32"
-                                                        height="32" viewBox="0 0 64 64">
-                                                        <path
-                                                            d="M 32 3 L 1 28 L 1.4921875 28.654297 C 2.8591875 30.477297 5.4694688 30.791703 7.2304688 29.345703 L 32 9 L 56.769531 29.345703 C 58.530531 30.791703 61.140812 30.477297 62.507812 28.654297 L 63 28 L 54 20.742188 L 54 8 L 45 8 L 45 13.484375 L 32 3 z M 32 13 L 8 32 L 8 56 L 56 56 L 56 35 L 32 13 z M 26 34 L 38 34 L 38 52 L 26 52 L 26 34 z">
-                                                        </path>
-                                                    </svg>
-                                                </a></li>
-                                            @foreach($categorParent as $item)
-                                            <?php
-                                                   $categorChild = category::where('parent_id',$item->id)->get();
-                                                   ?>
-                                            <li>
-                                                <a href="#">{{$item->name}}</a>
-                                                @if($categorChild->count() > 0)
-                                                <ul class="submenu">
-                                                    @foreach($categorChild as $item)
-                                                    <li><a href="#">{{$item->name}}</a></li>
-                                                    @endforeach
-                                                </ul>
-                                                @endif
-                                        </li>
-                                            @endforeach
-                                            <li><img width="25" height="25"
-                                                    src="https://img.icons8.com/ios/50/expand-arrow--v2.png"
-                                                    alt="expand-arrow--v2" /></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                                <div class="">
-                                    <div class="header-right-btn f-right d-none d-lg-block">
-                                        <i class="fas fa-search special-tag"></i>
-                                        <div class="search-box">
-                                            <form action="#">
-                                                <input class="form-control bg-light border-0 small"
-                                                    style="margin-top:30px" type="text" placeholder="Search">
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="header-right-btn d-none d-lg-block ml-20">
-                                    <a href="" class="btn header-btn">Đăng nhập</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="container-fluid">
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="col-8 d-flex" style="align-items: center;">
+        <div class="logo">
+            <a href="#"><img src="{{asset('/img/logo.jpg')}}" alt=""></a>
         </div>
-    </div>
-    <!-- Header End -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                @foreach($categoryParent as $item)
+                <?php
+                    $categoryChild = category::where('parent_id',$item->id)->get();
+                    ?>
+                <li class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
+                    <a <?php if($categoryChild->count() > 0){
+                        echo 'class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"';
+                        }
+                        else{
+                        echo 'class="nav-link"';
+                        }?>
+                        href="#">{{$item->name}}</a>
+                    @if($categoryChild->count() > 0)
+                    <ul class="dropdown-menu" aria-labelledby="dropdown01" style="top: 114%;">
+                        @foreach($categoryChild as $item)
+                        <li class="nav-item hover">
+                            <div class=" clearfix">
+                                <div class="tab">
+                                    <a class="tablinks" href="#">{{$item->name}}</a>
+                                </div>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                    @endif
+                </li>
+                @endforeach
+            </ul>
+        </div>
+        </div>
+        <div class="col-3 d-none d-lg-block">
+            <form class="card card-sm">
+                <div class="card-body row no-gutters align-items-center">
+                    <!--end of col-->
+                    <div class="col-9">
+                        <input class="form-control form-control-borderless" type="search"
+                            placeholder="Search topics or keywords">
+                    </div>
+                    <!--end of col-->
+                    <div class="col-2">
+                        <span class="input-group-btn">
+                            <button class="btn" style="background-color: #fff;" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25"
+                                    viewBox="0 0 50 50">
+                                    <path
+                                        d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </span>
+                    </div>
+                    <!--end of col-->
+                </div>
+            </form>
+        </div>
+        <div class="header-right-btn d-none d-lg-block ml-20">
+            <a href="" class="btn header-btn btn-success">Đăng nhập</a>
+        </div>
+    </nav>
+</div><!-- end container-fluid -->
+<!-- Header End -->
