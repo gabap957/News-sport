@@ -70,5 +70,6 @@
     <script src="{{asset('/homelte/js/tether.min.js')}}"></script>
     <script src="{{asset('/homelte/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('/homelte/js/custom.js')}}"></script>
+    
 </body>
 </html>
