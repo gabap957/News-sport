@@ -62,6 +62,7 @@ use App\Models\category;
                         <div class="col">
                             <input class="form-control form-control-borderless" type="search" id="search_input" placeholder="Tìm kiếm">
                         </div>
+
                         <!--end of col-->
                         <div class="col-auto">
                             <button style="background-color: #fff; border: none" type="button">

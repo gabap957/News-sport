@@ -73,4 +73,27 @@
     <script src="{{asset('/homelte/js/custom.js')}}"></script>
     <script src="{{asset('/js/layouthome.js')}}"></script>
 </body>
+    <script>
+
+        $(document).on('keyup','#search_input',function (e){
+            var searchText = $(this).val();
+            if (searchText != " "){
+                $.ajax({
+                    url: "{{ route('search') }}",
+                    method:"get",
+                    data:{
+                        name : searchText,
+                    },
+
+                    success:function (response) {
+                        console.log(response);
+                        $("#show-list").html(result);
+                    },
+                })
+
+            }else {
+                $("#show-list").html("");
+            }
+        });
+    </script>
 </html>

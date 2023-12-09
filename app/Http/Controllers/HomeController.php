@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
-use App\Models\image;
 use App\Models\post;
-use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 
 
 class HomeController extends Controller
@@ -18,8 +17,7 @@ class HomeController extends Controller
 
     public function search(Request $request){
         $name = $request->name;
-        $post =post::where('name','LIKE','%'.$name."%");
-        dd($post);
+        $post =post::where('name','LIKE','%'.$name."%")->get();
         return response()->json($post,200);
     }
 }
