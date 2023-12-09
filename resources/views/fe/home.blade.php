@@ -1,5 +1,6 @@
 @extends('fe.layout.layout')
 @section('content_web')
+<section class="section first-section">
 <div class="container-fluid">
     <div class="masonry-blog clearfix">
         <div class="first-slot">
