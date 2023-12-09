@@ -29,6 +29,14 @@ $(document).on('click', '.editimage', function () {
         }
     });
 });
+$(document).on('click', '.editType', function () {
+    $("#modaleditType").modal('show');
+    var array = $(this).attr('array');
+    var obj = JSON.parse(array);
+    $('#eid').val(obj['id']);
+    $('#ename').val(obj['name']);
+    $('#equantity').val(obj['quantity']);
+});
 $("select").on("focus", function(){
     this.size = 5;
 });
