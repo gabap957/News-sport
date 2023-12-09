@@ -32,7 +32,16 @@ class TypeController extends Controller implements ICRUD
 
     public function edit(Request $request)
     {
-        // TODO: Implement edit() method.
+       try {
+        $data=$request->all();
+        unset($data['_token']);
+        unset($data['insert']);
+        type::where('id', '=', $data['id'])->update($data);
+       }
+       catch (\Exception $exception){
+        return redirect()->back()->with('error', 'Sửa thất baị!');
+       }
+       return redirect(route('admin.type.list'))->with('success', 'Sửa này thành công!');
     }
 
     public function delete($id)

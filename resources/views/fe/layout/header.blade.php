@@ -56,14 +56,14 @@ use App\Models\category;
         </div>
         <div class="col-3 d-none d-lg-block">
             <div class="d-flex">
-                <form class="card card-sm col">
+                <form class="card card-sm col m-auto">
                     <div class="card-body row no-gutters align-items-center">
                         <!--end of col-->
                         <div class="col">
                             <input class="form-control form-control-borderless" type="search" placeholder="Tìm kiếm">
                         </div>
                         <!--end of col-->
-                        <div class="col-xl-2 col-xxl-1 col-lg-2">
+                        <div class="col-auto">
                             <button style="background-color: #fff; border: none" type="button">
                                 <svg class="my-auto" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25"
                                     height="25" viewBox="0 0 50 50">
@@ -77,7 +77,7 @@ use App\Models\category;
                     </div>
                 </form>
                 <div class="header-right-btn d-none d-lg-block mr-3 ml-2 col-1">
-                    <a href="" class="btn header-btn btn-success">Đăng nhập</a>
+                    <button href="" class="btn header-btn btn-success">Đăng nhập</button>
                 </div>
             </div>
         </div>

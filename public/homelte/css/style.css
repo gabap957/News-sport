@@ -1636,6 +1636,7 @@ hr.invis3 {
     font-weight: bold;
     padding: 0.8rem 2rem;
     text-transform: none;
+    border: 1px solid;
 }
 
 .link-widget li {

@@ -99,7 +99,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Số lượng bài viết:</label> <span id="errorurl"></span>
-                            <input type="text" class="form-control" id="eurl" name="cate_url" value="" onblur="checkurl()" ;
+                            <input type="text" class="form-control" id="equantity" name="quantity" value="" onblur="checkurl()" ;
                                    Required />
                         </div>
                     </div>

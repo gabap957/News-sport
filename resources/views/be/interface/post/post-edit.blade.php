@@ -60,15 +60,31 @@
                     <textarea id="editor" class="form-control" name="content">{{$list->content}}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="">Chọn danh mục</label> <span id="errortitle"></span><br>
-                    <select class="selectpicker p-2" id="category_id" name="category_id" data-style="btn-primary"
-                        data-size="6">
-                        @foreach($categories as $category)
+                   <div class="d-flex">
+                   <div class="box2">
+                   <label for="">Chọn danh mục</label> <span id="errortitle"></span><br>
+                   <select class="form-control" name="category_id" size="1" onfocus="this.size = 8"
+                            onchange="this.blur()" onblur="this.size = 1; this.blur()">
+                            @foreach($categories as $category)
                         <option <?php if ($category->id == $list->category_id) {
                             echo "selected=selected";
                             } ?> value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach
                     </select>
+                   </div>
+                    <div class="box2">
+                    <label for="">Chọn loại tin tức</label> <span id="errortitle"></span><br>
+                    <select class="form-control" name="type_id" size="1" onfocus="this.size = 8"
+                            onchange="this.blur()" onblur="this.size = 1; this.blur()">
+        
+                        @foreach($type as $item)
+                        <option <?php if ($item->id == $list->type_id) {
+                            echo "selected=selected";
+                            } ?> value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
+                    </select>
+                    </div>
+                   </div>
                 </div>
                 <?php
                     date_default_timezone_set('Asia/Ho_Chi_Minh');

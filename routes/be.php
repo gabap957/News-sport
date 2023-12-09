@@ -9,7 +9,7 @@ use App\Http\Controllers\loginController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\TypeController;
 
-Route::prefix('/admin')->group(function (){
+Route::prefix('/admin')->middleware('admin')->group(function (){
     Route::prefix('/user')->group(function (){
         Route::get('/',[UserController::class, 'list'])->name('admin.user.list');
         Route::post('/add',[UserController::class, 'add'])->name('admin.user.add');

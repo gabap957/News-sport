@@ -2046,6 +2046,28 @@ textarea.form-control {
   padding: 10px ;
   transition: 1s height;
 }
+.box2:nth-child(2){
+  margin: 0 50px;
+}
+.box2 select {
+  background-color: #0563af;
+  color: white;
+  border: none;
+  padding: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+.box2:hover::before {
+  transition: 1s;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.box2 option{
+  padding: 10px ;
+  transition: 1s height;
+}
 .form-group {
   margin-bottom: 1rem;
 }
