@@ -60,7 +60,7 @@ use App\Models\category;
                     <div class="card-body row no-gutters align-items-center">
                         <!--end of col-->
                         <div class="col">
-                            <input class="form-control form-control-borderless" type="search" placeholder="Tìm kiếm">
+                            <input class="form-control form-control-borderless" type="search" id="search_input" placeholder="Tìm kiếm">
                         </div>
                         <!--end of col-->
                         <div class="col-auto">
