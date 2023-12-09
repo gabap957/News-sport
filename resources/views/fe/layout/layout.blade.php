@@ -4,22 +4,23 @@
     <!-- Basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!-- Site Metas -->
     <title>Tech Blog - Stylish Magazine Blog Template</title>
     <meta name="keywords" content="">
+    <meta name="csrf-token" content="{{csrf_token()}}">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <!-- Site Icons -->
     <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon" />
     <link rel="apple-touch-icon" href="{{asset('images/apple-touch-icon.png')}}">
-    
+
     <!-- Design fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('homelte/css/bootstrap.css')}}" rel="stylesheet">
@@ -61,7 +62,7 @@
         </footer><!-- end footer -->
 
         <div class="dmtop">Scroll to Top</div>
-        
+
     </div><!-- end wrapper -->
 
     <!-- Core JavaScript
@@ -70,6 +71,6 @@
     <script src="{{asset('/homelte/js/tether.min.js')}}"></script>
     <script src="{{asset('/homelte/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('/homelte/js/custom.js')}}"></script>
-    
+    <script src="{{asset('/js/layouthome.js')}}"></script>
 </body>
 </html>
