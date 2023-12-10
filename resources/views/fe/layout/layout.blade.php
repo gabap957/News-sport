@@ -20,7 +20,9 @@
     <link rel="apple-touch-icon" href="{{asset('images/apple-touch-icon.png')}}">
 
     <!-- Design fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600&display=swap" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('homelte/css/bootstrap.css')}}" rel="stylesheet">
