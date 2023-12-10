@@ -5,13 +5,18 @@
     <div class="masonry-blog clearfix">
         <div class="first-slot">
             <div class="masonry-box post-media">
-                <img src="{{$post[0]->image->path_url}} " alt="" class="img-fluid">
+                <img src="<?php
+                   $path=DB::table('images')->where('id',$tindacbiet[0]->image_id)->first();
+                   $categoryName=DB::table('categories')->where('id',$tindacbiet[0]->category_id)->first();
+                   echo asset($path->path_url);
+                ?>
+                " alt="" class="img-fluid">
                 <div class="shadoweffect">
                     <div class="shadow-desc">
                         <div class="blog-meta">
-                            <span class="bg-orange"><a href="tech-category-01.html" title="">{{$post[0]->category->name}}</a></span>
-                            <h4><a href="tech-single.html" title="">{{$post[0]->name}}</a></h4>
-                            <small><a href="tech-single.html" title="">{{$post[0]->created_at}}</a></small>
+                            <span class="bg-orange"><a href="tech-category-01.html" title="">{{$categoryName->name}}</a></span>
+                            <h4><a href="tech-single.html" title="">{{$tindacbiet[0]->name}}</a></h4>
+                            <small><a href="tech-single.html" title="">{{$tindacbiet[0]->created_at}}</a></small>
                             <small><a href="tech-author.html" title="">tac gia</a></small>
                         </div><!-- end meta -->
                     </div><!-- end shadow-desc -->
@@ -19,20 +24,21 @@
             </div><!-- end post-media -->
         </div><!-- end first-side -->
         <div class="row display" >
-            @foreach($post as $key => $value)
-            @if($key == 0)
-            @continue
-            @endif
+            @foreach($tinNoibat as $key => $value)
             <div class="col ">
                 <div class="second-slot">
                     <div class="masonry-box post-media">
-                        <img src="{{$post[$key]->image->path_url}} " alt="" class="img-fluid">
+                        <img src="<?php
+                   $path=DB::table('images')->where('id',$value->image_id)->first();
+                   $categoryName=DB::table('categories')->where('id',$value->category_id)->first();
+                   echo asset($path->path_url);
+                ?>" alt="" class="img-fluid">
                         <div class="shadoweffect">
                             <div class="shadow-desc">
                                 <div class="blog-meta">
-                                    <span class="bg-orange"><a href="tech-category-01.html" title="">{{$post[0]->category->name}}</a></span>
-                                    <h4><a href="tech-single.html" title="">{{$post[$key]->name}}</a></h4>
-                                    <small><a href="tech-single.html" title="">{{$post[$key]->created_at}}</a></small>
+                                    <span class="bg-orange"><a href="tech-category-01.html" title="">{{$categoryName->name}}</a></span>
+                                    <h4><a href="tech-single.html" title="">{{$value->name}}</a></h4>
+                                    <small><a href="tech-single.html" title="">{{$value->created_at}}</a></small>
                                     <small><a href="tech-author.html" title="">tac gia</a></small>
                                 </div><!-- end meta -->
                             </div><!-- end shadow-desc -->
@@ -40,7 +46,7 @@
                     </div><!-- end post-media -->
                 </div><!-- end second-side -->
             </div>
-            @if($key == 2)
+            @if($key == 1)
             <div class="w-100"></div>
             @endif
             @endforeach
