@@ -22,10 +22,8 @@ class HomeController extends Controller
             if(count($post[$key])==1){
                 $tindacbiet=$post[$key];
             }
-            if(count($post[$key])==4){
-                $tinNoibat=$post[$key];
-            }
         }
+        $tinNoibat= $post[3];
         return view('fe.home',compact('post','categoryParent','tindacbiet','tinNoibat'));
     }
 
