@@ -11,7 +11,7 @@ use App\Models\category;
         </button>
         <div class="col-8 d-flex" style="align-items: center;">
             <div class="logo">
-                <a href="#"><img src="{{asset('/img/logo.jpg')}}" alt=""></a>
+                <a href="#"><img src="{{asset('/img/logo2.jpg')}}" alt=""></a>
             </div>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">

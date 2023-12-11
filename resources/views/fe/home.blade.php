@@ -26,20 +26,20 @@
             </div><!-- end first-side -->
             <div class="row display">
                 @foreach($tinNoibat as $key => $value)
-                <div class="col ">
+                <div class="col-6">
                     <div class="second-slot">
                         <div class="masonry-box post-media">
                             <img src="<?php
-                   $path=DB::table('images')->where('id',$value->image_id)->first();
-                   $categoryName=DB::table('categories')->where('id',$value->category_id)->first();
-                   echo asset($path->path_url);
-                ?>" alt="" class="img-fluid">
+                                  $path=DB::table('images')->where('id',$value->image_id)->first();
+                                  $categoryName=DB::table('categories')->where('id',$value->category_id)->first();
+                                echo asset($path->path_url);
+                                  ?>" alt="" class="img-fluid">
                             <div class="shadoweffect">
                                 <div class="shadow-desc">
                                     <div class="blog-meta">
-                                        <span class="bg-orange"><a href="tech-category-01.html"
-                                                title="">{{$categoryName->name}}</a></span>
-                                        <h4><a href="tech-single.html" title="">{{$value->name}}</a></h4>
+                                        <span class="bg-orange">
+                                            <a href="tech-category-01.html" title="">{{$categoryName->name}}</a></span>
+                                        <h4 class="textNamepost"><a href="tech-single.html" title="">{{$value->name}}</a></h4>
                                         <small><a href="tech-single.html" title="">{{$value->created_at}}</a></small>
                                         <small><a href="tech-author.html" title="">tac gia</a></small>
                                     </div><!-- end meta -->
@@ -59,7 +59,7 @@
 <section class="whats-news-area pt-50 pb-20 gray-bg">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 px-4">
+            <div class="col-lg-8 pr-3">
                 <div class="whats-news-wrapper">
                     <div class="row justify-content-between align-items-end mb-15">
                         <div class="col-xl-4 px-4">
@@ -102,7 +102,7 @@
                                     aria-labelledby="nav-home-tab">
                                     <div class="row">
 
-                                        <div class="col-xl-6 col-lg-12 px-4 px-lg-0">
+                                        <div class="col-xl-6 col-lg-12 px-4 ">
                                             <div class="whats-news-single mb-40 mb-40">
                                                 <div class="whates-img">
                                                     <img src="assets/img/gallery/whats_news_details1.png" alt="">
