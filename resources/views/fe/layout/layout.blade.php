@@ -74,6 +74,7 @@
     <script src="{{asset('/homelte/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('/homelte/js/custom.js')}}"></script>
     <script src="{{asset('/js/layouthome.js')}}"></script>
+    <script src="{{asset('/js/home.js')}}"></script>
 </body>
     <script>
 

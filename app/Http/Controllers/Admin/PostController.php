@@ -9,6 +9,7 @@ use App\Models\post;
 use App\Models\type;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\DB;
 
 use PHPUnit\Exception;
@@ -54,7 +55,7 @@ class PostController extends Controller implements ICRUD
             DB::beginTransaction();
             $data = $request->all();
             $typeId = $data['type_id'];;
-            $data['user_id']= Auth::user()->id;
+            $data['user_id']= FacadesAuth::user()->id;
             unset($data['_token']);
             unset($data['insert']);
             //add image

@@ -61,31 +61,32 @@
         <div class="row">
             <div class="col-lg-8 pr-3">
                 <div class="whats-news-wrapper">
-                    <div class="row justify-content-between align-items-end mb-15">
+                    <div class="row justify-content-between align-items-end">
                         <div class="col-xl-4 px-4">
                             <div class="section-tittle mb-30">
-                                <h3 class="ml-1">Tin Mới</h3>
+                                <h3 class="ml-1">Tin Nóng</h3>
                             </div>
                         </div>
                         <div class="col-xl-8 col-md-9 px-4">
                             <div class="properties__button">
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+                                        @foreach($categoryMain as $index =>$item)
+                                        <div onclick="postbyCate($id)">
+                                        <a
+                                        <?php if ($index==0)
+                                        {
+                                            echo 'class="nav-item nav-link active"';
+                                        } 
+                                        else {
+                                            echo 'class="nav-item nav-link"';
+                                        } 
+                                        ?>
+                                        id="nav-home-tab" data-toggle="tab"
                                             href="#nav-home" role="tab" aria-controls="nav-home"
-                                            aria-selected="true">Lifestyle</a>
-                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
-                                            href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                            aria-selected="false">Travel</a>
-                                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
-                                            href="#nav-contact" role="tab" aria-controls="nav-contact"
-                                            aria-selected="false">Fashion</a>
-                                        <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab"
-                                            href="#nav-last" role="tab" aria-controls="nav-contact"
-                                            aria-selected="false">Sports</a>
-                                        <a class="nav-item nav-link" id="nav-Sports" data-toggle="tab"
-                                            href="#nav-nav-Sport" role="tab" aria-controls="nav-contact"
-                                            aria-selected="false">Technology</a>
+                                            aria-selected="true">{{$item->name}}</a>
+                                        </div>
+                                        @endforeach
                                     </div>
                                 </nav>
 
@@ -95,7 +96,6 @@
 
                     <div class="row">
                         <div class="col-12">
-
                             <div class="tab-content" id="nav-tabContent">
 
                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
@@ -176,7 +176,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                            
                                 <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                     aria-labelledby="nav-profile-tab">
                                     <div class="row">

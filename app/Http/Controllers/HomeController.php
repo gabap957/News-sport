@@ -24,7 +24,14 @@ class HomeController extends Controller
             }
         }
         $tinNoibat= $post[3];
-        return view('fe.home',compact('post','categoryParent','tindacbiet','tinNoibat'));
+        $categoryMain = DB::table('categories')
+        ->whereNotIn('id', function ($query) {
+            $query->select('c1.id')
+                ->from('categories as c1')
+                ->join('categories as c2', 'c1.id', '=', 'c2.parent_id');
+        })
+        ->get();
+        return view('fe.home',compact('post','categoryParent','tindacbiet','tinNoibat','categoryMain'));
     }
 
     public function search(Request $request){
