@@ -158,7 +158,6 @@
                                         </div>
                                     @endforeach
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -168,93 +167,36 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="single-follow mb-45">
-                        <div class="single-box">
-                            <div class="follow-us d-flex align-items-center">
-                                <div class="follow-social">
-                                    <a href="#">
-                                        <img width="29" height="29"
-                                            src="https://img.icons8.com/fluency/48/facebook.png" alt="facebook" />
-                                    </a>
-                                </div>
-                                <div class="follow-count">
-                                    <span>8,045</span>
-                                    <p>Fans</p>
-                                </div>
-                            </div>
-                            <div class="follow-us d-flex align-items-center">
-                                <div class="follow-social">
-                                    <a href="#"><img width="29" height="29"
-                                            src="https://img.icons8.com/fluency/48/instagram-new.png"
-                                            alt="instagram-new" /></a>
-                                </div>
-                                <div class="follow-count">
-                                    <span>8,045</span>
-                                    <p>Fans</p>
-                                </div>
-                            </div>
-                            <div class="follow-us d-flex align-items-center">
-                                <div class="follow-social">
-                                    <a href="#"><img width="29" height="29"
-                                            src="https://img.icons8.com/fluency/48/twitterx--v1.png"
-                                            alt="twitterx--v1" /></a>
-                                </div>
-                                <div class="follow-count">
-                                    <span>8,045</span>
-                                    <p>Fans</p>
-                                </div>
-                            </div>
-                            <div class="follow-us d-flex align-items-center">
-                                <div class="follow-social">
-                                    <a href="#"><img width="29" height="29"
-                                            src="https://img.icons8.com/color/48/youtube-play.png"
-                                            alt="youtube-play" /></a>
-                                </div>
-                                <div class="follow-count">
-                                    <span>8,045</span>
-                                    <p>Fans</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="most-recent-area">
 
-                        <div class="small-tittle mb-20">
-                            <h4>Most Recent</h4>
+                        <div class="small-tittle mb-30" >
+                            <h3 style="font-size: 28px">Tin mới Nhất</h3>
                         </div>
-
+                        <?php
+                            $postNew1 = post::orderBy('created_at', 'desc')->first();
+                            $postNew2 = post::orderBy('created_at', 'desc')->skip(1)->take(2)->get();
+                        ?>
                         <div class="most-recent mb-40">
                             <div class="most-recent-img">
-                                <img src="assets/img/gallery/most_recent.png" alt="">
+                                <img src="{{ $postNew1->image->path_url }}" alt="">
                                 <div class="most-recent-cap">
-                                    <span class="bgbeg">Vogue</span>
-                                    <h4><a href="latest_news.html">What to Wear: 9+ Cute Work <br>
-                                            Outfits to Wear This.</a></h4>
+                                    <span class="bgbeg">{{ $postNew1->category->name }}</span>
+                                    <h4><a href="latest_news.html">{{ $postNew1->name }}</a></h4>
                                     <p>Jhon | 2 hours ago</p>
                                 </div>
                             </div>
                         </div>
-
+                        @foreach ($postNew2 as $item)
                         <div class="most-recent-single">
                             <div class="most-recent-images">
-                                <img src="assets/img/gallery/most_recent1.png" alt="">
+                                <img src="{{ $item->image->path_url }}" style="width: 124px; height: 102px" alt="">
                             </div>
                             <div class="most-recent-capt">
-                                <h4><a href="latest_news.html">Scarlett’s disappointment at latest accolade</a></h4>
+                                <h4><a href="latest_news.html">{{ $item->name }}</a></h4>
                                 <p>Jhon | 2 hours ago</p>
                             </div>
                         </div>
-
-                        <div class="most-recent-single">
-                            <div class="most-recent-images">
-                                <img src="assets/img/gallery/most_recent2.png" alt="">
-                            </div>
-                            <div class="most-recent-capt">
-                                <h4><a href="latest_news.html">Most Beautiful Things to Do in Sidney with Your BF</a></h4>
-                                <p>Jhon | 3 hours ago</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -4674,7 +4674,15 @@ hr.invis3 {
 
 .whats-news-area .whats-right-single .whats-right-cap h4,.about-area2 .whats-right-single .whats-right-cap h4,.contact-section .whats-right-single .whats-right-cap h4 {
     font-size: 16px;
-    font-weight: 700
+    font-weight: 700;
+    overflow: hidden;
+    color: white;
+    text-overflow: ellipsis;
+    line-height: 35px;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-height: 1.4;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
