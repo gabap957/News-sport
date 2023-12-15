@@ -23,6 +23,7 @@ class HomeController extends Controller
                 $tindacbiet=$post[$key];
             }
         }
+
         $tinNoibat= $post[3];
         $categoryMain = DB::table('categories')
         ->whereNotIn('id', function ($query) {
