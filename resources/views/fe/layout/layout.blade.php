@@ -77,7 +77,7 @@
     <script src="{{asset('/js/home.js')}}"></script>
 </body>
     <script>
-
+        //tim kiem theo name post home
         $(document).on('keyup','#search_input',function (e){
             var searchText = $(this).val();
             if (searchText != " "){

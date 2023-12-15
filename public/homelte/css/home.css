@@ -4,3 +4,52 @@
 .home-content a{
     color: black;
 }
+
+.tabs {
+    display: table;
+    border-collapse: separate;
+    table-layout: auto;
+  }
+  .tabs.tabs-center {
+    margin: auto;
+  }
+  .tabs.tabs-justify {
+    width: 100%;
+    table-layout: fixed;
+  }
+  .tabs a.tab {
+    position: relative;
+    display: table-cell;
+    transition: all ease 0.3s;
+    font-size: 17px;
+    padding: 0.5em 1em;
+    transform: translate3d(0, 0, 0);
+    color: #636d84;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .tabs a.tab:hover {
+    color: #3cb4fa;
+  }
+  .tabs a.tab:after {
+    transition: all 0.3s cubic-bezier(1, 0, 0, 1);
+    will-change: transform, box-shadow, opacity;
+    position: absolute;
+    content: "";
+    height: 3px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border-radius: 3px 3px 0px 0px;
+    background: #9fdafd;
+    box-shadow: 0px 4px 10px 3px rgba(60, 180, 250, 0.15);
+    opacity: 0;
+    transform: scale(0, 1);
+  }
+  .tabs a.tab.active {
+    color: #3cb4fa;
+  }
+  .tabs a.tab.active:after {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
