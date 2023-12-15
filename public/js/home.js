@@ -11,7 +11,6 @@ $(document).ready(()=> {
     });
 })
 function showTab(tabId) {
-    console.log(tabId);
     // Hide all tabs
     const tabs = document.querySelectorAll('.tab-pane.fade');
     tabs.forEach((tab) => {

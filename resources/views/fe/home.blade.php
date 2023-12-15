@@ -170,15 +170,15 @@
                     <div class="most-recent-area">
 
                         <div class="small-tittle mb-30" >
-                            <h3 style="font-size: 28px">Tin mới Nhất</h3>
+                            <h3 style="font-size: 28px">Tin Mới Nhất</h3>
                         </div>
                         <?php
                             $postNew1 = post::orderBy('created_at', 'desc')->first();
                             $postNew2 = post::orderBy('created_at', 'desc')->skip(1)->take(2)->get();
                         ?>
                         <div class="most-recent mb-40">
-                            <div class="most-recent-img">
-                                <img src="{{ $postNew1->image->path_url }}" alt="">
+                            <div class="most-recent-img mx-auto">
+                                <img src="{{ $postNew1->image->path_url }}" style="max-height: 324px" alt="">
                                 <div class="most-recent-cap">
                                     <span class="bgbeg">{{ $postNew1->category->name }}</span>
                                     <h4><a href="latest_news.html">{{ $postNew1->name }}</a></h4>
@@ -189,7 +189,7 @@
                         @foreach ($postNew2 as $item)
                         <div class="most-recent-single">
                             <div class="most-recent-images">
-                                <img src="{{ $item->image->path_url }}" style="width: 124px; height: 102px" alt="">
+                                <img src="{{ $item->image->path_url }}" style="width: 85px; height: 80px" alt="">
                             </div>
                             <div class="most-recent-capt">
                                 <h4><a href="latest_news.html">{{ $item->name }}</a></h4>
@@ -202,180 +202,5 @@
             </div>
         </div>
     </section>
-    <div class="weekly2-news-area pt-50 pb-30 gray-bg">
-        <div class="container">
-            <div class="weekly2-wrapper">
-                <div class="row">
 
-                    <!-- <div class="col-lg-3">
-                            <div class="home-banner2 d-none d-lg-block">
-                                <img src="assets/img/gallery/body_card2.png" alt="">
-                            </div>
-                        </div> -->
-                    <!-- <div class="col-lg-9"> -->
-                    <div class="slider-wrapper">
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="small-tittle mb-30">
-                                    <h4>Most Popular</h4>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="weekly2-news-active d-flex slick-initialized slick-slider"><button
-                                        type="button" class="slick-prev slick-arrow" style="display: block;"><i
-                                            class="ti-angle-left"></i></button>
-
-                                    <div class="slick-list draggable">
-                                        <div class="slick-track"
-                                            style="opacity: 1; width: 3025px; transform: translate3d(-825px, 0px, 0px);">
-                                            <div class="weekly2-single slick-slide slick-cloned" data-slick-index="-3"
-                                                aria-hidden="true" style="width: 245px;" tabindex="-1">
-                                                <div class="weekly2-img">
-                                                    <img src="assets/img/gallery/weeklyNews2.png" alt="">
-                                                </div>
-                                                <div class="weekly2-caption">
-                                                    <h4><a href="#" tabindex="-1">Scarlett’s disappointment at
-                                                            latest
-                                                            accolade</a></h4>
-                                                    <p>Jhon | 2 hours ago</p>
-                                                </div>
-                                            </div>
-                                            <div class="weekly2-single slick-slide slick-cloned" data-slick-index="-2"
-                                                aria-hidden="true" style="width: 245px;" tabindex="-1">
-                                                <div class="weekly2-img">
-                                                    <img src="assets/img/gallery/weeklyNews3.png" alt="">
-                                                </div>
-                                                <div class="weekly2-caption">
-                                                    <h4><a href="#" tabindex="-1">Scarlett’s disappointment at
-                                                            latest
-                                                            accolade</a></h4>
-                                                    <p>Jhon | 2 hours ago</p>
-                                                </div>
-                                            </div>
-                                            <div class="weekly2-single slick-slide slick-cloned" data-slick-index="-1"
-                                                aria-hidden="true" style="width: 245px;" tabindex="-1">
-                                                <div class="weekly2-img">
-                                                    <img src="assets/img/gallery/weeklyNews2.png" alt="">
-                                                </div>
-                                                <div class="weekly2-caption">
-                                                    <h4><a href="#" tabindex="-1">Scarlett’s disappointment at
-                                                            latest
-                                                            accolade</a></h4>
-                                                    <p>Jhon | 2 hours ago</p>
-                                                </div>
-                                            </div>
-                                            <div class="weekly2-single slick-slide slick-current slick-active"
-                                                data-slick-index="0" aria-hidden="false" style="width: 245px;"
-                                                tabindex="0">
-                                                <div class="weekly2-img">
-                                                    <img src="assets/img/gallery/weeklyNews1.png" alt="">
-                                                </div>
-                                                <div class="weekly2-caption">
-                                                    <h4><a href="#" tabindex="0">Scarlett’s disappointment at
-                                                            latest
-                                                            accolade</a></h4>
-                                                    <p>Jhon | 2 hours ago</p>
-                                                </div>
-                                            </div>
-                                            <div class="weekly2-single slick-slide slick-active" data-slick-index="1"
-                                                aria-hidden="false" style="width: 245px;" tabindex="0">
-                                                <div class="weekly2-img">
-                                                    <img src="assets/img/gallery/weeklyNews2.png" alt="">
-                                                </div>
-                                                <div class="weekly2-caption">
-                                                    <h4><a href="#" tabindex="0">Scarlett’s disappointment at
-                                                            latest
-                                                            accolade</a></h4>
-                                                    <p>Jhon | 2 hours ago</p>
-                                                </div>
-                                            </div>
-                                            <div class="weekly2-single slick-slide slick-active" data-slick-index="2"
-                                                aria-hidden="false" style="width: 245px;" tabindex="0">
-                                                <div class="weekly2-img">
-                                                    <img src="assets/img/gallery/weeklyNews3.png" alt="">
-                                                </div>
-                                                <div class="weekly2-caption">
-                                                    <h4><a href="#" tabindex="0">Scarlett’s disappointment at
-                                                            latest
-                                                            accolade</a></h4>
-                                                    <p>Jhon | 2 hours ago</p>
-                                                </div>
-                                            </div>
-                                            <div class="weekly2-single slick-slide" data-slick-index="3"
-                                                aria-hidden="true" style="width: 245px;" tabindex="-1">
-                                                <div class="weekly2-img">
-                                                    <img src="assets/img/gallery/weeklyNews2.png" alt="">
-                                                </div>
-                                                <div class="weekly2-caption">
-                                                    <h4><a href="#" tabindex="-1">Scarlett’s disappointment at
-                                                            latest
-                                                            accolade</a></h4>
-                                                    <p>Jhon | 2 hours ago</p>
-                                                </div>
-                                            </div>
-                                            <div class="weekly2-single slick-slide slick-cloned" data-slick-index="4"
-                                                aria-hidden="true" style="width: 245px;" tabindex="-1">
-                                                <div class="weekly2-img">
-                                                    <img src="assets/img/gallery/weeklyNews1.png" alt="">
-                                                </div>
-                                                <div class="weekly2-caption">
-                                                    <h4><a href="#" tabindex="-1">Scarlett’s disappointment at
-                                                            latest
-                                                            accolade</a></h4>
-                                                    <p>Jhon | 2 hours ago</p>
-                                                </div>
-                                            </div>
-                                            <div class="weekly2-single slick-slide slick-cloned" data-slick-index="5"
-                                                aria-hidden="true" style="width: 245px;" tabindex="-1">
-                                                <div class="weekly2-img">
-                                                    <img src="assets/img/gallery/weeklyNews2.png" alt="">
-                                                </div>
-                                                <div class="weekly2-caption">
-                                                    <h4><a href="#" tabindex="-1">Scarlett’s disappointment at
-                                                            latest
-                                                            accolade</a></h4>
-                                                    <p>Jhon | 2 hours ago</p>
-                                                </div>
-                                            </div>
-                                            <div class="weekly2-single slick-slide slick-cloned" data-slick-index="6"
-                                                aria-hidden="true" style="width: 245px;" tabindex="-1">
-                                                <div class="weekly2-img">
-                                                    <img src="assets/img/gallery/weeklyNews3.png" alt="">
-                                                </div>
-                                                <div class="weekly2-caption">
-                                                    <h4><a href="#" tabindex="-1">Scarlett’s disappointment at
-                                                            latest
-                                                            accolade</a></h4>
-                                                    <p>Jhon | 2 hours ago</p>
-                                                </div>
-                                            </div>
-                                            <div class="weekly2-single slick-slide slick-cloned" data-slick-index="7"
-                                                aria-hidden="true" style="width: 245px;" tabindex="-1">
-                                                <div class="weekly2-img">
-                                                    <img src="assets/img/gallery/weeklyNews2.png" alt="">
-                                                </div>
-                                                <div class="weekly2-caption">
-                                                    <h4><a href="#" tabindex="-1">Scarlett’s disappointment at
-                                                            latest
-                                                            accolade</a></h4>
-                                                    <p>Jhon | 2 hours ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="slick-next slick-arrow" style="display: block;"><i
-                                            class="ti-angle-right"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- </div> -->
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
