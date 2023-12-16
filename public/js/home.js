@@ -16,7 +16,12 @@ function showTab(tabId) {
     tabs.forEach((tab) => {
         tab.classList.remove('show', 'active');
     })
-
     // Show the selected tab
     $(`#${tabId.id}`).addClass('show active');
   }
+function slide(){
+    const slide = document.querySelectorAll('.slick-slide');
+    const preview = document.querySelectorAll('ul.slick-dots li button');
+    console.log(slide, preview);
+}
+

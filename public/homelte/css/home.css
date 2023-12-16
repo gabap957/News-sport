@@ -53,3 +53,11 @@
     opacity: 1;
     transform: scale(1, 1);
   }
+  .img-fluid{
+    max-height: 324px;
+}
+@media screen and (max-width: 992px) {
+    .img-fluid{
+        max-height: none;
+    }
+}
