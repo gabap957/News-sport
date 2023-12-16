@@ -57,9 +57,14 @@
                     <label for="">Chọn loại tin tức</label> <span id="errortitle"></span><br>
                     <select class="form-control" name="type_id" size="1" onfocus="this.size = 8"
                             onchange="this.blur()" onblur="this.size = 1; this.blur()">
-                        <option class="hover" selected disable>Loại tin tức</option>
-                        @foreach($type as $item)
-                        <option value="{{$item->id}}">{{$item->name}}</option>
+                        @foreach($type as $key => $item)
+                        <option
+                        <?php
+                        if ($key == 0) {
+                            echo "selected";
+                        }
+                        ?>
+                        value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
                     </select>
                     </div>

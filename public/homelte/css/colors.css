@@ -8,7 +8,7 @@
 **************************************/
 
 
-/* COLORS 
+/* COLORS
 **************************************/
 
 .authorbox p a,
@@ -26,7 +26,6 @@
     color: #3197d6 !important;
 }
 
-.dmtop,
 .search-form .btn:hover,
 .search-form .btn:focus,
 .search-form .btn {
@@ -51,7 +50,7 @@
 }
 
 
-/* OTHER COLORS 
+/* OTHER COLORS
 **************************************/
 
 .navbar-nav .nav-link.active.color-pink-hover,

@@ -32,7 +32,8 @@ class HomeController extends Controller
                 ->join('categories as c2', 'c1.id', '=', 'c2.parent_id');
         })
         ->get();
-        return view('fe.home',compact('post','categoryParent','tindacbiet','tinNoibat','categoryMain'));
+        $postNews = post::orderBy('created_at','desc')->take(12)->get();
+        return view('fe.home',compact('post','categoryParent','tindacbiet','tinNoibat','categoryMain','postNews'));
     }
 
     public function search(Request $request){
