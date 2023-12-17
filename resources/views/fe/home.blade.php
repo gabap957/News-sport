@@ -225,8 +225,7 @@
                </div class="col-lg-12">
                   <div class="slider autoplay slick-initialized slick-slider slick-dotted" role="toolbar">
                       <div aria-live="polite" class="slick-list draggable">
-                        <div class="slick-track"
-                        style="opacity: 1; width: 2560px; transition: transform 500ms ease 0s; transform: translate3d(-1309px, 0px, 0px);"
+                        <div class="slick-track" style="opacity: 1; width: 2560px; transition: transform 500ms ease 0s; transform: translate3d(-1309px, 0px, 0px);"
                         role="listbox">
                         @foreach ($postNews as $key => $item)
                             <div <?php
@@ -239,7 +238,7 @@
                                 data-slick-index="{{$key-3}}" aria-hidden="false" style="width: 220px;"
                                 tabindex="-1" role="option" aria-describedby="slick-slide{{$key+1}}">
                                 <div class="weekly3-img2">
-                                    <img src="{{ $item->image->path_url }}" style="width: 230px; max-height: 150px"  alt="">
+                                    <img src="{{ $item->image->path_url }}" style="width: 230px; height: 150px"  alt="">
                                 </div>
                                 <div class="weekly3-caption2">
                                     <span class="bgbeg">{{$item->category->name}}</span>
