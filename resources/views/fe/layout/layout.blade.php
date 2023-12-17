@@ -108,7 +108,7 @@
     $('.slick-track').slick({
         dots: true,
         slidesToShow: 10,
-        slidesToScroll: 1,
+        slidesToScroll: 2,
         autoplay: true,
         autoplaySpeed: 2000,
     });

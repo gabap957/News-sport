@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\category;
+use App\Models\post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PHPUnit\Exception;
@@ -32,6 +33,10 @@ class CategoryController extends Controller implements ICRUD
                 'created_at'=>$dataCateNew['created_at'],
                 'updated_at'=>$dataCateNew['updated_at']
             ];
+            if($data['parent_id']){
+               $post= post::where('category_id',$data['parent_id'])->get();
+               dd($post);
+            }
             DB::table('albums')->insert($dataAlbum);
         }
         catch (Exception $exception){
