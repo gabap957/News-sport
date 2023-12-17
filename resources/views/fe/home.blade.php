@@ -2,6 +2,8 @@
 @section('content_web')
     <?php
     use App\Models\post;
+    use Illuminate\Support\Facades\DB;
+
     ?>
 
     <head>
@@ -222,7 +224,7 @@
                 </div>
             </div>
             <div class="row">
-               </div class="col-lg-12">
+               <div class="col-lg-12">
                   <div class="slider autoplay slick-initialized slick-slider slick-dotted" role="toolbar">
                       <div aria-live="polite" class="slick-list draggable">
                         <div class="slick-track" style="opacity: 1; width: 2560px; transition: transform 500ms ease 0s; transform: translate3d(-1309px, 0px, 0px);"
@@ -244,7 +246,7 @@
                                     <span class="bgbeg">{{$item->category->name}}</span>
                                     <h4><a href="latest_news.html" tabindex="0">{{$item->name}}</a></h4>
                                     <p>19 Jan 2020</p>
-                                    </div>
+                                </div>
                             </div>
                         @endforeach
                     </div>

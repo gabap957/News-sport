@@ -196,3 +196,21 @@
     opacity: .75;
     color: black;
 }
+@media screen and (max-width: 767px) {
+    .slick-dots {
+        width: 65%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .slick-dots {
+        width: 68%;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .slick-dots {
+        width: 75%;
+    }
+}
+
