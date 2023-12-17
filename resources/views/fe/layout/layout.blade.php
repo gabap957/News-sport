@@ -76,7 +76,7 @@
     <script src="{{ asset('/homelte/js/tether.min.js') }}"></script>
     <script src="{{ asset('/homelte/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('/homelte/js/custom.js') }}"></script>
-    <script src="jquery-3.7.1.min.js"></script>
+    <script src="{{asset('/homelte/jquery-3.7.1.min.js')}}"></script>
     <script src="{{ asset('/js/layouthome.js') }}"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
