@@ -175,8 +175,8 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="most-recent-area">
-                        <div class="col-auto px-4">
+                    <div class="most-recent-area px-4">
+                        <div class="col-auto">
                             <div class="section-tittle mb-30 st">
                                 <h3 class="ml-1">Xem Nhiều</h3>
                             </div>
@@ -185,7 +185,7 @@
                         $postNew1 = post::orderBy('created_at', 'desc')->first();
                         $postNew2 = post::orderBy('created_at', 'desc')
                             ->skip(1)
-                            ->take(3)
+                            ->take(2)
                             ->get();
                         ?>
                         <div class="most-recent mb-40">
@@ -201,7 +201,7 @@
                         @foreach ($postNew2 as $item)
                             <div class="most-recent-single">
                                 <div class="most-recent-images">
-                                    <img src="{{ $item->image->path_url }}" style="width: 85px; height: 80px"
+                                    <img src="{{ $item->image->path_url }}" style="width: 124px; height: 102px"
                                         alt="">
                                 </div>
                                 <div class="most-recent-capt">
