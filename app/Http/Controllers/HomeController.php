@@ -41,4 +41,8 @@ class HomeController extends Controller
         $post =post::where('name','LIKE','%'.$name."%")->get();
         return response()->json($post,200);
     }
+    public function GetpostbyId($id){
+        $post = post::where('id',$id)->get();
+        return response()->json($post,200);
+    }
 }
