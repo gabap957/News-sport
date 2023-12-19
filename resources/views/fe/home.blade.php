@@ -201,11 +201,11 @@
                         @foreach ($postNew2 as $item)
                             <div class="most-recent-single">
                                 <div class="most-recent-images">
-                                    <img src="{{ $item->image->path_url }}" style="width: 124px; height: 102px"
+                                    <img src="{{ $item->image->path_url }}" style="width: 124px; height: 120px"
                                         alt="">
                                 </div>
                                 <div class="most-recent-capt">
-                                    <span class="bgbeg" style="margin-bottom: 0">{{$item->category->name}}</span>
+                                    <span class="bgbeg" style="margin-bottom: 10px">{{$item->category->name}}</span>
                                     <h4><a href="latest_news.html">{{ $item->name }}</a></h4>
                                     <p>Jhon | 2 hours ago</p>
                                 </div>
