@@ -21,11 +21,13 @@ class CategoryController extends Controller implements ICRUD
     public function add(Request $request)
     {
         try {
+            DB::beginTransaction();
             $data = $request ->all();
             unset($data['_token']);
             unset($data['insert']);
-            $dataCate=category::create($data);
-            $dataCateNew  = $dataCate->fresh();
+            $parent_id = $data['parent_id'];
+            $dataCate = category::create($data);
+            $dataCateNew = $dataCate->fresh();
             $dataAlbum = [
                 'name' => $dataCateNew->name,
                 'category_id'=>$dataCateNew['id'],
@@ -33,13 +35,17 @@ class CategoryController extends Controller implements ICRUD
                 'created_at'=>$dataCateNew['created_at'],
                 'updated_at'=>$dataCateNew['updated_at']
             ];
-            if($data['parent_id']){
-               $post= post::where('category_id',$data['parent_id'])->get();
-               dd($post);
-            }
             DB::table('albums')->insert($dataAlbum);
+            if($parent_id){
+                $post= post::where('category_id', $parent_id)->get();
+                 if(count($post)>0){
+                     DB::table('posts')->where('category_id', $parent_id)->update(['category_id' => $dataCateNew['id']]);
+                 }
+             }
+            DB::commit();
         }
         catch (Exception $exception){
+            DB::rollBack();
             return redirect()->back()->with('error','thêm thất bại!');
         }
         return redirect()->back()->with('success','thêm thành công!');
