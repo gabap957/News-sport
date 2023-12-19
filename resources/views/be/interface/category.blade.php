@@ -10,8 +10,8 @@ use App\Models\category;
 <div class="card shadow mb-4 min-height-card">
     <div class="card-header card-header-flex py-3">
         <div>
-            <h5 class="m-0 font-weight-bold text-primary">Chuyên mục bài viết</h5>
-        </div>
+                <h5 class="m-0 font-weight-bold text-primary">Chuyên mục bài viết</h5>
+            </div>
         <div>
             <button class="button-33" data-toggle="modal" data-target="#modalinsert"
                 style="color: green; background-color: #c2fbd7;" role="button">Thêm</button>

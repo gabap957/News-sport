@@ -125,15 +125,15 @@
                                         } else {
                                             echo 'class="tab-pane fade "';
                                         }
-                                        ?> id="nav{{ $key }}">
+                                        ?> id="nav{{$key}}">
                                             <div class="row">
                                                 <div class="col-xl-6 px-4">
                                                     <div class="whats-news-single mb-40">
                                                         <div class="whates-img">
-                                                            <img src="{{ $postDB->image->path_url }}" alt="">
+                                                            <img src="{{$postDB->image->path_url }}" alt="">
                                                         </div>
                                                         <div class="whates-caption">
-                                                            <h4><a href="latest_news.html">{{ $postDB->name }}</a></h4>
+                                                            <h4 ><a href="{{route('getpostbyid',$postDB->id)}}">{{ $postDB->name }}</a></h4>
                                                             <span>{{ $postDB->created_at }}</span>
                                                             <p><?php echo $postDB->title; ?></p>
                                                         </div>
@@ -176,15 +176,16 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="most-recent-area">
-
-                        <div class="small-tittle mb-30">
-                            <h3 style="font-size: 28px">Tin Mới Nhất</h3>
+                        <div class="col-auto px-4">
+                            <div class="section-tittle mb-30 st">
+                                <h3 class="ml-1">Xem Nhiều</h3>
+                            </div>
                         </div>
                         <?php
                         $postNew1 = post::orderBy('created_at', 'desc')->first();
                         $postNew2 = post::orderBy('created_at', 'desc')
                             ->skip(1)
-                            ->take(2)
+                            ->take(3)
                             ->get();
                         ?>
                         <div class="most-recent mb-40">
@@ -204,6 +205,7 @@
                                         alt="">
                                 </div>
                                 <div class="most-recent-capt">
+                                    <span class="bgbeg" style="margin-bottom: 0">{{$item->category->name}}</span>
                                     <h4><a href="latest_news.html">{{ $item->name }}</a></h4>
                                     <p>Jhon | 2 hours ago</p>
                                 </div>
