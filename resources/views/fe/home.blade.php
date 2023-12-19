@@ -150,8 +150,6 @@
                                                                             alt="">
                                                                     </div>
                                                                     <div class="whats-right-cap">
-                                                                        <span
-                                                                            class="colorb">{{ $item->category->name }}</span>
                                                                         <h4><a
                                                                                 href="latest_news.html">{{ $item->name }}</a>
                                                                         </h4>
@@ -201,7 +199,7 @@
                         @foreach ($postNew2 as $item)
                             <div class="most-recent-single">
                                 <div class="most-recent-images">
-                                    <img src="{{ $item->image->path_url }}" style="width: 124px; height: 120px"
+                                    <img src="{{ $item->image->path_url }}" style="width: 125px; height: 120px"
                                         alt="">
                                 </div>
                                 <div class="most-recent-capt">

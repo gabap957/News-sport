@@ -80,7 +80,7 @@ h5 {
 }
 .textNamepost{
     font-size:25px;
-    overflow: hidden; 
+    overflow: hidden;
     color: white;
     text-overflow: ellipsis;
     line-height: 35px;
@@ -90,7 +90,7 @@ h5 {
 }
 .first-slot .blog-meta h4 {
     font-size: 45px;
-    overflow: hidden; 
+    overflow: hidden;
     color: white;
     text-overflow: ellipsis;
     line-height: 35px;
@@ -105,6 +105,16 @@ h5 {
     padding: 0.8rem 0 4px 0 ;
 }
 
+.most-recent-cap h4 {
+    overflow: hidden;
+    color: white;
+    text-overflow: ellipsis;
+    line-height: 35px;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-height: 1.4;
+}
 .blog-meta.big-meta h4 {
     font-size: 24px;
 }

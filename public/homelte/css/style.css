@@ -4669,7 +4669,7 @@ hr.invis3 {
     color: white;
     text-overflow: ellipsis;
     line-height: 35px;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     line-height: 1.4;
@@ -4819,7 +4819,7 @@ hr.invis3 {
 }
 
 .whats-news-area .most-recent-area .most-recent-single,.about-area2 .most-recent-area .most-recent-single,.contact-section .most-recent-area .most-recent-single {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     display: flex;
     align-items: center
 }
@@ -4918,7 +4918,7 @@ hr.invis3 {
 }
 
 .whats-news-area .nav-tabs,.about-area2 .nav-tabs,.contact-section .nav-tabs {
-    margin-bottom: 31px;
+    margin-bottom: 15px;
     padding-bottom: 0px;
     position: relative;
     border: 0;
