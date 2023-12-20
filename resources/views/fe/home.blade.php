@@ -130,7 +130,7 @@
                                                 <div class="col-xl-6 px-4">
                                                     <div class="whats-news-single mb-40">
                                                         <div class="whates-img">
-                                                            <img src="{{$postDB->image->path_url }}" alt="">
+                                                            <img src="{{$postDB->image->path_url}}" alt="">
                                                         </div>
                                                         <div class="whates-caption">
                                                             <h4 ><a href="{{route('getpostbyid',$postDB->id)}}">{{ $postDB->name }}</a></h4>
@@ -172,7 +172,7 @@
                         <img src="assets/img/gallery/body_card1.png" alt="">
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <section class="col-lg-4">
                     <div class="most-recent-area px-4">
                         <div class="col-auto">
                             <div class="section-tittle mb-30 st">
@@ -190,7 +190,7 @@
                             <div class="most-recent-img mx-auto">
                                 <img src="{{ $postNew1->image->path_url }}" class="img-fluid" alt="">
                                 <div class="most-recent-cap">
-                                    <span class="bgbeg">{{ $postNew1->category->name }}</span>
+                                    <span class="bgbeg">{{$postNew1->category->name }}</span>
                                     <h4><a href="latest_news.html">{{ $postNew1->name }}</a></h4>
                                     <p>Jhon | 2 hours ago</p>
                                 </div>
@@ -210,7 +210,7 @@
                             </div>
                         @endforeach
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     </section>
@@ -219,7 +219,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-tittle mb-30">
-                        <h3>Tin Mới</h3>
+                        <h3>Tin Nổi Bật</h3>
                     </div>
                 </div>
             </div>

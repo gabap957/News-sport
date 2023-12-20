@@ -33,6 +33,14 @@ h4,
 h5 {
     font-weight: 600;
 }
+h1,
+h2,
+h3,
+h4,
+h5 :hover {
+    font-weight: 600;
+    text-decoration: none !important
+}
 
 .navbar-inverse .navbar-nav .nav-link,
 .navbar-nav .nav-link {
@@ -103,6 +111,9 @@ h5 {
 .first-section .blog-meta h4 {
     font-weight: 600;
     padding: 0.8rem 0 4px 0 ;
+}
+.first-section .blog-meta h4 :hover{
+    text-decoration: none;
 }
 
 .most-recent-cap h4 {

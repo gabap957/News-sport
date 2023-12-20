@@ -1,4 +1,235 @@
 @extends('fe.layout.layout')
-@section('content')
+@section('content_web')
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ol class="breadcrumb" data-wow-duration="2s">
+                    <li><i class="ts-icon ts-icon-home-solid"></i> <a href="https://demo-themewinter.com/digiqole">Home</a><i
+                            class="ts-icon ts-icon-angle-right"></i></li>
+                    <li> <a href="https://demo-themewinter.com/digiqole/blog/category/lifestyle/tech/">Tech</a> </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="category-main-title heading-style3 style2">
+            <h1 class="block-title">
+                <span class="title-angle-shap"> Category :Tech </span>
+            </h1>
+        </div>
 
+    </div>
+    <section id="main-content" class="blog main-container" role="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 pr-3 sidebar-right">
+
+                    <div class="category-main-desc">
+                        <span> </span>
+                    </div>
+                    <div class="main-content-inner category-layout2">
+                        <div class="row">
+
+                            <article id="post-96"
+                                class="post-layout col-md-12 post-96 post type-post status-publish format-standard has-post-thumbnail hentry category-tech tag-technology">
+                                <div class="post-block-style row">
+                                    <div class="col-md-6">
+                                        <div class="post-media post-image">
+                                            <a
+                                                href="https://demo-themewinter.com/digiqole/blog/harbour-amid-a-slowen-down-in-the-city/">
+                                                <img class="img-fluid"
+                                                    src="https://demo-themewinter.com/digiqole/wp-content/uploads/2019/07/tech_1.jpg"
+                                                    alt=" Harbour amid a Slowen down in singer city screening">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 px-4">
+                                        <div class="post-content">
+                                            <div class="entry-blog-header">
+                                                <a class="post-cat"
+                                                    href="https://demo-themewinter.com/digiqole/blog/category/lifestyle/tech/"
+                                                    style=" background-color:#007bff;color:#ffffff ">
+                                                    <span class="before"
+                                                        style="background-color:#007bff;color:#ffffff "></span>Tech<span
+                                                        class="after"
+                                                        style="background-color:#007bff;color:#ffffff"></span>
+                                                </a>
+                                                <h2 class="post-title md">
+                                                    <a
+                                                        href="https://demo-themewinter.com/digiqole/blog/harbour-amid-a-slowen-down-in-the-city/">Harbour
+                                                        amid a Slowen down in singer city screening</a>
+                                                </h2>
+                                            </div>
+                                            <div class="post-meta">
+                                                <div class="post-meta">
+                                                    <span class="post-author"><i class="ts-icon ts-icon-user-solid"></i> <a
+                                                            href="https://demo-themewinter.com/digiqole/blog/author/wptuser/">wptuser</a></span><span
+                                                        class="post-meta-date">
+                                                        <i class="ts-icon ts-icon-clock-regular"></i>
+                                                        July 10, 2019</span>
+                                                </div>
+                                            </div>
+                                            <div class="entry-blog-summery">
+                                                <p>Struggling to sell one multi-million dollar home currently on the <a
+                                                        class="readmore-btn"
+                                                        href="https://demo-themewinter.com/digiqole/blog/harbour-amid-a-slowen-down-in-the-city/">Read
+                                                        More<i class="ts-icon ts-icon-arrow-right"> </i></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div><!-- .col-md-8 -->
+                <section class="col-lg-4">
+                    <div class="most-recent-area px-4">
+                        <div class="col-auto">
+                            <div class="section-tittle mb-30 st">
+                                <h3 class="ml-1">Xem Nhiều</h3>
+                            </div>
+                        </div>
+                        <?php
+                        $postNew1 = post::orderBy('created_at', 'desc')->first();
+                        $postNew2 = post::orderBy('created_at', 'desc')
+                            ->skip(1)
+                            ->take(2)
+                            ->get();
+                        ?>
+                        <div class="most-recent mb-40">
+                            <div class="most-recent-img mx-auto">
+                                <img src="{{ $postNew1->image->path_url }}" class="img-fluid" alt="">
+                                <div class="most-recent-cap">
+                                    <span class="bgbeg">{{$postNew1->category->name }}</span>
+                                    <h4><a href="latest_news.html">{{ $postNew1->name }}</a></h4>
+                                    <p>Jhon | 2 hours ago</p>
+                                </div>
+                            </div>
+                        </div>
+                        @foreach ($postNew2 as $item)
+                            <div class="most-recent-single">
+                                <div class="most-recent-images">
+                                    <img src="{{ $item->image->path_url }}" style="width: 125px; height: 120px"
+                                        alt="">
+                                </div>
+                                <div class="most-recent-capt">
+                                    <span class="bgbeg" style="margin-bottom: 10px">{{$item->category->name}}</span>
+                                    <h4><a href="latest_news.html">{{ $item->name }}</a></h4>
+                                    <p>Jhon | 2 hours ago</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <div id="digiqole-category-list-1" class="widget digiqole-category-list">
+                        <div class="widgets_category ts-category-list-item">
+                            <ul class="ts-category-list">
+                                <li><a style="background-image:url(//demo.themewinter.com/wp/digiqole/wp-content/uploads/2019/06/sports_4.jpg)"
+                                        href="https://demo-themewinter.com/digiqole/blog/category/lifestyle/sports/"><span>Sports</span><span
+                                            class="bar"></span> <span class="category-count">4</span></a></li>
+                                <li class="active-cat"><a
+                                        style="background-image:url(//demo.themewinter.com/wp/digiqole/wp-content/uploads/2019/06/tech_4.jpg)"
+                                        href="https://demo-themewinter.com/digiqole/blog/category/lifestyle/tech/"><span>Tech</span><span
+                                            class="bar"></span> <span class="category-count">5</span></a></li>
+                                <li><a style="background-image:url(//demo.themewinter.com/wp/digiqole/wp-content/uploads/2019/06/travel_3.jpg)"
+                                        href="https://demo-themewinter.com/digiqole/blog/category/lifestyle/travel/"><span>Travel</span><span
+                                            class="bar"></span> <span class="category-count">6</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="tag_cloud-1" class="widget widget_tag_cloud">
+                        <h3 class="widget-title"> <span class="title-angle-shap">Tags</span></h3>
+                        <div class="tagcloud"><a href="https://demo-themewinter.com/digiqole/blog/tag/bitcoin/"
+                                class="tag-cloud-link tag-link-11 tag-link-position-1" style="font-size: 8pt;"
+                                aria-label="bitcoin (1 item)">bitcoin</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/business/"
+                                class="tag-cloud-link tag-link-12 tag-link-position-2" style="font-size: 8pt;"
+                                aria-label="business (1 item)">business</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/canada/"
+                                class="tag-cloud-link tag-link-13 tag-link-position-3" style="font-size: 8pt;"
+                                aria-label="canada (1 item)">canada</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/cricket/"
+                                class="tag-cloud-link tag-link-14 tag-link-position-4" style="font-size: 8pt;"
+                                aria-label="cricket (1 item)">cricket</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/crypto/"
+                                class="tag-cloud-link tag-link-15 tag-link-position-5"
+                                style="font-size: 11.405405405405pt;" aria-label="crypto (2 items)">crypto</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/desert/"
+                                class="tag-cloud-link tag-link-16 tag-link-position-6" style="font-size: 8pt;"
+                                aria-label="desert (1 item)">desert</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/died/"
+                                class="tag-cloud-link tag-link-17 tag-link-position-7"
+                                style="font-size: 13.675675675676pt;" aria-label="died (3 items)">died</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/drink/"
+                                class="tag-cloud-link tag-link-18 tag-link-position-8" style="font-size: 8pt;"
+                                aria-label="drink (1 item)">drink</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/drinks/"
+                                class="tag-cloud-link tag-link-19 tag-link-position-9" style="font-size: 8pt;"
+                                aria-label="drinks (1 item)">drinks</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/fashion/"
+                                class="tag-cloud-link tag-link-20 tag-link-position-10"
+                                style="font-size: 19.351351351351pt;" aria-label="fashion (7 items)">fashion</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/food/"
+                                class="tag-cloud-link tag-link-21 tag-link-position-11"
+                                style="font-size: 18.405405405405pt;" aria-label="food (6 items)">food</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/foods/"
+                                class="tag-cloud-link tag-link-22 tag-link-position-12" style="font-size: 8pt;"
+                                aria-label="foods (1 item)">foods</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/football/"
+                                class="tag-cloud-link tag-link-23 tag-link-position-13"
+                                style="font-size: 11.405405405405pt;" aria-label="football (2 items)">football</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/gadget/"
+                                class="tag-cloud-link tag-link-24 tag-link-position-14" style="font-size: 8pt;"
+                                aria-label="gadget (1 item)">gadget</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/gold/"
+                                class="tag-cloud-link tag-link-25 tag-link-position-15" style="font-size: 8pt;"
+                                aria-label="gold (1 item)">gold</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/health/"
+                                class="tag-cloud-link tag-link-26 tag-link-position-16"
+                                style="font-size: 17.081081081081pt;" aria-label="health (5 items)">health</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/kids/"
+                                class="tag-cloud-link tag-link-27 tag-link-position-17"
+                                style="font-size: 13.675675675676pt;" aria-label="kids (3 items)">kids</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/litcoin/"
+                                class="tag-cloud-link tag-link-28 tag-link-position-18" style="font-size: 8pt;"
+                                aria-label="litcoin (1 item)">litcoin</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/market/"
+                                class="tag-cloud-link tag-link-29 tag-link-position-19" style="font-size: 8pt;"
+                                aria-label="market (1 item)">market</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/money/"
+                                class="tag-cloud-link tag-link-30 tag-link-position-20" style="font-size: 8pt;"
+                                aria-label="money (1 item)">money</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/music/"
+                                class="tag-cloud-link tag-link-31 tag-link-position-21" style="font-size: 8pt;"
+                                aria-label="music (1 item)">music</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/news/"
+                                class="tag-cloud-link tag-link-32 tag-link-position-22" style="font-size: 8pt;"
+                                aria-label="news (1 item)">news</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/recipie/"
+                                class="tag-cloud-link tag-link-33 tag-link-position-23" style="font-size: 8pt;"
+                                aria-label="recipie (1 item)">recipie</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/sketing/"
+                                class="tag-cloud-link tag-link-34 tag-link-position-24" style="font-size: 8pt;"
+                                aria-label="Sketing (1 item)">Sketing</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/sports/"
+                                class="tag-cloud-link tag-link-35 tag-link-position-25" style="font-size: 22pt;"
+                                aria-label="sports (10 items)">sports</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/stock/"
+                                class="tag-cloud-link tag-link-36 tag-link-position-26" style="font-size: 8pt;"
+                                aria-label="stock (1 item)">stock</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/surfing/"
+                                class="tag-cloud-link tag-link-37 tag-link-position-27" style="font-size: 8pt;"
+                                aria-label="surfing (1 item)">surfing</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/technology/"
+                                class="tag-cloud-link tag-link-38 tag-link-position-28"
+                                style="font-size: 19.351351351351pt;" aria-label="technology (7 items)">technology</a>
+                            <a href="https://demo-themewinter.com/digiqole/blog/tag/travel/"
+                                class="tag-cloud-link tag-link-39 tag-link-position-29" style="font-size: 22pt;"
+                                aria-label="travel (10 items)">travel</a>
+                        </div>
+                    </div>
+                </section>
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </section>
 @endsection
