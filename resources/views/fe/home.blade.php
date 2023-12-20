@@ -3,11 +3,10 @@
     <?php
     use App\Models\post;
     use Illuminate\Support\Facades\DB;
-
     ?>
 
     <head>
-        <link href="{{ asset('/homelte/css/home.css') }}" rel="stylesheet">
+        <link href="{{asset('/homelte/css/home.css') }}" rel="stylesheet">
     </head>
     <section class="section first-section">
         <div class="container-fluid">
@@ -22,17 +21,23 @@
                             ->where('id', $tindacbiet[0]->category_id)
                             ->first();
                         echo asset($path->path_url);
-                        ?>
-                " alt="">
-                        <div class="shadoweffect">
+                        ?>"alt="">
+                        <div class="shadoweffect" onclick="window.location='{{ URL::route('getpostbyid', $tindacbiet[0]->id)}}'" >
                             <div class="shadow-desc">
                                 <div class="blog-meta">
-                                    <span class="bg-orange"><a href="tech-category-01.html"
-                                            title="">{{ $categoryName->name }}</a></span>
-                                    <h4><a href="tech-single.html" title="">{{ $tindacbiet[0]->name }}</a></h4>
-                                    <small><a href="tech-single.html"
-                                            title="">{{ $tindacbiet[0]->created_at }}</a></small>
-                                    <small><a href="tech-author.html" title="">tac gia</a></small>
+                                    <span class="bg-orange">
+                                        <a href="{{route('findbycategory', $categoryName->id)}}" title="">{{$categoryName->name }}</a>
+                                    </span>
+                                    <h4>
+                                        <a href="{{ route('getpostbyid',$tindacbiet[0]->id)}}" title="">{{$tindacbiet[0]->name}}</a>
+                                    </h4>
+                                    <small>
+                                        <a
+                                            title="">{{$tindacbiet[0]->created_at }}</a>
+                                        </small>
+                                    <small>
+                                        <a href="" title="">tac gia</a>
+                                    </small>
                                 </div><!-- end meta -->
                             </div><!-- end shadow-desc -->
                         </div><!-- end shadow -->
@@ -56,13 +61,22 @@
                                         <div class="shadow-desc">
                                             <div class="blog-meta">
                                                 <span class="bg-orange">
-                                                    <a href="tech-category-01.html"
-                                                        title="">{{ $categoryName->name }}</a></span>
-                                                <h4 class="textNamepost"><a href="tech-single.html"
-                                                        title="">{{ $value->name }}</a></h4>
-                                                <small><a href="tech-single.html"
-                                                        title="">{{ $value->created_at }}</a></small>
-                                                <small><a href="tech-author.html" title="">tac gia</a></small>
+                                                    <a href="{{route('findbycategory',$value->category_id)}}"
+                                                        title="">{{ $categoryName->name }}</a>
+                                                    </span>
+                                                <h4 class="textNamepost">
+                                                    <a href="{{ route('getpostbyid',$value->id)}}"
+                                                        title="">{{ $value->name }}
+                                                    </a>
+                                                </h4>
+                                                <small>
+                                                    <a href="tech-single.html"
+                                                        title="">{{ $value->created_at }}
+                                                    </a>
+                                                </small>
+                                                <small>
+                                                    <a href="tech-author.html" title="">tac gia</a>
+                                                </small>
                                             </div><!-- end meta -->
                                         </div><!-- end shadow-desc -->
                                     </div><!-- end shadow -->
@@ -129,11 +143,13 @@
                                             <div class="row">
                                                 <div class="col-xl-6 px-4">
                                                     <div class="whats-news-single mb-40">
-                                                        <div class="whates-img">
+                                                        <div class="whates-img" onclick="window.location='{{ URL::route('getpostbyid', $postDB->id)}}'" >
                                                             <img src="{{$postDB->image->path_url}}" alt="">
                                                         </div>
                                                         <div class="whates-caption">
-                                                            <h4 ><a href="{{route('getpostbyid',$postDB->id)}}">{{ $postDB->name }}</a></h4>
+                                                            <h4 >
+                                                                <a href="{{route('getpostbyid',$postDB->id)}}">{{ $postDB->name }}</a>
+                                                            </h4>
                                                             <span>{{ $postDB->created_at }}</span>
                                                             <p><?php echo $postDB->title; ?></p>
                                                         </div>
@@ -144,14 +160,16 @@
                                                         @foreach ($postcate as $item)
                                                             <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10 px-4 px-xl-0">
                                                                 <div class="whats-right-single mb-20">
-                                                                    <div class="whats-right-img">
+                                                                    <div class="whats-right-img"onclick="window.location='{{ URL::route('getpostbyid', $item->id)}}'" >
                                                                         <img src="{{ $item->image->path_url }}"
                                                                             style="width: 124px; height: 102px"
                                                                             alt="">
                                                                     </div>
                                                                     <div class="whats-right-cap">
-                                                                        <h4><a
-                                                                                href="latest_news.html">{{ $item->name }}</a>
+                                                                        <h4>
+                                                                            <a
+                                                                                href="{{route('getpostbyid',$item->id)}}">{{$item->name }}
+                                                                            </a>
                                                                         </h4>
                                                                         <p>{{ $item->created_at }}</p>
                                                                     </div>
@@ -190,21 +208,24 @@
                             <div class="most-recent-img mx-auto">
                                 <img src="{{ $postNew1->image->path_url }}" class="img-fluid" alt="">
                                 <div class="most-recent-cap">
-                                    <span class="bgbeg">{{$postNew1->category->name }}</span>
-                                    <h4><a href="latest_news.html">{{ $postNew1->name }}</a></h4>
+                                    <span onclick="window.location='{{ URL::route('findbycategory', $postNew1->category_id)}}'"  class="bgbeg">{{$postNew1->category->name }}</span>
+                                    <h4>
+                                        <a href="{{route('getpostbyid',$postNew1->id)}}">{{ $postNew1->name }}
+                                        </a>
+                                    </h4>
                                     <p>Jhon | 2 hours ago</p>
                                 </div>
                             </div>
                         </div>
                         @foreach ($postNew2 as $item)
                             <div class="most-recent-single">
-                                <div class="most-recent-images">
+                                <div class="most-recent-images" onclick="window.location='{{ URL::route('getpostbyid', $item->id)}}'" >
                                     <img src="{{ $item->image->path_url }}" style="width: 125px; height: 120px"
                                         alt="">
                                 </div>
                                 <div class="most-recent-capt">
-                                    <span class="bgbeg" style="margin-bottom: 10px">{{$item->category->name}}</span>
-                                    <h4><a href="latest_news.html">{{ $item->name }}</a></h4>
+                                    <span class="bgbeg" onclick="window.location='{{ URL::route('findbycategory', $item->category_id)}}'"  style="margin-bottom: 10px">{{$item->category->name}}</span>
+                                    <h4><a href="{{route('getpostbyid',$item->id)}}">{{ $item->name }}</a></h4>
                                     <p>Jhon | 2 hours ago</p>
                                 </div>
                             </div>
@@ -239,12 +260,14 @@
                             ?> class="slick-slide slick-active"
                                 data-slick-index="{{$key-3}}" aria-hidden="false" style="width: 220px;"
                                 tabindex="-1" role="option" aria-describedby="slick-slide{{$key+1}}">
-                                <div class="weekly3-img2">
+                                <div class="weekly3-img2" onclick="window.location='{{ URL::route('getpostbyid', $item->id)}}'" >
                                     <img src="{{ $item->image->path_url }}" style="width: 230px; height: 150px"  alt="">
                                 </div>
                                 <div class="weekly3-caption2">
-                                    <span class="bgbeg">{{$item->category->name}}</span>
-                                    <h4><a href="latest_news.html" tabindex="0">{{$item->name}}</a></h4>
+                                    <span class="bgbeg" onclick="window.location='{{ URL::route('findbycategory', $item->category_id)}}'" >{{$item->category->name}}</span>
+                                    <h4>
+                                        <a href="{{route('getpostbyid',$item->id)}}" tabindex="0">{{$item->name}}</a>
+                                    </h4>
                                     <p>19 Jan 2020</p>
                                 </div>
                             </div>
