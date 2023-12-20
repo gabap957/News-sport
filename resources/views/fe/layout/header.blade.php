@@ -16,7 +16,7 @@ use App\Models\category;
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{{ route('home')}}">Home</a>
                     </li>
                     @foreach($categoryParent as $item)
                     <?php
@@ -27,22 +27,21 @@ use App\Models\category;
                     $categoryChild = 0;
                     }
                     ?>
-                    <li class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
+                    <li class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down" onclick="window.location='{{ URL::route('findbycategory', $item->id)}}'">
                         <a <?php if($categoryChild->count() > 0){
-                            echo 'class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"';
+                            echo 'class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"';
                             }
                             else{
                             echo 'class="nav-link"';
                             }?>
-                            href="#">{{$item->name}}</a>
+                            >{{$item->name}}</a>
                         @if($categoryChild->count() > 0)
                         <ul class="dropdown-menu" aria-labelledby="dropdown01" style="top: 114%;">
                             @foreach($categoryChild as $item)
                             <li class="nav-item hover">
                                 <div class=" clearfix">
                                     <div class="tab">
-                                        <a class="tablinks" href="#">{{$item->name}}</a>
+                                        <a class="tablinks" href="{{ URL::route('findbycategory', $item->id)}}">{{$item->name}}</a>
                                     </div>
                                 </div>
                             </li>

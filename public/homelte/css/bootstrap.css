@@ -399,7 +399,6 @@ blockquote {
 
 a {
   color: #0275d8;
-  text-decoration: none;
 }
 
 a:focus, a:hover {
@@ -3799,7 +3798,7 @@ tbody.collapse.show {
 
 .nav-link {
   display: block;
-    
+
 }
 
 .nav-link:focus, .nav-link:hover {

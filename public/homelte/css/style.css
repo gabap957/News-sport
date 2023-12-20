@@ -59,8 +59,8 @@ h3:hover a,
 h4:hover a,
 h5:hover a,
 h6:hover a {
-    text-decoration: underline !important;
-    color: #111111 !important;
+    text-decoration: none !important;
+    color: red !important;
 }
 
 h1 {
@@ -749,21 +749,6 @@ div.tab button:hover {
     text-transform: uppercase;
 }
 
-.breadcrumb {
-    background-color: transparent;
-    border-radius: 0;
-    list-style: outside none none;
-    margin-bottom: 0;
-    text-align: right;
-    padding: 0;
-}
-
-.breadcrumb-item {
-    float: none;
-    font-size: 12px;
-    display: inline-block;
-}
-
 .page-link {
     background-color: #edeff2 !important;
     border: 0 dashed #e2e2e2;
@@ -919,7 +904,7 @@ div.tab button:hover {
     margin-bottom: 3rem;
 }
 
-.blog-title-area .breadcrumb {
+.blog-title-area  {
     float: none;
     text-align: left;
     padding: 0;
@@ -927,7 +912,7 @@ div.tab button:hover {
     margin: 0;
 }
 
-.blog-title-area.text-center .breadcrumb {
+.blog-title-area.text-center {
     text-align: center;
 }
 
@@ -1181,7 +1166,7 @@ hr.invis3 {
 .shadow-desc .blog-meta small::after,
 .shadow-desc .blog-meta a,
 .shadow-desc .blog-meta h4 a {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 .small-box .shadow-desc h4 {
@@ -4750,7 +4735,7 @@ hr.invis3 {
 
 .whats-news-area .most-recent-area,.about-area2 .most-recent-area,.contact-section .most-recent-area {
     background: #fff;
-    padding: 30px 10px;
+    padding: 0 10px;
     border-radius: 7px
 }
 
@@ -6979,6 +6964,38 @@ hr.invis3 {
     background-position: bottom;
     background-repeat: no-repeat
 }
+.breadcrumb {
+    background: transparent;
+    padding: 25px 0 17px;
+    margin-bottom: 0;
+    display: flex;
+  }
+  .breadcrumb li {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  .breadcrumb li a {
+    color: red;
+    padding: 0 0px 0 8px;
+  }
+  .breadcrumb li:last-child i {
+    padding-right: 10px;
+  }
+  .breadcrumb li img {
+    color: #777777;
+  }
+  .ts-icon {
+    font-family: 'ts-iconfont' !important;
+    speak-as: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 @media (max-width: 767px) {
     .bradcam_area {
@@ -8330,4 +8347,151 @@ b,sup,sub,u,del {
 
 .switch-wrap {
     margin-bottom: 10px
+}
+.widget-title {
+    font-size: 16px;
+    font-weight: 700;
+    position: relative;
+    margin: 0 0 30px;
+}
+.widget-title .title-angle-shap {
+    display: inline-block;
+    padding: 0 0 0 15px;
+    position: relative;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fc4a00;
+}
+.tag-lists a, .tagcloud a {
+    border: 1px solid #3a3a3a;
+    color: #232323;
+    display: inline-block;
+    font-size: 14px !important;
+    padding: 4px 13px;
+    margin-left: 3px;
+    margin-bottom: 10px;
+    border-radius: 36px;
+    -webkit-border-radius: 36px;
+    -ms-border-radius: 36px;
+}
+.ts-category-list-item .ts-category-list {
+    padding: 0;
+    margin: 0;
+  }
+  .ts-category-list-item .ts-category-list li {
+    list-style-type: none;
+    margin-bottom: 5px;
+    position: relative;
+  }
+  .ts-category-list-item .ts-category-list li a {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-weight: 600;
+    font-size: 16px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    overflow: hidden;
+  }
+  .ts-category-list-item .ts-category-list li a:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .ts-category-list-item .ts-category-list li a span {
+    position: relative;
+    white-space: nowrap;
+  }
+  .ts-category-list-item .ts-category-list li a:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.05);
+    will-change: transform;
+    transition: -webkit-transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .ts-category-list-item .ts-category-list li a span.bar {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin: 0 65px 0 25px;
+  }
+  .ts-category-list-item .ts-category-list li a .category-count {
+    position: absolute;
+    background: #fff;
+    color: #000;
+    padding: 5px;
+    width: 40px;
+    right: 20px;
+    top: 44px;
+    margin-top: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    height: 40px;
+    text-align: center;
+    line-height: 32px;
+    top: 0px;
+    bottom: 0;
+    margin: auto;
+  }
+  .ts-category-list-item .ts-category-list li a:last-child {
+    margin-bottom: 0;
+  }
+  .ts-category-list-item.widgets_category .ts-category-list li {
+    padding-bottom: 0;
+  }
+  .ts-category-list-item.widgets_category .ts-category-list li a {
+    min-height: 90px;
+  }
+  .ts-category-list-item.widgets_category .ts-category-list li a:hover {
+    color: #fff;
+  }
+.heading-style3 .block-title{
+    letter-spacing: 0.64px;
+    color: #fc4a00;
+    line-height: 25px;
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.entry-blog-header .post-cat {
+    margin-bottom: 10px;
+}
+a.post-cat {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    background: #fc4a00;
+    color: #fff;
+    padding: 0px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    display: inline-block;
+    line-height: 20px;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+    z-index: 1;
+    margin-right: 5px;
+    height: 19px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -ms-border-radius: 4px;
+    letter-spacing: 0.44px;
 }
