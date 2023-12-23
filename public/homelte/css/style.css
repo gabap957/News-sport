@@ -8481,7 +8481,7 @@ a.post-cat {
     background: #fc4a00;
     color: #fff;
     padding: 0px 10px;
-    font-size: 11px;
+    font-size: 16px;
     font-weight: 700;
     display: inline-block;
     line-height: 20px;
@@ -8495,3 +8495,137 @@ a.post-cat {
     -ms-border-radius: 4px;
     letter-spacing: 0.44px;
 }
+.entry-header .post-title.lg {
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    color: #222222;
+  }
+.entry-header.post-title.lg :hover {
+    color: #fc4a00;
+  }
+  .post .entry-header .post-meta,
+  .post-wrapper .entry-header .post-meta {
+    margin-bottom: 25px;
+    padding-left: 0;
+  }
+  .post .entry-header .post-meta li,
+  .post-wrapper .entry-header .post-meta li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .post .entry-header .post-meta li:last-child,
+  .post-wrapper .entry-header .post-meta li:last-child {
+    margin-right: 0;
+  }
+  .post .entry-header .post-meta li i,
+  .post-wrapper .entry-header .post-meta li i {
+    vertical-align: middle;
+  }
+  .post .entry-header .post-meta span,
+  .post-wrapper .entry-header .post-meta span {
+    display: inline-block;
+    margin-right: 28px;
+    color: #666666;
+    font-size: 14px;
+  }
+  .post .entry-header .post-meta span i,
+  .post-wrapper .entry-header .post-meta span i {
+    margin-right: 6px;
+  }
+  .blog-single .post-meta .social-share svg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fc4a00;
+    color: #fff;
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+    padding: 10px 0;
+    font-size: 12px;
+}
+.blog-single .post-meta .social-share .social-list {
+    position: absolute;
+    right: 36px;
+    top: -8px;
+    padding: 0;
+    z-index: 1;
+    background: #f7f7f7;
+    min-width: 200px;
+    padding: 12px 18px;
+    display: none;
+    text-align: center;
+  }
+  .blog-single .post-meta .social-share .social-list li:last-child {
+    margin-right: 0;
+  }
+  .blog-single .post-meta .social-share .social-list i:before {
+    font-family: "ts-iconfont" !important;
+    font-style: normal;
+  }
+  .blog-single .post-meta .social-share .social-list .fa-facebook:before {
+    content: "\e967" !important;
+  }
+  .blog-single .post-meta .social-share .social-list .fa-twitter:before {
+    content: "\e966" !important;
+  }
+  .blog-single .post-meta .social-share .social-list .fa-instagram:before {
+    content: "\e963" !important;
+  }
+  .blog-single .post-meta .social-share .social-list .fa-youtube:before {
+    content: "\e97e" !important;
+  }
+  .blog-single .post-meta .social-share .social-list .fa-vimeo-v:before {
+    content: "\e949" !important;
+  }
+  .blog-single .post-meta .social-share .social-list .fa-pinterest-p:before {
+    content: "\e964" !important;
+  }
+  .blog-single .post-meta .social-share .social-list .fa-linkedin:before {
+    content: "\e962" !important;
+  }
+  .blog-single .post-meta .social-share:hover .social-list {
+    display: block;
+  }
+  .blog-single p {
+    line-height: 28px;
+  }
+  .blog-single p.img-caption-text {
+    font-style: italic;
+    color: #232323;
+    font-weight: 500;
+  }
+  .blog-single ul li,
+  .blog-single ol li {
+    line-height: 28px;
+  }
+  .blog-single blockquote {
+    margin: 0 !important;
+  }
+  .blog-single blockquote.wp-block-quote {
+    background: transparent;
+    text-align: center;
+  }
+  .blog-single .wp-block-image figure {
+    margin-bottom: 30px;
+  }
+  .blog-single .tag-lists span {
+    padding: 4px 13px;
+    background: #fc4a00;
+    color: #fff;
+    border-radius: 35px;
+    margin-right: 6px;
+    display: inline-block;
+  }
+  .blog-single .tag-lists a {
+    border-color: #aaaaaa;
+    color: #aaaaaa;
+  }
+  .blog-single .tag-lists a:hover {
+    border-color: #fc4a00;
+    color: #fff;
+  }
+  .blog-single .tag-lists a:not(:first-child) {
+    margin-left: 6px;
+  }
