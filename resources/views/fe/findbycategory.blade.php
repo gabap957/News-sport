@@ -1,21 +1,43 @@
 @extends('fe.layout.layout')
 @section('content_web')
-<?php
-  use App\Models\post;
-?>
+    <?php
+    use App\Models\post;
+    use App\Models\category;
+    $parent = false;
+    if ($category->parent_id != 0) {
+        $category_parent = category::where('id', $category->parent_id)->first();
+        $parent = true;
+    }
+    ?>
     <div class="container">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <ol class="breadcrumb" data-wow-duration="2s">
                         <li>
-                            <img class="ts-icon" width="17" height="17" src="https://img.icons8.com/material-rounded/24/home.png" alt="home"/>
-                            <a href="{{route('home')}}">Home</a>
-                            <img width="17" height="17" src="https://img.icons8.com/material-rounded/24/chevron-right.png" alt="chevron-right"/>
+                            <img class="ts-icon" onclick="window.location='{{ URL::route('home') }}'" width="17"
+                                height="17" src="https://img.icons8.com/material-rounded/24/home.png" alt="home" />
+                            <a href="{{ route('home') }}">Home</a>
+                            <img width="17" height="17"
+                                src="https://img.icons8.com/material-rounded/24/chevron-right.png" alt="chevron-right" />
                         </li>
-                        <li>
-                            <a href="https://demo-themewinter.com/digiqole/blog/category/lifestyle/tech/">Tech</a>
-                        </li>
+                        @if ($parent == true)
+                            <li>
+                                <a
+                                    href="{{ route('findbycategory', $category_parent->id) }}">{{ $category_parent->name }}</a>
+                                <img width="17" height="17"
+                                    src="https://img.icons8.com/material-rounded/24/chevron-right.png"
+                                    alt="chevron-right" />
+                            </li>
+                            <li>
+                                <a href="{{ route('findbycategory', $category->id) }}">{{ $category->name }}</a>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ route('findbycategory', $category->id) }}">{{ $category->name }}</a>
+                            </li>
+                        @endif
+
                     </ol>
                 </div>
             </div>
@@ -23,60 +45,134 @@
         <section id="main-content" class="blog main-container whats-news-area" role="main">
             <div class="container">
                 <div class="row">
+                    @if ($parent==true)
                     <div class="col-lg-8 pr-3 sidebar-right">
+                        <?php
+                        $posts = post::where('category_id', $category->id)->orderBy('id','desc')->take(6)->get();
+                        ?>
                         <div class="main-content-inner category-layout2">
-                            <div class="row">
+                            <div class="row container">
                                 <div class="category-main-desc">
                                     <div class="section-tittle mb-30">
-                                        <h3 class="ml-1">Tin Nóng</h3>
+                                        <h3 class="ml-3">{{$category->name}}</h3>
                                     </div>
                                 </div>
-                                    <div class="post-block-style row">
-                                        <div class="col-5 px-4">
-                                            <div class="post-media post-image">
-                                                <a
-                                                    href="https://demo-themewinter.com/digiqole/blog/best-gardening-supplies-for-the-horticultural-hopeless/">
-                                                    <img class="img-fluid"
-                                                        src="https://demo-themewinter.com/digiqole/wp-content/uploads/2019/06/tech_4.jpg"
-                                                        alt=" Best garden wing supplies for the horticu ltural hopeless">
-                                                </a>
-                                            </div>
+                                @foreach ($posts as $post)
+                                <div class="post-block-style row mb-30 ">
+                                    <div class="col-5 px-4">
+                                        <div class="post-media post-image">
+                                            <a >
+                                                <img class="img-fluid"
+                                                    src="{{asset($post->image->path_url)}}"
+                                                    alt=" Best garden wing supplies for the horticu ltural hopeless">
+                                            </a>
                                         </div>
-                                        <div class="col-6 ">
-                                            <div class="post-content">
-                                                <div class="entry-blog-header">
-                                                    <h2 class="post-title md">
-                                                        <a
-                                                            href="https://demo-themewinter.com/digiqole/blog/best-gardening-supplies-for-the-horticultural-hopeless/">Best
-                                                            garden wing supplies for the horticu ltural hopeless</a>
-                                                    </h2>
-                                                </div>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <div class="post-content">
+                                            <div class="entry-blog-header">
+                                                <h2 class="post-title md">
+                                                    <a
+                                                        href="">
+                                                        {{$post->name}}
+                                                    </a>
+                                                </h2>
+                                            </div>
+                                            <div class="post-meta">
                                                 <div class="post-meta">
-                                                    <div class="post-meta">
-                                                        <span class="post-author"><i class="ts-icon ts-icon-user-solid"></i>
-                                                            <a
-                                                                href="https://demo-themewinter.com/digiqole/blog/author/wptuser/">wptuser</a></span><span
-                                                            class="post-meta-date">
-                                                            <i class="ts-icon ts-icon-clock-regular"></i>
-                                                            June 30, 2019</span>
-                                                    </div>
+                                                    <span class="post-author"><i class="ts-icon ts-icon-user-solid"></i>
+                                                        <a
+                                                            href="">tac gia</a></span><span
+                                                        class="post-meta-date">
+                                                        <i class="ts-icon ts-icon-clock-regular"></i>
+                                                        June 30, 2019</span>
                                                 </div>
-                                                <div class="entry-blog-summery">
-                                                    <p>Struggling to sell one multi-million dollar home currently on the <a
-                                                            class="readmore-btn"
-                                                            href="https://demo-themewinter.com/digiqole/blog/best-gardening-supplies-for-the-horticultural-hopeless/">Read
-                                                            More<i class="ts-icon ts-icon-arrow-right"> </i></a></p>
-                                                </div>
+                                            </div>
+                                            <div class="entry-blog-summery">
+                                                <?php echo substr($post->title, 0, 100); ?>
+                                                <a
+                                                        class="readmore-btn"
+                                                        href="">
+                                                        Read
+                                                        More
+                                                        <i class="ts-icon ts-icon-arrow-right"></i>
+                                                    </a>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div><!-- .col-md-8 -->
+                    @else
+                    <div class="col-lg-8 pr-3 sidebar-right">
+                        <div class="main-content-inner category-layout2">
+                            <?php
+                                $categorychilld = category::where('parent_id', $category->id)->orderBy('id','desc')->take(3)->get();
+                            ?>
+                            @foreach ($categorychilld as $category)
+                            <div class="row container">
+                                <div class="category-main-desc">
+                                    <div class="section-tittle mb-30">
+                                        <h3 class="ml-3">{{$category->name}}</h3>
+                                    </div>
+                                </div>
+                                <?php
+                                    $posts = post::where('category_id', $category->id)->take(6)->get();
+                                ?>
+                                @foreach ($posts as $post)
+                                <div class="post-block-style row mb-30">
+                                    <div class="col-5 px-4">
+                                        <div class="post-media post-image">
+                                            <a>
+                                                <img class="img-fluid" src="{{asset($post->image->path_url)}}"
+                                                    alt=" Best garden wing supplies for the horticu ltural hopeless">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <div class="post-content">
+                                            <div class="entry-blog-header">
+                                                <h2 class="post-title md">
+                                                    <a
+                                                        href="">{{$post->name}}</a>
+                                                </h2>
+                                            </div>
+                                            <div class="post-meta">
+                                                <div class="post-meta">
+                                                    <span class="post-author"><i class="ts-icon ts-icon-user-solid"></i>
+                                                        <a
+                                                            href="">tac gia</a></span><span
+                                                        class="post-meta-date">
+                                                        <i class="ts-icon ts-icon-clock-regular"></i>
+                                                        June 30, 2019</span>
+                                                </div>
+                                            </div>
+                                            <div class="entry-blog-summery">
+                                                <?php echo substr($post->title, 0, 100);?>
+                                                <a
+                                                        class="readmore-btn"
+                                                        href="">
+                                                        Read
+                                                        More
+                                                        <i class="ts-icon ts-icon-arrow-right"></i>
+                                                    </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            @endforeach
+                        </div>
+                    </div><!-- .col-md-8 -->
+                    @endif
+
                     <section class="col-lg-4 px-4">
-                        <div class="most-recent-area">
+                        <div class="most-recent-area" style="padding: 0 10px;">
                             <div class="col-auto">
-                                <div class="section-tittle mb-30 st">
+                                <div class="section-tittle mb-30">
                                     <h3 class="ml-1">Xem Nhiều</h3>
                                 </div>
                             </div>
@@ -89,9 +185,9 @@
                             ?>
                             <div class="most-recent mb-40">
                                 <div class="most-recent-img mx-auto">
-                                    <img src="{{asset($postNew1->image->path_url)}}" class="img-fluid" alt="">
+                                    <img src="{{ asset($postNew1->image->path_url) }}" class="img-fluid" alt="">
                                     <div class="most-recent-cap">
-                                        <span class="bgbeg">{{$postNew1->category->name}}</span>
+                                        <span class="bgbeg">{{ $postNew1->category->name }}</span>
                                         <h4><a href="latest_news.html">{{ $postNew1->name }}</a></h4>
                                         <p>Jhon | 2 hours ago</p>
                                     </div>
@@ -100,11 +196,11 @@
                             @foreach ($postNew2 as $item)
                                 <div class="most-recent-single">
                                     <div class="most-recent-images">
-                                        <img src="{{asset($item->image->path_url)}}" style="width: 125px; height: 120px"
+                                        <img src="{{ asset($item->image->path_url) }}" style="width: 125px; height: 120px"
                                             alt="">
                                     </div>
                                     <div class="most-recent-capt">
-                                        <span class="bgbeg" style="margin-bottom: 10px">{{$item->category->name}}</span>
+                                        <span class="bgbeg" style="margin-bottom: 10px">{{ $item->category->name }}</span>
                                         <h4><a href="latest_news.html">{{ $item->name }}</a></h4>
                                         <p>Jhon | 2 hours ago</p>
                                     </div>
@@ -127,7 +223,7 @@
                                             <a style="background-image:url('/img/test2.jpg');background-position: bottom;">
                                                 <span>Tech</span>
                                                 <span class="bar"></span>
-                                                 <span class="category-count">5</span>
+                                                <span class="category-count">5</span>
                                             </a>
                                         </li>
                                         <li>
