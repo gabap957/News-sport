@@ -27,21 +27,22 @@ use App\Models\category;
                     $categoryChild = 0;
                     }
                     ?>
-                    <li class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down" onclick="window.location='{{ URL::route('findbycategory', $item->id)}}'">
-                        <a <?php if($categoryChild->count() > 0){
-                            echo 'class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"';
-                            }
-                            else{
-                            echo 'class="nav-link"';
-                            }?>
-                            >{{$item->name}}</a>
+                    <li class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
+                        <div onclick="window.location='{{ URL::route('findbycategory', $item->id)}}'">
+                            <a <?php if($categoryChild->count() > 0){
+                                echo 'class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"';
+                                }
+                                else{
+                                echo 'class="nav-link"';
+                                }?>>{{$item->name}}</a>
+                        </div>
                         @if($categoryChild->count() > 0)
                         <ul class="dropdown-menu" aria-labelledby="dropdown01" style="top: 114%;">
-                            @foreach($categoryChild as $item)
-                            <li class="nav-item hover">
+                            @foreach($categoryChild as $itemchilld)
+                            <li class="nav-item hover" onclick="window.location='{{ URL::route('findbycategory', $itemchilld->id)}}'">
                                 <div class=" clearfix">
                                     <div class="tab">
-                                        <a class="tablinks" href="{{ URL::route('findbycategory', $item->id)}}">{{$item->name}}</a>
+                                        <a class="tablinks" >{{$itemchilld->name}}</a>
                                     </div>
                                 </div>
                             </li>

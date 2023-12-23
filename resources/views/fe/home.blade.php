@@ -33,7 +33,7 @@
                                     </h4>
                                     <small>
                                         <a
-                                            title="">{{$tindacbiet[0]->created_at }}</a>
+                                            title="">{{$tindacbiet[0]->created_at}}</a>
                                         </small>
                                     <small>
                                         <a href="" title="">tac gia</a>
@@ -213,7 +213,12 @@
                                         <a href="{{route('getpostbyid',$postNew1->id)}}">{{ $postNew1->name }}
                                         </a>
                                     </h4>
-                                    <p>Jhon | 2 hours ago</p>
+                                    <p><?php
+                                    $startDate = $postNew1->created_at;
+                                    $endtime = now();
+                                    $diffInHours = $startDate->diffInHours($endtime);
+                                    echo $diffInHours.'giờ';
+                                    ?></p>
                                 </div>
                             </div>
                         </div>
@@ -268,7 +273,9 @@
                                     <h4>
                                         <a href="{{route('getpostbyid',$item->id)}}" tabindex="0">{{$item->name}}</a>
                                     </h4>
-                                    <p>19 Jan 2020</p>
+                                    <p><?php
+                                    $date = new DateTime($item->created_at);
+                                    ?></p>
                                 </div>
                             </div>
                         @endforeach
