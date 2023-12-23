@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.css" integrity="sha512-qYgnDNlu2lefkHtLZMk3Mj7BJb/Cg/lIyydO9eJAvgqtjU08KVeJqEBAaB8VUVDCRkdAwgzS04Jh6g4AtIcThw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- Bootstrap core CSS -->
 <link href="{{ asset('homelte/css/bootstrap.css') }}" rel="stylesheet">
 

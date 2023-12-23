@@ -54,14 +54,16 @@
                             <div class="row container">
                                 <div class="category-main-desc">
                                     <div class="section-tittle mb-30">
+                                       <a href="{{ route('findbycategory', $category->id)}}">
                                         <h3 class="ml-3">{{$category->name}}</h3>
+                                       </a>
                                     </div>
                                 </div>
                                 @foreach ($posts as $post)
                                 <div class="post-block-style row mb-30 ">
                                     <div class="col-5 px-4">
                                         <div class="post-media post-image">
-                                            <a >
+                                            <a href="{{ route('getpostbyid', $post->id)}}">
                                                 <img class="img-fluid"
                                                     src="{{asset($post->image->path_url)}}"
                                                     alt=" Best garden wing supplies for the horticu ltural hopeless">
@@ -73,7 +75,7 @@
                                             <div class="entry-blog-header">
                                                 <h2 class="post-title md">
                                                     <a
-                                                        href="">
+                                                        href="{{ route('getpostbyid', $post->id)}}">
                                                         {{$post->name}}
                                                     </a>
                                                 </h2>
@@ -125,7 +127,7 @@
                                 <div class="post-block-style row mb-30">
                                     <div class="col-5 px-4">
                                         <div class="post-media post-image">
-                                            <a>
+                                            <a href="{{ route('getpostbyid', $post->id)}}">
                                                 <img class="img-fluid" src="{{asset($post->image->path_url)}}"
                                                     alt=" Best garden wing supplies for the horticu ltural hopeless">
                                             </a>
@@ -136,7 +138,7 @@
                                             <div class="entry-blog-header">
                                                 <h2 class="post-title md">
                                                     <a
-                                                        href="">{{$post->name}}</a>
+                                                        href="{{ route('getpostbyid', $post->id)}}">{{$post->name}}</a>
                                                 </h2>
                                             </div>
                                             <div class="post-meta">

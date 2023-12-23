@@ -22,7 +22,7 @@
                             ->first();
                         echo asset($path->path_url);
                         ?>"alt="">
-                        <div class="shadoweffect" onclick="window.location='{{ URL::route('getpostbyid', $tindacbiet[0]->id)}}'" >
+                        <div class="shadoweffect" >
                             <div class="shadow-desc">
                                 <div class="blog-meta">
                                     <span class="bg-orange">
@@ -143,7 +143,7 @@
                                             <div class="row">
                                                 <div class="col-xl-6 px-4">
                                                     <div class="whats-news-single mb-40">
-                                                        <div class="whates-img" onclick="window.location='{{ URL::route('getpostbyid', $postDB->id)}}'" >
+                                                        <div class="whates-img" >
                                                             <img src="{{$postDB->image->path_url}}" alt="">
                                                         </div>
                                                         <div class="whates-caption">
@@ -160,7 +160,7 @@
                                                         @foreach ($postcate as $item)
                                                             <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10 px-4 px-xl-0">
                                                                 <div class="whats-right-single mb-20">
-                                                                    <div class="whats-right-img"onclick="window.location='{{ URL::route('getpostbyid', $item->id)}}'" >
+                                                                    <div class="whats-right-img" >
                                                                         <img src="{{ $item->image->path_url }}"
                                                                             style="width: 124px; height: 102px"
                                                                             alt="">
