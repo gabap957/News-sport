@@ -38,7 +38,6 @@
 
 <!-- Colors for this template -->
 <link href="{{ asset('homelte/css/colors.css') }}" rel="stylesheet">
-
 <!-- Version Tech CSS for this template -->
 <link href="{{ asset('homelte/css/version/tech.css') }}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{{ asset('/homelte/slick/slick.css') }}" />
@@ -82,6 +81,7 @@
     <script type="text/javascript" src="{{ asset('/homelte/slick/slick.js') }}"></script>
 
     <script src="{{ asset('/js/home.js') }}"></script>
+    <script src="{{ asset('/homelte/js/comment.js') }}"></script>
 </body>
 <script>
     //tim kiem theo name post home

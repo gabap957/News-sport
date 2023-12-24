@@ -70,7 +70,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-6 ">
+                                    <div class="col-7 pr-3">
                                         <div class="post-content">
                                             <div class="entry-blog-header">
                                                 <h2 class="post-title md">
@@ -133,7 +133,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-6 ">
+                                    <div class="col-7 pr-3">
                                         <div class="post-content">
                                             <div class="entry-blog-header">
                                                 <h2 class="post-title md">
@@ -210,7 +210,7 @@
                             @endforeach
                         </div>
 
-                        <div id="digiqole-category-list-1" class="widget digiqole-category-list">
+                        <div id="digiqole-category-list-1" class="widget digiqole-category-list my-30">
                             <div id="sidebar" class="sidebar" role="complementary">
                                 <div class="widgets_category ts-category-list-item">
                                     <ul class="ts-category-list">
@@ -239,7 +239,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="tag_cloud-1" class="widget widget_tag_cloud">
+                        <div id="tag_cloud-1" class="widget widget_tag_cloud mb-30">
                             <h3 class="widget-title"> <span class="title-angle-shap">Tags</span></h3>
                             <div class="tagcloud"><a href="https://demo-themewinter.com/digiqole/blog/tag/bitcoin/"
                                     class="tag-cloud-link tag-link-11 tag-link-position-1" style="font-size: 8pt;"

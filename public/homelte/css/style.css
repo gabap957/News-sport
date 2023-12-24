@@ -105,12 +105,12 @@ a {
 
 body,
 p {
-    color: #5e5e5e;
+    color: #212529;
 }
 
 p {
     margin-bottom: 26px;
-    font-size: 15px;
+    font-size: 19px;
     line-height: 26px;
 }
 
@@ -6642,8 +6642,8 @@ hr.invis3 {
 .comments-area {
     background: transparent;
     border-top: 1px solid #eee;
-    padding: 45px 0;
-    margin-top: 50px
+    padding: 20px 0;
+    margin-top: 20px;
 }
 
 @media (max-width: 414px) {
@@ -6706,8 +6706,8 @@ hr.invis3 {
 
 .comments-area .comment {
     margin-bottom: 10px;
-    color: #777777;
-    font-size: 15px
+    color: #212529;
+    font-size: 18px
 }
 
 .comments-area .btn-reply {
@@ -8629,3 +8629,34 @@ a.post-cat {
   .blog-single .tag-lists a:not(:first-child) {
     margin-left: 6px;
   }
+.tag-lists span{
+    padding: 5px 13px;
+    background: #fc4a00;
+    color: #fff;
+    border-radius: 35px;
+    margin-right: 6px;
+    display: inline-block;
+}
+.tag-lists a{
+    border-color: #aaaaaa;
+    color: #aaaaaa;
+    display: inline-block;
+    font-size: 14px !important;
+    padding: 4px 13px;
+    margin-left: 3px;
+    margin-bottom: 10px;
+    border-radius: 36px;
+    -webkit-border-radius: 36px;
+    -ms-border-radius: 36px;
+}
+.section-tittle h3 {
+    font-size: 26px;
+    display: block;
+    color: #051441;
+    font-weight: 700;
+    line-height: 1;
+}
+.social-share ul li {
+    display: inline-block;
+    margin: 0 5px;
+}
