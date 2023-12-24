@@ -73,7 +73,7 @@ use App\Models\category;
                     </div>
                 </form>
                 <div class="header-right-btn d-none d-lg-block mr-3 ml-2 col-1">
-                    <button href="" class="btn header-btn btn-success">Đăng nhập</button>
+                    <button type="button" onclick="window.location='{{ route('login')}}'" class="btn header-btn btn-success">Đăng nhập</button>
                 </div>
             </div>
         </div>
