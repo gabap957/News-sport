@@ -13,9 +13,12 @@ class loginController extends Controller
     }
     public function login(Request $request){
         if (Auth::attempt(['email'=>$request->email,'password'=>$request->password, 'level'=>1])){
-            return redirect()->route('admin.user.list');
+            return redirect()->route('admin.user.list')->with('success','Đăng nhập với quyền quản trị viên');
         }
-        return back();
+        if (Auth::attempt(['email'=>$request->email,'password'=>$request->password, 'level'=>2])){
+            return redirect()->route('home')->with('success','Đăng nhập thành công!');
+        }
+        return back()->with('error','Email hoặc mật khẩu không chính xác!');
     }
     public function logout(){
         Auth::logout();
