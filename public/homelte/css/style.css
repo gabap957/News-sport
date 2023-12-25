@@ -8660,3 +8660,6 @@ a.post-cat {
     display: inline-block;
     margin: 0 5px;
 }
+.header-right-btn li{
+    list-style: none;
+}
