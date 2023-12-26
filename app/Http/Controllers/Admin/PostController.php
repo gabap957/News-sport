@@ -47,7 +47,7 @@ class PostController extends Controller implements ICRUD
 
             return response()->json(['fileName' => $fileName, 'uploaded'=> 1, 'url' => $url]);
         }
-    } 
+    }
 
     public function add(Request $request)
     {

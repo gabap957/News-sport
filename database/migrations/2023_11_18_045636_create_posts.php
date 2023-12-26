@@ -24,6 +24,7 @@ return new class extends Migration
             $table->bigInteger('image_id');
             $table->bigInteger('type_id');//1:thuong; 2:tin dac biet;
             $table->bigInteger('user_id');
+            $table->bigInteger('view')->default(0);
             $table->timestamps();
         });
     }
