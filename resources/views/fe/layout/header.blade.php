@@ -42,7 +42,7 @@ use App\Models\category;
                             <li class="nav-item hover" onclick="window.location='{{ URL::route('findbycategory', $itemchilld->id)}}'">
                                 <div class=" clearfix">
                                     <div class="tab">
-                                        <a class="tablinks" >{{$itemchilld->name}}</a>
+                                        <a class="tablinks">{{$itemchilld->name}}</a>
                                     </div>
                                 </div>
                             </li>
