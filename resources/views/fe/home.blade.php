@@ -6,7 +6,7 @@
     ?>
 
     <head>
-        <link href="{{asset('/homelte/css/home.css') }}" rel="stylesheet">
+        <link href="{{ asset('/homelte/css/home.css') }}" rel="stylesheet">
     </head>
     <section class="section first-section">
         <div class="container-fluid">
@@ -20,26 +20,30 @@
                         $categoryName = DB::table('categories')
                             ->where('id', $tindacbiet[0]->category_id)
                             ->first();
-                        $userName = DB::table('users')->where('id', $tindacbiet[0]->user_id)->first();
+                        $userName = DB::table('users')
+                            ->where('id', $tindacbiet[0]->user_id)
+                            ->first();
                         echo asset($path->path_url);
                         ?>"alt="">
-                        <div class="shadoweffect" >
+                        <div class="shadoweffect">
                             <div class="shadow-desc">
                                 <div class="blog-meta">
                                     <span class="bg-orange">
-                                        <a href="{{route('findbycategory', $categoryName->id)}}" title="">{{$categoryName->name }}</a>
+                                        <a href="{{ route('findbycategory', $categoryName->id) }}"
+                                            title="">{{ $categoryName->name }}</a>
                                     </span>
                                     <h4>
-                                        <a href="{{ route('getpostbyid',$tindacbiet[0]->id)}}" title="">{{$tindacbiet[0]->name}}</a>
+                                        <a href="{{ route('getpostbyid', $tindacbiet[0]->id) }}"
+                                            title="">{{ $tindacbiet[0]->name }}</a>
                                     </h4>
                                     <small>
                                         <a title=""><?php
-                                            $date = new DateTime($tindacbiet[0]->created_at);
-                                            echo $date->format('d-m-Y');
-                                            ?></a>
-                                        </small>
+                                        $date = new DateTime($tindacbiet[0]->created_at);
+                                        echo $date->format('d-m-Y');
+                                        ?></a>
+                                    </small>
                                     <small>
-                                        <a href="" title="">{{$userName->name}}</a>
+                                        <a href="" title="">{{ $userName->name }}</a>
                                     </small>
                                 </div><!-- end meta -->
                             </div><!-- end shadow-desc -->
@@ -64,19 +68,19 @@
                                         <div class="shadow-desc">
                                             <div class="blog-meta">
                                                 <span class="bg-orange">
-                                                    <a href="{{route('findbycategory',$value->category_id)}}"
+                                                    <a href="{{ route('findbycategory', $value->category_id) }}"
                                                         title="">{{ $categoryName->name }}</a>
-                                                    </span>
+                                                </span>
                                                 <h4 class="textNamepost">
-                                                    <a href="{{ route('getpostbyid',$value->id)}}"
+                                                    <a href="{{ route('getpostbyid', $value->id) }}"
                                                         title="">{{ $value->name }}
                                                     </a>
                                                 </h4>
                                                 <small>
                                                     <a title=""><?php
-                                                        $date = new DateTime($value->created_at);
-                                                        echo $date->format('d-m-Y');
-                                                        ?></a>
+                                                    $date = new DateTime($value->created_at);
+                                                    echo $date->format('d-m-Y');
+                                                    ?></a>
                                                 </small>
                                                 <small>
                                                     <a href="tech-author.html" title="">tac gia</a>
@@ -101,7 +105,7 @@
                 <div class="col-lg-8 pr-3">
                     <div class="whats-news-wrapper">
                         <div class="row justify-content-between align-items-end">
-                            <div class="col-xl-4 col-md-5 col-sm-5 col-auto px-4">
+                            <div class="col-xl-3 col-md-5 col-sm-5 col-auto px-4">
                                 <div class="section-tittle mb-30">
                                     <h3 class="ml-1">Tin Nóng</h3>
                                 </div>
@@ -118,8 +122,43 @@
                                             } ?>
                                                 onclick="showTab(nav{{ $key }})">{{ $value->name }}</a>
                                         @endforeach
+
                                     </div>
                                 </div>
+                            </div>
+                            <div class="owl-nav col-1 d-none d-md-flex d-lg-flex d-xl-flex d-xxl-flex m-auto pb-3">
+                                <button type="button" role="presentation" class="owl-prev">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px"
+                                        viewBox="0,0,256,256">
+                                        <g fill="#06c4ff" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                            stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                            stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                            font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                            <g transform="translate(264.52636,256) rotate(180) scale(8.53333,8.53333)">
+                                                <path
+                                                    d="M12,27h-2c-0.386,0 -0.738,-0.223 -0.904,-0.572c-0.166,-0.349 -0.115,-0.762 0.13,-1.062l8.482,-10.366l-8.482,-10.367c-0.245,-0.299 -0.295,-0.712 -0.13,-1.062c0.165,-0.35 0.518,-0.571 0.904,-0.571h2c0.3,0 0.584,0.135 0.774,0.367l9,11c0.301,0.369 0.301,0.898 0,1.267l-9,11c-0.19,0.231 -0.474,0.366 -0.774,0.366z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </button>
+                                <button type="button" role="presentation" class="owl-next">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px"
+                                        viewBox="0,0,256,256">
+                                        <g fill="#06c4ff" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                            stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                            stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                            font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                            <g transform="scale(8.53333,8.53333)">
+                                                <path
+                                                    d="M12,27h-2c-0.386,0 -0.738,-0.223 -0.904,-0.572c-0.166,-0.349 -0.115,-0.762 0.13,-1.062l8.482,-10.366l-8.482,-10.367c-0.245,-0.299 -0.295,-0.712 -0.13,-1.062c0.165,-0.35 0.518,-0.571 0.904,-0.571h2c0.3,0 0.584,0.135 0.774,0.367l9,11c0.301,0.369 0.301,0.898 0,1.267l-9,11c-0.19,0.231 -0.474,0.366 -0.774,0.366z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </button>
                             </div>
 
                         </div>
@@ -143,16 +182,17 @@
                                         } else {
                                             echo 'class="tab-pane fade "';
                                         }
-                                        ?> id="nav{{$key}}">
+                                        ?> id="nav{{ $key }}">
                                             <div class="row">
                                                 <div class="col-xl-6 px-4">
                                                     <div class="whats-news-single mb-40">
-                                                        <div class="whates-img" >
-                                                            <img src="{{$postDB->image->path_url}}" alt="">
+                                                        <div class="whates-img">
+                                                            <img src="{{ $postDB->image->path_url }}" alt="">
                                                         </div>
                                                         <div class="whates-caption">
-                                                            <h4 >
-                                                                <a href="{{route('getpostbyid',$postDB->id)}}">{{ $postDB->name }}</a>
+                                                            <h4>
+                                                                <a
+                                                                    href="{{ route('getpostbyid', $postDB->id) }}">{{ $postDB->name }}</a>
                                                             </h4>
                                                             <span>{{ $postDB->created_at }}</span>
                                                             <p><?php echo $postDB->title; ?></p>
@@ -162,9 +202,10 @@
                                                 <div class="col-xl-6 col-lg-12 px-4">
                                                     <div class="row">
                                                         @foreach ($postcate as $item)
-                                                            <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10 px-4 px-xl-0">
+                                                            <div
+                                                                class="col-xl-12 col-lg-6 col-md-6 col-sm-10 px-4 px-xl-0">
                                                                 <div class="whats-right-single mb-20">
-                                                                    <div class="whats-right-img" >
+                                                                    <div class="whats-right-img">
                                                                         <img src="{{ $item->image->path_url }}"
                                                                             style="width: 124px; height: 102px"
                                                                             alt="">
@@ -172,7 +213,7 @@
                                                                     <div class="whats-right-cap">
                                                                         <h4>
                                                                             <a
-                                                                                href="{{route('getpostbyid',$item->id)}}">{{$item->name }}
+                                                                                href="{{ route('getpostbyid', $item->id) }}">{{ $item->name }}
                                                                             </a>
                                                                         </h4>
                                                                         <p>{{ $item->created_at }}</p>
@@ -212,29 +253,34 @@
                             <div class="most-recent-img mx-auto">
                                 <img src="{{ $postNew1->image->path_url }}" class="img-fluid" alt="">
                                 <div class="most-recent-cap">
-                                    <span onclick="window.location='{{ URL::route('findbycategory', $postNew1->category_id)}}'"  class="bgbeg">{{$postNew1->category->name }}</span>
+                                    <span
+                                        onclick="window.location='{{ URL::route('findbycategory', $postNew1->category_id) }}'"
+                                        class="bgbeg">{{ $postNew1->category->name }}</span>
                                     <h4>
-                                        <a href="{{route('getpostbyid',$postNew1->id)}}">{{ $postNew1->name }}
+                                        <a href="{{ route('getpostbyid', $postNew1->id) }}">{{ $postNew1->name }}
                                         </a>
                                     </h4>
                                     <p><?php
                                     $startDate = $postNew1->created_at;
                                     $endtime = now();
                                     $diffInHours = $startDate->diffInHours($endtime);
-                                    echo $diffInHours.'giờ';
+                                    echo $diffInHours . 'giờ';
                                     ?></p>
                                 </div>
                             </div>
                         </div>
                         @foreach ($postNew2 as $item)
                             <div class="most-recent-single">
-                                <div class="most-recent-images" onclick="window.location='{{ URL::route('getpostbyid', $item->id)}}'" >
+                                <div class="most-recent-images"
+                                    onclick="window.location='{{ URL::route('getpostbyid', $item->id) }}'">
                                     <img src="{{ $item->image->path_url }}" style="width: 125px; height: 120px"
                                         alt="">
                                 </div>
                                 <div class="most-recent-capt">
-                                    <span class="bgbeg" onclick="window.location='{{ URL::route('findbycategory', $item->category_id)}}'"  style="margin-bottom: 10px">{{$item->category->name}}</span>
-                                    <h4><a href="{{route('getpostbyid',$item->id)}}">{{ $item->name }}</a></h4>
+                                    <span class="bgbeg"
+                                        onclick="window.location='{{ URL::route('findbycategory', $item->category_id) }}'"
+                                        style="margin-bottom: 10px">{{ $item->category->name }}</span>
+                                    <h4><a href="{{ route('getpostbyid', $item->id) }}">{{ $item->name }}</a></h4>
                                     <p>Jhon | 2 hours ago</p>
                                 </div>
                             </div>
@@ -254,40 +300,45 @@
                 </div>
             </div>
             <div class="row">
-               <div class="col-lg-12">
-                  <div class="slider autoplay slick-initialized slick-slider slick-dotted" role="toolbar">
-                      <div aria-live="polite" class="slick-list draggable">
-                        <div class="slick-track" style="opacity: 1; width: 2560px; transition: transform 500ms ease 0s; transform: translate3d(-1309px, 0px, 0px);"
-                        role="listbox">
-                        @foreach ($postNews as $key => $item)
-                            <div <?php
-                            if ($key == 3 || $key == 4 || $key == 5 || $key == 6) {
-                                echo 'class="slick-slide slick-active" aria-hidden="false"';
-                            } else {
-                                echo 'class="slick-slide" aria-hidden="true"';
-                            }
-                            ?> class="slick-slide slick-active"
-                                data-slick-index="{{$key-3}}" aria-hidden="false" style="width: 220px;"
-                                tabindex="-1" role="option" aria-describedby="slick-slide{{$key+1}}">
-                                <div class="weekly3-img2" onclick="window.location='{{ URL::route('getpostbyid', $item->id)}}'" >
-                                    <img src="{{ $item->image->path_url }}" style="width: 230px; height: 150px"  alt="">
-                                </div>
-                                <div class="weekly3-caption2">
-                                    <span class="bgbeg" onclick="window.location='{{ URL::route('findbycategory', $item->category_id)}}'" >{{$item->category->name}}</span>
-                                    <h4>
-                                        <a href="{{route('getpostbyid',$item->id)}}" tabindex="0">{{$item->name}}</a>
-                                    </h4>
-                                    <p><?php
-                                    $date = new DateTime($item->created_at);
-                                    ?></p>
-                                </div>
+                <div class="col-lg-12">
+                    <div class="slider autoplay slick-initialized slick-slider slick-dotted" role="toolbar">
+                        <div aria-live="polite" class="slick-list draggable">
+                            <div class="slick-track"
+                                style="opacity: 1; width: 2560px; transition: transform 500ms ease 0s; transform: translate3d(-1309px, 0px, 0px);"
+                                role="listbox">
+                                @foreach ($postNews as $key => $item)
+                                    <div <?php
+                                    if ($key == 3 || $key == 4 || $key == 5 || $key == 6) {
+                                        echo 'class="slick-slide slick-active" aria-hidden="false"';
+                                    } else {
+                                        echo 'class="slick-slide" aria-hidden="true"';
+                                    }
+                                    ?> class="slick-slide slick-active"
+                                        data-slick-index="{{ $key - 3 }}" aria-hidden="false" style="width: 220px;"
+                                        tabindex="-1" role="option" aria-describedby="slick-slide{{ $key + 1 }}">
+                                        <div class="weekly3-img2"
+                                            onclick="window.location='{{ URL::route('getpostbyid', $item->id) }}'">
+                                            <img src="{{ $item->image->path_url }}" style="width: 230px; height: 150px"
+                                                alt="">
+                                        </div>
+                                        <div class="weekly3-caption2">
+                                            <span class="bgbeg"
+                                                onclick="window.location='{{ URL::route('findbycategory', $item->category_id) }}'">{{ $item->category->name }}</span>
+                                            <h4>
+                                                <a href="{{ route('getpostbyid', $item->id) }}"
+                                                    tabindex="0">{{ $item->name }}</a>
+                                            </h4>
+                                            <p><?php
+                                            $date = new DateTime($item->created_at);
+                                            ?></p>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
-                        @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 @endsection
