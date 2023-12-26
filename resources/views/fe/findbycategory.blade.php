@@ -145,7 +145,7 @@
                                                 <div class="post-meta">
                                                     <span class="post-author"><i class="ts-icon ts-icon-user-solid"></i>
                                                         <a
-                                                            href="">tac gia</a></span><span
+                                                            href="">{{$post->user->name}}</a></span><span
                                                         class="post-meta-date">
                                                         <i class="ts-icon ts-icon-clock-regular"></i>
                                                         June 30, 2019</span>

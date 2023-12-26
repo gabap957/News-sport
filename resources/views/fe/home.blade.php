@@ -20,6 +20,7 @@
                         $categoryName = DB::table('categories')
                             ->where('id', $tindacbiet[0]->category_id)
                             ->first();
+                        $userName = DB::table('users')->where('id', $tindacbiet[0]->user_id)->first();
                         echo asset($path->path_url);
                         ?>"alt="">
                         <div class="shadoweffect" >
@@ -32,11 +33,13 @@
                                         <a href="{{ route('getpostbyid',$tindacbiet[0]->id)}}" title="">{{$tindacbiet[0]->name}}</a>
                                     </h4>
                                     <small>
-                                        <a
-                                            title="">{{$tindacbiet[0]->created_at}}</a>
+                                        <a title=""><?php
+                                            $date = new DateTime($tindacbiet[0]->created_at);
+                                            echo $date->format('d-m-Y');
+                                            ?></a>
                                         </small>
                                     <small>
-                                        <a href="" title="">tac gia</a>
+                                        <a href="" title="">{{$userName->name}}</a>
                                     </small>
                                 </div><!-- end meta -->
                             </div><!-- end shadow-desc -->
@@ -70,9 +73,10 @@
                                                     </a>
                                                 </h4>
                                                 <small>
-                                                    <a href="tech-single.html"
-                                                        title="">{{ $value->created_at }}
-                                                    </a>
+                                                    <a title=""><?php
+                                                        $date = new DateTime($value->created_at);
+                                                        echo $date->format('d-m-Y');
+                                                        ?></a>
                                                 </small>
                                                 <small>
                                                     <a href="tech-author.html" title="">tac gia</a>
@@ -104,7 +108,7 @@
                             </div>
                             <div
                                 class="col-xl-8 col-md-6 col-sm-4 d-none d-md-block d-lg-block d-xl-block d-xxl-block px-4">
-                                <div class="properties__button mb-4" style="display: flex; justify-content: end;">
+                                <div class="properties__button mb-4" style="display: flex; overflow: hidden;">
                                     <div class="tabs">
                                         @foreach ($categoryMain as $key => $value)
                                             <a <?php if ($key == 0) {
