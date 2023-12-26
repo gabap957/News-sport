@@ -213,8 +213,8 @@
                                 <div class="most-recent-img mx-auto">
                                     <img src="{{ asset($postNew1->image->path_url) }}" class="img-fluid" alt="">
                                     <div class="most-recent-cap">
-                                        <span class="bgbeg">{{ $postNew1->category->name }}</span>
-                                        <h4><a href="latest_news.html">{{ $postNew1->name }}</a></h4>
+                                        <a href="{{ route('findbycategory', $postNew1->category_id) }}"><span class="bgbeg">{{ $postNew1->category->name }}</span></a>
+                                        <h4><a href="{{ route('getpostbyid', $postNew1->id) }}">{{ $postNew1->name }}</a></h4>
                                         <p>Jhon | 2 hours ago</p>
                                     </div>
                                 </div>
@@ -226,9 +226,12 @@
                                             style="width: 125px; height: 120px" alt="">
                                     </div>
                                     <div class="most-recent-capt">
-                                        <span class="bgbeg"
-                                            style="margin-bottom: 10px">{{ $item->category->name }}</span>
-                                        <h4><a href="latest_news.html">{{ $item->name }}</a></h4>
+                                        <a href="{{ route('findbycategory', $item->category_id) }}">
+                                            <span class="bgbeg" style="margin-bottom: 10px">{{ $item->category->name }}</span>
+                                        </a>
+                                        <h4>
+                                            <a href="{{ route('getpostbyid', $item->id) }}">{{ $item->name }}</a>
+                                        </h4>
                                         <p>Jhon | 2 hours ago</p>
                                     </div>
                                 </div>

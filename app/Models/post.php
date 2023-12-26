@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class post extends Model
 {
     use HasFactory;
-    protected $fillable  = ['name','content','title','url','category_id','image_id','type_id','user_id'];
+    protected $fillable  = ['name','content','title','url','category_id','image_id','type_id','user_id','view'];
     public function image() :BelongsTo
     {
         return $this->belongsTo(image::class);
