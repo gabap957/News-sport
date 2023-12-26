@@ -9,6 +9,7 @@
     display: table;
     border-collapse: separate;
     table-layout: auto;
+    transition: all 0.3s cubic-bezier(1, 0, 0, 1);
   }
   .tabs.tabs-center {
     margin: auto;
@@ -61,3 +62,14 @@
         max-height: none;
     }
 }
+.owl-nav {
+    display: inline-block;
+}
+ .owl-nav button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+    color: #097bed;
+    font-size: 20px;
+  }

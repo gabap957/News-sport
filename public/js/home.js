@@ -24,4 +24,14 @@ function slide(){
     const preview = document.querySelectorAll('ul.slick-dots li button');
     console.log(slide, preview);
 }
+$(document).on("click", '.owl-next', function () {
+    $('.tabs').css({
+        "transform": "translateX(-250px)",
+    });
+})
+$(document).on("click", '.owl-prev', function () {
+    $('.tabs').css({
+        "transform": "translateX(0px)",
+    });
+})
 
