@@ -9,7 +9,7 @@
     display: table;
     border-collapse: separate;
     table-layout: auto;
-    transition: all 0.3s cubic-bezier(1, 0, 0, 1);
+    transition: all 0.7s cubic-bezier(1, 0, 0, 1);
   }
   .tabs.tabs-center {
     margin: auto;
