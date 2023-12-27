@@ -64,7 +64,7 @@
         </div>
 </div>
 @if(\Illuminate\Support\Facades\Session::has('success'))
-<div class="toast active" id="toast">
+<div class="toast active " style="z-index: 9999;" id="toast">
     <div class="toast-content">
       <i class="fas fa-solid fa-check check"></i>
       <div class="message">
@@ -78,7 +78,7 @@
 </div>
 @endif
 @if(\Illuminate\Support\Facades\Session::has('error'))
-<div class="toast active" id="toast">
+<div class="toast active " style="z-index: 9999;" id="toast">
     <div class="toast-content">
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
         viewBox="0 0 48 48">
