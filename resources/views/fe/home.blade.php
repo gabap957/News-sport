@@ -111,7 +111,7 @@
                                 </div>
                             </div>
                             <div
-                                class="col-xl-8 col-md-6 col-sm-4 d-none d-md-block d-lg-block d-xl-block d-xxl-block px-4">
+                                class="col-xl-8 col-md-6 col-sm-4 d-none d-md-block d-lg-block d-xl-block d-xxl-block ">
                                 <div class="properties__button mb-4" style="display: flex; overflow: hidden; justify-content: end">
                                     <div class="tabs">
                                         @foreach ($categoryMain as $key => $value)
