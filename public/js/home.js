@@ -27,11 +27,13 @@ function slide(){
 $(document).on("click", '.owl-next', function () {
     $('.tabs').css({
         "transform": "translateX(-250px)",
+        "justify-content": "none",
     });
 })
 $(document).on("click", '.owl-prev', function () {
     $('.tabs').css({
         "transform": "translateX(0px)",
+        "justify-content": "none", 
     });
 })
 

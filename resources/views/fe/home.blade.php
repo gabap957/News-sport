@@ -112,7 +112,7 @@
                             </div>
                             <div
                                 class="col-xl-8 col-md-6 col-sm-4 d-none d-md-block d-lg-block d-xl-block d-xxl-block px-4">
-                                <div class="properties__button mb-4" style="display: flex; overflow: hidden;">
+                                <div class="properties__button mb-4" style="display: flex; overflow: hidden; justify-content: end">
                                     <div class="tabs">
                                         @foreach ($categoryMain as $key => $value)
                                             <a <?php if ($key == 0) {
@@ -122,10 +122,10 @@
                                             } ?>
                                                 onclick="showTab(nav{{ $key }})">{{ $value->name }}</a>
                                         @endforeach
-
                                     </div>
                                 </div>
                             </div>
+                            @if(count($categoryMain)>=5)
                             <div class="owl-nav col-1 d-none d-md-flex d-lg-flex d-xl-flex d-xxl-flex m-auto pb-3">
                                 <button type="button" role="presentation" class="owl-prev">
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +160,7 @@
                                     </svg>
                                 </button>
                             </div>
-
+                            @endif
                         </div>
                         <div class="row">
                             <div class="col-12">
