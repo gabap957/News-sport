@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Site Metas -->
-<title>Tech Blog - Stylish Magazine Blog Template</title>
+<title>News Sports</title>
 <meta name="keywords" content="">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="description" content="">
