@@ -115,7 +115,7 @@
                 success: function(response) {
                     console.log(response);
                     let result =  response.map(value =>{
-                        return  '<a href="/post/'+value.id+'" class="list-group-item list-group-item-action border-1"><img style="width: 30%;" src="http://127.0.0.1:8000/'+value.path_url+'" alt=""> &ensp;' + value.name +'</a>'
+                        return  '<a href="/post/'+value.id+'" class="list-group-item list-group-item-action border-1"><div class="d-flex"><img style="width: 30%;" src="http://127.0.0.1:8000/'+value.path_url+'" alt=""> <p class="ml-2">' + value.name +'</p></div></a>'
                     })
                     $(".search_result").html(result);
                 },
