@@ -9,7 +9,7 @@ use App\Models\category;
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="col-8 d-flex" style="align-items: center;">
+        <div class="col-7 d-flex" style="align-items: center;">
             <div class="logo">
                 <a href="#"><img src="{{asset('/img/logo2.png')}}" alt=""></a>
             </div>
@@ -54,7 +54,7 @@ use App\Models\category;
                 </ul>
             </div>
         </div>
-        <div class="col-3 d-none d-lg-block">
+        <div class="col-4 d-none d-lg-block">
             <div class="d-flex">
                 <form class="card card-sm col m-auto">
                     <div class="card-body row no-gutters align-items-center">
@@ -70,7 +70,7 @@ use App\Models\category;
                         </div>
                         <!--end of col-->
                     </div>
-                    <div class="search_result" style="position: absolute; top: 100%; overflow: auto; height: 447px;">
+                    <div class="search_result" style="position: absolute; top: 100%; overflow: auto; height: 470px;">
                     </div>
                 </form>
 
