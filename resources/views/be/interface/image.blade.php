@@ -13,7 +13,11 @@
                         <h5 class="m-0 font-weight-bold text-primary">Kho ảnh</h5>
                     </a>
                 </li>
-                
+                @if($albumparent != '')
+                <li class="breadcrumb-item">
+                    <a class="text-primary">{{$albumparent}}</a>
+                </li>
+                @endif
                 <li class="breadcrumb-item">
                     <a class="text-primary">{{$albumname}}</a>
                 </li>
