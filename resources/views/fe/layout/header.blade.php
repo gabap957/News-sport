@@ -62,7 +62,6 @@ use App\Models\category;
                         <div class="col">
                             <input class="form-control form-control-borderless" type="search" id="search_input" placeholder="Tìm kiếm">
                         </div>
-
                         <!--end of col-->
                         <div class="col-auto">
                             <button style="background-color: #fff; border: none" type="button">
@@ -71,7 +70,10 @@ use App\Models\category;
                         </div>
                         <!--end of col-->
                     </div>
+                    <div class="search_result" style="position: absolute; top: 100%; overflow: auto; height: 447px;">
+                    </div>
                 </form>
+
                 <div class="header-right-btn d-none d-lg-block mr-3 ml-2 col-1">
                     @if (Auth::check())
                     <li class="nav-item dropdown no-arrow">

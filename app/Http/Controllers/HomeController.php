@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\image;
 use App\Models\post;
 
 
@@ -38,7 +39,11 @@ class HomeController extends Controller
 
     public function search(Request $request){
         $name = $request->name;
-        $post =post::where('name','LIKE','%'.$name."%")->get();
+        $post =DB::table('posts as p')
+        ->join('images as i', 'p.image_id', '=', 'i.id')
+        ->select('p.*', 'i.path_url')
+        ->where('p.name','LIKE','%'.$name."%")
+        ->get();
         return response()->json($post,200);
     }
     public function GetpostbyId($id){
