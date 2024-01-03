@@ -40,6 +40,7 @@ class CategoryController extends Controller implements ICRUD
                 $post= post::where('category_id', $parent_id)->get();
                  if(count($post)>0){
                      DB::table('posts')->where('category_id', $parent_id)->update(['category_id' => $dataCateNew['id']]);
+                     DB::table('images')->where('album_id', $parent_id)->update(['album_id' => $dataAlbum['id']]);
                  }
              }
             DB::commit();
@@ -59,9 +60,19 @@ class CategoryController extends Controller implements ICRUD
             unset($data['insert']);
             $dataAlbum = [
                 'name' => $data['name'],
+                'parent_id'=>$data['parent_id'],
             ];
             DB::table('categories')->where('id','=',$data['id'])->update($data);
             DB::table('albums')->where('category_id','=',$data['id'])->update($dataAlbum);
+            if($data['parent_id']){
+                $post= post::where('category_id', $data['parent_id'])->get();
+                 if(count($post)>0){
+                     DB::table('posts')->where('category_id', $data['parent_id'])->update(['category_id' => $data['id']]);
+                     DB::table('images')->where('album_id', $data['parent_id'])->update(['album_id' => $data['id']]);
+                 }
+                }
+
+
         }
         catch (\Exception $exception){
             return redirect()->back()->with('error','sửa thất bại!');
