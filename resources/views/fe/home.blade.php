@@ -111,9 +111,9 @@
                                 </div>
                             </div>
                             <div
-                                class="col-xl-8 col-md-6 col-sm-4 d-none d-md-block d-lg-block d-xl-block d-xxl-block ">
-                                <div class="properties__button mb-4" style="display: flex; overflow: hidden; justify-content: end">
-                                    <div class="tabs">
+                                class="col-xl-8 col-md-4 col-sm-4 d-none d-md-block d-lg-block d-xl-block d-xxl-block ">
+                                <div class="properties__button mb-4" style="display: flex; overflow: hidden;">
+                                    <div class="tabs" style=" justify-content: end;">
                                         @foreach ($categoryMain as $key => $value)
                                             <a <?php if ($key == 0) {
                                                 echo 'class="tab active"';
@@ -127,7 +127,7 @@
                             </div>
                             @if(count($categoryMain)>=5)
                             <div class="owl-nav col-1 d-none d-md-flex d-lg-flex d-xl-flex d-xxl-flex m-auto pb-3">
-                                <button type="button" role="presentation" class="owl-prev">
+                                <button type="button" role="presentation" class="owl-prev" onclick="translateXElement(0)">
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px"
                                         viewBox="0,0,256,256">
@@ -143,7 +143,7 @@
                                         </g>
                                     </svg>
                                 </button>
-                                <button type="button" role="presentation" class="owl-next">
+                                <button type="button" role="presentation" class="owl-next" onclick="translateXElement(-250)">
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px"
                                         viewBox="0,0,256,256">

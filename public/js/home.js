@@ -24,16 +24,19 @@ function slide(){
     const preview = document.querySelectorAll('ul.slick-dots li button');
     console.log(slide, preview);
 }
-$(document).on("click", '.owl-next', function () {
+
+function translateXElement(x) {
+    if(x<0){
+        x=x-110;
     $('.tabs').css({
-        "transform": "translateX(-250px)",
+        "transform": "translateX("+ x +"px)",
         "justify-content": "none",
     });
-})
-$(document).on("click", '.owl-prev', function () {
-    $('.tabs').css({
-        "transform": "translateX(0px)",
-        "justify-content": "none", 
+}
+else if(x==0){
+     $('.tabs').css({
+        "transform": "translateX("+ x +"px)",
+        "justify-content": "none",
     });
-})
-
+}
+}

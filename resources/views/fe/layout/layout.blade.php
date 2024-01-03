@@ -104,23 +104,24 @@
 <script>
     //tim kiem theo name post home
     $(document).on('keyup', '#search_input', function(e) {
-        var searchText = $(this).val();
-        if (searchText != " ") {
+        let searchText = $(this).val();
+        if (searchText != "") {
             $.ajax({
                 url: "{{ route('search') }}",
                 method: "get",
                 data: {
                     name: searchText,
                 },
-
                 success: function(response) {
                     console.log(response);
-                    $("#show-list").html(result);
+                    let result =  response.map(value =>{
+                        return  '<a href="/post/'+value.id+'" class="list-group-item list-group-item-action border-1"><img style="width: 30%;" src="http://127.0.0.1:8000/'+value.path_url+'" alt=""> &ensp;' + value.name +'</a>'
+                    })
+                    $(".search_result").html(result);
                 },
             })
-
         } else {
-            $("#show-list").html("");
+            $(".search_result").html("");
         }
     });
     $('.slick-track').slick({
