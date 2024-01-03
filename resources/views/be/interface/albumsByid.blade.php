@@ -24,7 +24,7 @@
     </div>
     <div class="card-body">
         <div class="row mt-3 px-3 align-items-center">
-            @foreach($list as $item)
+            @foreach($listparent as $item)
             <div class="col-2 text-center box-album p-4"
                 onclick="window.location='{{ URL::route('admin.image.list', ['id' => $item->id])}}'">
                 <div class="backgroud-album p-1">
