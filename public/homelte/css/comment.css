@@ -12,34 +12,47 @@
     margin-left: 60px;
   }
   .blog-comment .media .media-body {
-    margin-left: 30px;
+    margin-left: 20px;
   }
   .blog-comment .media .media-body h5 {
     display: inline-block;
   }
   .blog-comment .media .media-body h5 a {
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 700;
     color: #14212b;
   }
   .blog-comment .media .media-body .date {
     font-size: 13px;
     color: #616161;
-    margin-left: 14px;
+    margin-left: 5px;
   }
   .blog-comment .media .media-body p {
-    font-size: 15px;
+    font-size: 17px;
     color: #696969;
   }
-  .blog-comment .media .media-body a {
+  .blog-comment .media .media-body button {
     font-size: 18px;
     font-weight: 500;
-    color: #696969;
+    padding: 0.8rem 1rem;
   }
-  .blog-comment .media .media-body a:hover {
-    color: var(--main-color);
+  .blog-comment .media .comment:hover {
+    color: white;
   }
 
   .comment-form {
     margin-top: 70px;
   }
+.comment{
+    border: 1px solid black;
+}
+.reply{
+    color: #696969;
+}
+.reply:hover{
+    color: #14212b;
+}
+.rounded{
+    width: 45px;
+    height: 40px;
+}

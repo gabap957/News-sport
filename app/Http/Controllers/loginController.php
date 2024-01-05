@@ -12,6 +12,10 @@ class loginController extends Controller
         return view('authentication.login');
     }
     public function login(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
         if (Auth::attempt(['email'=>$request->email,'password'=>$request->password, 'level'=>1])){
             return redirect()->route('admin.user.list')->with('success','Đăng nhập với quyền quản trị viên');
         }

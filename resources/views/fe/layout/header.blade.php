@@ -9,7 +9,7 @@ use App\Models\category;
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="col-7 d-flex" style="align-items: center;">
+        <div class="col-7 col-xl-8 d-flex" style="align-items: center;">
             <div class="logo">
                 <a href="#"><img src="{{asset('/img/logo2.png')}}" alt=""></a>
             </div>
@@ -54,7 +54,7 @@ use App\Models\category;
                 </ul>
             </div>
         </div>
-        <div class="col-4 d-none d-lg-block">
+        <div class="col-4 col-xl-3 d-none d-lg-block">
             <div class="d-flex">
                 <form class="card card-sm col m-auto">
                     <div class="card-body row no-gutters align-items-center">
@@ -74,12 +74,12 @@ use App\Models\category;
                     </div>
                 </form>
 
-                <div class="header-right-btn d-none d-lg-block mr-3 ml-2 col-1">
+                <div class="header-right-btn d-none d-lg-block mr-3 ml-3 col-1">
                     @if (Auth::check())
-                    <li class="nav-item dropdown no-arrow">
+                    <li class="nav-item dropdown no-arrow mt-1">
                         <a class="nav-link " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                             <img class="img-profile rounded-circle" src="{{asset('/img/undraw_profile.svg')}}">
+                            <span class="d-none d-lg-inline text-gray-600 small" style="color: #fff; font-size: 17px">{{ Auth::user()->name }}</span>
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

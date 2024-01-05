@@ -11,20 +11,6 @@ body {
     background-color: #ffffff;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-body,
-.navbar-toggleable-md .navbar-nav .nav-link,
-.market-header,
-.btn,
-.dropdown-item,
-.form-control,
-p {
-    font-family: 'Poppins', serif !important;
-}
 
 h1,
 h2,
@@ -306,7 +292,7 @@ h5 :hover {
 .pp,
 .blog-top .fa-rss,
 a:hover,a:focus {
-    color: #FF6347 !important;
+    color: #FF6347 ;
 }
 
 

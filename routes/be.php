@@ -49,7 +49,7 @@ Route::prefix('/admin')->middleware('admin')->group(function (){
     });
     Route::post('/upload', [PostController::class, 'upload'])->name('ckeditor.upload');
 });
-    Route::get('/login',[loginController::class,'viewLogin'])->name('login');
+    Route::get('/login',[loginController::class,'viewLogin'])->middleware('login')->name('login');
     Route::post('/admin',[loginController::class,'login'])->name('admin.login');
     Route::get('/logout',[loginController::class,'logout'])->name('logout');
 ?>

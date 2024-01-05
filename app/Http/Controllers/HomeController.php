@@ -39,7 +39,7 @@ class HomeController extends Controller
 
     public function search(Request $request){
         $name = $request->name;
-        $post =DB::table('posts as p')
+        $post = DB::table('posts as p')
         ->join('images as i', 'p.image_id', '=', 'i.id')
         ->select('p.*', 'i.path_url')
         ->where('p.name','LIKE','%'.$name."%")
