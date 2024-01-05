@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Admin\ICRUD;
 use App\Models\comment;
 use Exception;
 use Illuminate\Http\Request;
