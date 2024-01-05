@@ -136,7 +136,7 @@
             },
             success: function(response) {
                let result =  response.map(value =>{
-               return '<form method="post" action="{{route('commentchild.add')}}">@csrf<li class="row mt-3"><a href="#" class="col-1 w-10"><img src="{{asset('/img/undraw_profile.svg')}}" alt=""></a><div class="media-body col-10"><h5><a href="#">'+name+'</a></h5><div class="d-flex "> <input type="hidden" name="commentParent_id" value="'+id+'"><input class="form-control col-8" style="padding: 7px 10px; font-size: 17px;" placeholder="add comment" name="comment" type="text" required><button class="btn btn-primary ml-2 col-1 comment">Gửi</button></div></div></li></form>'
+               return '<form method="post" action="{{route('commentchild.add')}}">@csrf<li class="row mt-3"><a><img class="rounded" src="{{asset('/img/undraw_profile.svg')}}" alt=""></a><div class="media-body col-10"><h5><a href="#">'+name+'</a></h5><div class="d-flex "> <input type="hidden" name="commentParent_id" value="'+id+'"><input class="form-control col-8" style="padding: 7px 10px; font-size: 17px;" placeholder="add comment" name="comment" type="text" required><button class="btn btn-primary ml-2 col-1 comment">Gửi</button></div></div></li></form>'
                 });
                $('#reply_'+id+'').html(result);
             }

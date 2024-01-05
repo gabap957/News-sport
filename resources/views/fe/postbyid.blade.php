@@ -376,9 +376,9 @@
                                     </form>
                                     @endif
                                     @foreach ($comment as $item)
-                                    <li class="row my-4" id="comment" value="{{$item->id}}">
-                                        <a href="#" class="col-1 w-10">
-                                            <img src="{{asset('/img/undraw_profile.svg')}}" alt="">
+                                    <li class="row " id="comment" value="{{$item->id}}">
+                                        <a>
+                                            <img src="{{asset('/img/undraw_profile.svg')}}" alt="" class="rounded">
                                         </a>
                                         <div class="media-body col-11">
                                             <h5><a href="#">{{$item->user->name}}</a></h5>
@@ -395,8 +395,8 @@
                                                 @if (count($commentchilds) > 0)
                                                 @foreach ($commentchilds as $commentchild)
                                                 <li class="row mt-3">
-                                                    <a href="#" class="col-1 w-10">
-                                                    <img src="{{asset('/img/undraw_profile.svg')}}" alt="">
+                                                    <a>
+                                                    <img src="{{asset('/img/undraw_profile.svg')}}" alt="" class="rounded">
                                                 </a>
                                                 <div class="media-body col-10">
                                                         <h5><a href="#">{{$commentchild->user->name}}</a></h5>
