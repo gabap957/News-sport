@@ -361,7 +361,7 @@
                                             <a href="#" class="col-1 w-10">
                                                 <img src="{{asset('/img/undraw_profile.svg')}}" alt="" class="rounded">
                                             </a>
-                                            <h5>
+                                            <h5 class="text-center">
                                                 <a id="userName">{{Auth::user()->name}}</a>
                                             </h5>
                                         </div>
