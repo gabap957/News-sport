@@ -93,14 +93,14 @@
     <script src="{{ asset('/homelte/js/tether.min.js') }}"></script>
     <script src="{{ asset('/homelte/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('/homelte/js/custom.js') }}"></script>
-    <script src="{{ asset('/js/layouthome.js') }}"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="{{ asset('/homelte/slick/slick.js') }}"></script>
-
     <script src="{{ asset('/js/home.js') }}"></script>
-    <script src="{{ asset('/homelte/js/comment.js') }}"></script>
 </body>
+<?php
+    use Illuminate\Support\Facades\Auth;
+?>
 <script>
     //tim kiem theo name post home
     $(document).on('keyup', '#search_input', function(e) {
@@ -113,9 +113,8 @@
                     name: searchText,
                 },
                 success: function(response) {
-                    console.log(response);
                     let result =  response.map(value =>{
-                        return  '<a href="/post/'+value.id+'" class="list-group-item list-group-item-action border-1"><div class="d-flex"><img style="width: 30%;" src="http://127.0.0.1:8000/'+value.path_url+'" alt=""> <p class="ml-2">' + value.name +'</p></div></a>'
+                        return  '<a href="/post/'+value.id+'" class="list-group-item list-group-item-action border-1"><div class="d-flex"><img style="width: 30%;" src="http://127.0.0.1:8000/'+value.path_url+'" alt=""><p class="ml-2">' + value.name +'</p></div></a>'
                     })
                     $(".search_result").html(result);
                 },
@@ -124,6 +123,29 @@
             $(".search_result").html("");
         }
     });
+    function reply(id) {
+        let check = {{ Auth::check() ? 'true' : 'false' }};
+        let name = $('#userName').text();
+        console.log(id);
+        if(check){
+            $.ajax({
+            url:"{{route('reply')}}",
+            method: "get",
+            data: {
+                id: id,
+            },
+            success: function(response) {
+               let result =  response.map(value =>{
+               return '<form method="post" action="{{route('commentchild.add')}}">@csrf<li class="row mt-3"><a href="#" class="col-1 w-10"><img src="{{asset('/img/undraw_profile.svg')}}" alt=""></a><div class="media-body col-10"><h5><a href="#">'+name+'</a></h5><div class="d-flex "> <input type="hidden" name="commentParent_id" value="'+id+'"><input class="form-control col-8" style="padding: 7px 10px; font-size: 17px;" placeholder="add comment" name="comment" type="text" required><button class="btn btn-primary ml-2 col-1 comment">Gửi</button></div></div></li></form>'
+                });
+               $('#reply_'+id+'').html(result);
+            }
+        })
+        }
+        else{
+            alert("Vui lòng đăng nhập");
+        }
+    }
     $('.slick-track').slick({
         dots: true,
         slidesToShow: 10,

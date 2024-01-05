@@ -407,7 +407,6 @@ a:focus, a:hover {
 }
 
 a:not([href]):not([tabindex]) {
-  color: inherit;
   text-decoration: none;
 }
 
@@ -5053,16 +5052,6 @@ a.badge:focus, a.badge:hover {
           animation: progress-bar-stripes 1s linear infinite;
 }
 
-.media {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
 
 .media-body {
   -webkit-box-flex: 1;

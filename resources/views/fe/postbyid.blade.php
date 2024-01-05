@@ -2,6 +2,7 @@
 @section('content_web')
     <?php
     use App\Models\post;
+    use App\Models\commentchildren;
     use App\Models\category;
     $category_parent = category::where('id', $category['0']['parent_id'])->first();
     ?>
@@ -346,7 +347,78 @@
                         </div>
                     </section>
                     <section>
-                        @include('fe.comment')
+                        <div class="blog-comment">
+                            <div class="container">
+                                <div class="section-title mb-30">
+                                    <h4><?php echo count($comment)?> Comments</h4>
+                                </div>
+                                <ul class="list-unstyled media">
+                                    @if (Auth::check())
+                                    <form method="post" action="{{route('comment.add')}}">
+                                    @csrf
+                                    <li class="row m-4" id="input-comment">
+                                        <div>
+                                            <a href="#" class="col-1 w-10">
+                                                <img src="{{asset('/img/undraw_profile.svg')}}" alt="" class="rounded">
+                                            </a>
+                                            <h5>
+                                                <a id="userName">{{Auth::user()->name}}</a>
+                                            </h5>
+                                        </div>
+                                        <div class="media-body col-11">
+                                           <div class="d-flex">
+                                            <input type="hidden" name="post_id" value="{{$post[0]->id}}">
+                                            <input class="form-control col-8" style="padding: 7px 10px; font-size: 17px;" placeholder="add comment" name="comment" type="text" required>
+                                            <button class="btn btn-primary ml-2 col-1 comment" type="submit" >Gửi</button>
+                                           </div>
+                                        </div>
+                                    </li>
+                                    </form>
+                                    @endif
+                                    @foreach ($comment as $item)
+                                    <li class="row my-4" id="comment" value="{{$item->id}}">
+                                        <a href="#" class="col-1 w-10">
+                                            <img src="{{asset('/img/undraw_profile.svg')}}" alt="">
+                                        </a>
+                                        <div class="media-body col-11">
+                                            <h5><a href="#">{{$item->user->name}}</a></h5>
+                                            <span class="date">{{$item->created_at}}</span>
+                                            <p>{{$item->comment}}</p>
+                                            <a class="reply" onclick="reply({{$item->id}})" id="reply-comment">Reply
+                                                <img srcset="https://img.icons8.com/?size=26&amp;id=39803&amp;format=png 1x, https://img.icons8.com/?size=52&amp;id=39803&amp;format=png 2x," src="https://img.icons8.com/?size=52&amp;id=39803&amp;format=png" alt="Right Arrow" loading="lazy" width="26" height="26" style="width: 26px; height: 26px;" lazy="loaded">
+                                            </a>
+                                            <?php
+
+                                                $commentchilds = commentchildren::where('commentParent_id',$item->id)->orderBy('created_at','desc')->get();
+                                            ?>
+                                            <ul class="list-unstyled media">
+                                                @if (count($commentchilds) > 0)
+                                                @foreach ($commentchilds as $commentchild)
+                                                <li class="row mt-3">
+                                                    <a href="#" class="col-1 w-10">
+                                                    <img src="{{asset('/img/undraw_profile.svg')}}" alt="">
+                                                </a>
+                                                <div class="media-body col-10">
+                                                        <h5><a href="#">{{$commentchild->user->name}}</a></h5>
+                                                        <span class="date">{{$commentchild->created_at}}</span>
+                                                        <p>{{$commentchild->comment}}</p>
+                                                        <a class="reply" onclick="reply({{$item->id}})" id="reply-comment">Reply
+                                                            <img srcset="https://img.icons8.com/?size=26&amp;id=39803&amp;format=png 1x, https://img.icons8.com/?size=52&amp;id=39803&amp;format=png 2x," src="https://img.icons8.com/?size=52&amp;id=39803&amp;format=png" alt="Right Arrow" loading="lazy" width="26" height="26" style="width: 26px; height: 26px;" lazy="loaded">
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                @endforeach
+                                                @endif
+                                            </ul>
+                                            <ul class="list-unstyled media" id="reply_{{$item->id}}">
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    @endforeach
+
+                                </ul>
+                            </div>
+                        </div>
                     </section>
                 </div><!-- .row -->
             </div><!-- .container -->
