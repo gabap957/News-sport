@@ -1,4 +1,4 @@
-<div class="page-content page-container d-none" id="page-content">
+<div class="page-content page-container show1" id="page-content">
     <div class="padding">
         <div class="row container d-flex justify-content-center">
             <div class="col-xl-6 col-md-12 ">
@@ -12,7 +12,8 @@
                                 </div>
                                 <h6 class="f-w-600 " style="color: #fff">{{ Auth::user()->name }}</h6>
                                 <p style="color: #fff; margin-bottom:10px;">Web Designer</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                <div onclick="editProfile()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0"
                                     viewBox="0 0 512 512" style="enable-background:new 0 0 20 20" xml:space="preserve"
                                     class="">
@@ -29,6 +30,7 @@
                                         </path>
                                     </g>
                                 </svg>
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-8 ">
@@ -130,3 +132,38 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="ModaleditProfile" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="{{route('admin.category.edit')}}" method="post" role="form" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-header">
+                    <legend>Sửa thông tin Chuyên mục</legend>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">ID</label>
+                        <input type="text" class="form-control" id="eid" name="id" readonly="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Tên</label> <span id="errorname"></span>
+                        <input type="text" class="form-control" id="ename" name="name" value="" onblur="checkname()" ;
+                            Required />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Địa chỉ URL:</label> <span id="errorurl"></span>
+                        <input type="text" class="form-control" id="eurl" name="cate_url" value="" onblur="checkurl()" ;
+                            Required />
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="submit" name="insert" class="editcategory btn btn-primary">Sửa</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

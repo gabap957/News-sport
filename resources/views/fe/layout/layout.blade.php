@@ -90,7 +90,6 @@
             </div>
         </div>
     </div>
-
     <!-- Core JavaScript
     ================================================== -->
     <script src="{{ asset('/homelte/js/jquery.min.js') }}"></script>
@@ -139,7 +138,7 @@
             },
             success: function(response) {
                let result =  response.map(value =>{
-               return '<form method="post" action="{{route('commentchild.add')}}">@csrf<li class="row mt-3"><div style="display: grid;"><a href="#" class="col-1 w-10"><img class="rounded" src="{{asset('/img/undraw_profile.svg')}}" alt=""></a><h5 class="text-center"><a href="#">'+name+'</a></h5></div><div class="media-body col-10"><div class="d-flex "> <input type="hidden" name="commentParent_id" value="'+id+'"><input class="form-control col-8" style="padding: 7px 10px; font-size: 17px;" placeholder="add comment" name="comment" type="text" required><button class="btn btn-primary ml-2 col-1 comment">Gửi</button></div></div></li></form>'
+               return '<form method="post" action="{{route('commentchild.add')}}">@csrf<li class="row mt-3"><div style="display: grid;"><a href="#" class="col-1 w-10"><img class="rounded" src="{{asset('/img/undraw_profile.svg')}}" alt=""></a><h5 class="text-center"><a href="#">'+name+'</a></h5></div><div class="media-body col-10"><div class="d-flex "> <input type="hidden" name="comment_id" value="'+id+'"><input class="form-control col-8" style="padding: 7px 10px; font-size: 17px;" placeholder="add comment" name="comment" type="text" required><button class="btn btn-primary ml-2 col-1 comment">Gửi</button></div></div></li></form>'
                 });
                $('#reply_'+id+'').html(result);
             }
@@ -151,12 +150,12 @@
     }
     if(check){
        function profile(){
-           $('#page-content').removeClass('d-none');
-           $('#page-content').addClass('d-block');
+           $('#page-content').addClass('show2');
+           $('#page-content').removeClass('show1');
        }
        function removeProfile(){
-        $('#page-content').removeClass('d-block');
-           $('#page-content').addClass('d-none');
+        $('#page-content').removeClass('show2');
+        $('#page-content').addClass('show1');
        }
     }
 

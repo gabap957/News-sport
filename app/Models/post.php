@@ -12,7 +12,7 @@ class post extends Model
     protected $fillable  = ['name','content','title','url','category_id','image_id','type_id','user_id','view'];
     public function image()
     {
-        return $this->hasOne(image::class);
+        return $this->belongsTo(image::class);
     }
     public function category()
     {

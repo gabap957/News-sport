@@ -25,7 +25,9 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 </head>
-
+<?php
+use Illuminate\Support\Facades\Auth;
+?>
 <body id="page-top">
 
     <!-- Page Wrapper -->
