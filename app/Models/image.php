@@ -14,4 +14,7 @@ class image extends Model
     {
         return $this->belongsTo(album::class);
     }
+    public function post(){
+        return $this->hasOne(post::class);
+    }
 }

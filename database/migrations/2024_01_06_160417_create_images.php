@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('OriginalName');
             $table->string('path_url');
-            $table->BigInteger('album_id');
+            $table->unsignedBigInteger('album_id');
+            $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
             $table->timestamps();
         });
     }

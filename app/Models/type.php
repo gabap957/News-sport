@@ -9,4 +9,7 @@ class type extends Model
 {
     use HasFactory;
     protected $fillable  = ['name','quantity'];
+    public function post(){
+        return $this->hasMany(post::class,'type_id');
+    }
 }

@@ -10,9 +10,9 @@ class post extends Model
 {
     use HasFactory;
     protected $fillable  = ['name','content','title','url','category_id','image_id','type_id','user_id','view'];
-    public function image() :BelongsTo
+    public function image()
     {
-        return $this->belongsTo(image::class);
+        return $this->hasOne(image::class);
     }
     public function category()
     {

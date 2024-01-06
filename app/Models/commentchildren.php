@@ -11,6 +11,9 @@ class commentchildren extends Model
     protected $fillable =['comment' ,'user_id','commentParent_id'];
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
+    }
+    public function comment(){
+        return $this->belongsTo(comment::class);
     }
 }
