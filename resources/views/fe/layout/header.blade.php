@@ -63,7 +63,7 @@ use App\Models\category;
                             <input class="form-control form-control-borderless" type="search" id="search_input" placeholder="Tìm kiếm">
                         </div>
                         <!--end of col-->
-                        <div class="col-auto">
+                        <div class="col-auto mr-1">
                             <button style="background-color: #fff; border: none" type="button">
                             <i style="font-size: 20px;" class="fa fa-search"></i>
                             </button>
@@ -76,9 +76,9 @@ use App\Models\category;
 
                 <div class="header-right-btn d-none d-lg-block mr-3 ml-3 col-1">
                     @if (Auth::check())
-                    <li class="nav-item dropdown no-arrow mt-1">
+                    <li class="nav-item dropdown no-arrow mt-1 text-center">
                         <a class="nav-link " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="img-profile rounded-circle" src="{{asset('/img/undraw_profile.svg')}}">
+                            <img class="img-profile ml-2 rounded-circle" src="{{asset(Auth::user()->avatar)}}">
                             <span class="d-none d-lg-inline text-gray-600 small" style="color: #fff; font-size: 17px">{{ Auth::user()->name }}</span>
                         </a>
                         <!-- Dropdown - User Information -->

@@ -34,6 +34,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@localhost',
             'password' => bcrypt('123456'),
+            'phone' => '0123456789',
+            'avatar' => '/img/undraw_profile.svg',
             'level' => 1,
             'remember_token' => '',
             'created_at' => date('Y-m-d H:i:s'),

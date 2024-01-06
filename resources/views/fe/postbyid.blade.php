@@ -350,7 +350,7 @@
                         <div class="blog-comment">
                             <div class="container">
                                 <div class="section-title mb-30">
-                                    <h4><?php echo count($comment)?> Comments</h4>
+                                    <h4><?php echo count($comment)+count($commentchildren)?> Comments</h4>
                                 </div>
                                 <ul class="list-unstyled media">
                                     @if (Auth::check())
@@ -389,7 +389,7 @@
                                             </a>
                                             <?php
 
-                                                $commentchilds = commentchildren::where('commentParent_id',$item->id)->orderBy('created_at','desc')->get();
+                                                $commentchilds = commentchildren::where('comment_id',$item->id)->orderBy('created_at','desc')->get();
                                             ?>
                                             <ul class="list-unstyled media">
                                                 @if (count($commentchilds) > 0)

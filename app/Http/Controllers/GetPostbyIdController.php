@@ -13,6 +13,9 @@ class GetPostbyIdController extends Controller
     public function GetpostbyId($id){
         $post = post::where('id',$id)->get();
         $comment = comment::where('post_id', $id)->get();
+        foreach($comment as $key => $value){
+            $commentchildren = commentchildren::where('comment_id',$value['id'])->get();
+        }
         if(!isset($_COOKIE['post'.$id]) ){
             $post['0']['view'] = $post['0']['view']+1;
             $post['0']->save();
@@ -20,7 +23,8 @@ class GetPostbyIdController extends Controller
         }
         $category = category::where('id',$post['0']['category_id'])->get();
         $categoryParent = category::where('parent_id',0)->get();
-       return view('fe.postbyid',compact('post','categoryParent','category','comment'));
+
+       return view('fe.postbyid',compact('post','categoryParent','category','comment','commentchildren'));
     }
     public function reply(Request $request){
         $id = $request->id;
