@@ -40,6 +40,7 @@
 <link href="{{ asset('homelte/css/colors.css') }}" rel="stylesheet">
 <!-- Version Tech CSS for this template -->
 <link href="{{ asset('homelte/css/version/tech.css') }}" rel="stylesheet">
+<link href="{{ asset('homelte/css/profile.css') }}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{{ asset('/homelte/slick/slick.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('/homelte/slick/slick-theme.css') }}" />
 <!--[if lt IE 9]>
@@ -57,6 +58,9 @@
         </header><!-- end market-header -->
 
         <section class="section first-section">
+            @if (Auth::check())
+            @include('fe.layout.profile')
+            @endif
             @yield('content_web')
         </section>
 
@@ -123,10 +127,9 @@
             $(".search_result").html("");
         }
     });
+    let check = {{ Auth::check() ? 'true' : 'false' }};
     function reply(id) {
-        let check = {{ Auth::check() ? 'true' : 'false' }};
         let name = $('#userName').text();
-        console.log(id);
         if(check){
             $.ajax({
             url:"{{route('reply')}}",
@@ -146,6 +149,17 @@
             alert("Vui lòng đăng nhập");
         }
     }
+    if(check){
+       function profile(){
+           $('#page-content').removeClass('d-none');
+           $('#page-content').addClass('d-block');
+       }
+       function removeProfile(){
+        $('#page-content').removeClass('d-block');
+           $('#page-content').addClass('d-none');
+       }
+    }
+
     $('.slick-track').slick({
         dots: true,
         slidesToShow: 10,

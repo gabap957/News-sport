@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/search',[HomeController::class,'search'])->name('search');
 Route::get('/reply',[GetPostbyIdController::class,'reply'])->name('reply');
+Route::get('/profile',[HomeController::class,'profile'])->name('profile.user');
+

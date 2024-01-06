@@ -1486,12 +1486,7 @@ hr.invis3 {
     width: 400px;
 }
 
-.card-block {
-    -moz-box-flex: 1;
-    background: #202020 none repeat scroll 0 0;
-    padding: 1.25rem 3rem;
-    border-radius: 0 !important;
-}
+
 
 .top-search .btn:hover,
 .top-search .btn:focus,
@@ -8658,3 +8653,4 @@ a.post-cat {
 .header-right-btn li{
     list-style: none;
 }
+

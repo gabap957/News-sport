@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\image;
 use App\Models\post;
-
-
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -49,5 +48,10 @@ class HomeController extends Controller
     public function GetpostbyId($id){
         $post = post::where('id',$id)->get();
         return response()->json($post,200);
+    }
+    public function profile(Request $request){
+        $id = $request->id;
+        $user = User::where('id',$id)->get();
+        return response()->json($user,200);
     }
 }
