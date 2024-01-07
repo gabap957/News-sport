@@ -64,12 +64,12 @@
                                         </div>
                                     </div>
                                     @foreach ($posts as $post)
-                                        <div class="post-block-style row mb-30 ">
+                                        <div class="post-block-style row container mb-30 ">
                                             <div class="col-5 px-4">
-                                                <div class="post-media post-image">
+                                                <div class="post-media post-image"  style="border: 1px solid;">
                                                     <a href="{{ route('getpostbyid', $post->id) }}">
-                                                        <img class="img-fluid" src="{{ asset($post->image->path_url) }}"
-                                                            alt=" Best garden wing supplies for the horticu ltural hopeless">
+                                                        <img class="img-fluid imgfindpost" src="{{ asset($post->image->path_url) }}"
+                                                            alt="{{$post->image->name}}">
                                                     </a>
                                                 </div>
                                             </div>
@@ -86,8 +86,9 @@
                                                         <div class="post-meta">
                                                             <span class="post-author">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                                        style="width: 15px; height: 15px;"
                                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                        width="15" height="15" x="0" y="0"
+                                                                        width="512" height="512" x="0" y="0"
                                                                         viewBox="0 0 512 512"
                                                                         style="enable-background:new 0 0 15 15"
                                                                         xml:space="preserve" class="">

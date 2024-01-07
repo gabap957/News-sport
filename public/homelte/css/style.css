@@ -321,9 +321,8 @@ a {
     width: 100%;
 }
 .imgfindpost{
-    width: auto;
     height: 175px;
-     object-fit: contain;
+     object-fit: cover;
 }
 
 /* Style the tab */
