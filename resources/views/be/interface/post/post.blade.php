@@ -57,5 +57,6 @@
             </table>
         </div>
     </div>
+    <div class="mx-auto mb-4 more">{{$list->appends(request()->all())->links()}}</div>
 </div>
 @endsection
