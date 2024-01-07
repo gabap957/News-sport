@@ -17,3 +17,26 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
+.more .flex-1, .more p{
+    display: none !important;
+ }
+  nav[role="navigation"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px!important;
+}
+.more svg{
+    width: 25px;
+    vertical-align: middle;
+}
+span[aria-current="page"]{
+    margin-right: -5px;
+}
+span[aria-current="page"] span{
+    color: aliceblue !important;
+    background-color: #097bed !important;
+}
+span[aria-disabled="true"] span{
+    color: #dee2e6 !important
+}
