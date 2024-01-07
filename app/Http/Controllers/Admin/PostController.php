@@ -134,6 +134,7 @@ class PostController extends Controller implements ICRUD
             else{
                 DB::table('posts')->where('id', '=', $data['id'])->update($data);
             }
+            dd($data);
             DB::commit();
        }
        catch (Exception $exception) {

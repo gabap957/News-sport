@@ -55,7 +55,8 @@ class HomeController extends Controller
             $data = $request->all();
             unset($data['_token']);
             unset($data['insert']);
-            if($data['image']){
+            if(isset($data['image'])){
+                unset($data['avatar']);
                 $path  = $data['image'];
                 $name = time().$path->getClientOriginalName();
                 $path->storeAs('/avatar', $name, 'public');
@@ -63,8 +64,7 @@ class HomeController extends Controller
                 $data['avatar'] = $urlImage;
                 unset($data['image']);
             }
-             User::where('id',$data['id'])->update($data);
-
+                User::where('id','=',$data['id'])->update($data);
         }
         catch(Exception $e) {
             return redirect()->back()->with('error','Cập nhật thất bại');
