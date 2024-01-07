@@ -104,7 +104,7 @@ class PostController extends Controller implements ICRUD
         unset($data['_token']);
         unset($data['insert']);
         $typeId = $data['type_id'];
-        if(isset($data['image_upload'])){
+        if(isset($data['image-upload'])){
              $array = $data['image-upload'];
             $mainImageName = time().'1'.$array->getClientOriginalName();
              $array->storeAs('/album', $mainImageName, 'public');
@@ -122,7 +122,7 @@ class PostController extends Controller implements ICRUD
              unset($data['image-upload']);
         }
         else{
-            unset($data['image_upload']);
+            unset($data['image-upload']);
         }
         //update type
             $typeData = type::find($typeId)->quantity;
@@ -134,7 +134,6 @@ class PostController extends Controller implements ICRUD
             else{
                 DB::table('posts')->where('id', '=', $data['id'])->update($data);
             }
-            dd($data);
             DB::commit();
        }
        catch (Exception $exception) {

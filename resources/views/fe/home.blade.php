@@ -13,65 +13,48 @@
         <div class="container-fluid">
             <div class="masonry-blog clearfix">
                 <div class="first-slot">
+                    @foreach ($tindacbiet as $value)
                     <div class="masonry-box post-media">
-                        <img src="<?php
-                        $path = DB::table('images')
-                            ->where('id', $tindacbiet[0]->image_id)
-                            ->first();
-                        $categoryName = DB::table('categories')
-                            ->where('id', $tindacbiet[0]->category_id)
-                            ->first();
-                        $userName = DB::table('users')
-                            ->where('id', $tindacbiet[0]->user_id)
-                            ->first();
-                        echo asset($path->path_url);
-                        ?>"alt="">
+                        <img src="{{ $value->image->path_url }}"alt="">
                         <div class="shadoweffect">
                             <div class="shadow-desc">
                                 <div class="blog-meta">
                                     <span class="bg-orange">
-                                        <a href="{{ route('findbycategory', $categoryName->id) }}"
-                                            title="">{{ $categoryName->name }}</a>
+                                        <a href="{{ route('findbycategory', $value->category->id) }}"
+                                            title="">{{ $value->category->name }}</a>
                                     </span>
                                     <h4>
                                         <a href="{{ route('getpostbyid', $tindacbiet[0]->id) }}"
-                                            title="">{{ $tindacbiet[0]->name }}</a>
+                                            title="">{{ $value->name }}</a>
                                     </h4>
                                     <small>
                                         <a title="">
-                                            {{ Carbon::parse($tindacbiet[0]->created_at)->diffInMinutes() < 1
+                                            {{ Carbon::parse($value->created_at)->diffInMinutes() < 1
                                                 ? '1 phút'
-                                                : Carbon::parse($tindacbiet[0]->created_at)->locale('vi')->diffForHumans(null, true) }} trước
+                                                : Carbon::parse($value->created_at)->locale('vi')->diffForHumans(null, true) }} trước
                                         </a>
                                     </small>
                                     <small>
-                                        <a href="" title="">{{ $userName->name }}</a>
+                                        <a href="" title="">{{ $value->user->name }}</a>
                                     </small>
                                 </div><!-- end meta -->
                             </div><!-- end shadow-desc -->
                         </div><!-- end shadow -->
                     </div><!-- end post-media -->
+                    @endforeach
                 </div><!-- end first-side -->
                 <div class="row display">
                     @foreach ($tinNoibat as $key => $value)
                         <div class="col-6">
                             <div class="second-slot">
                                 <div class="masonry-box post-media">
-                                    <img src="<?php
-                                    $path = DB::table('images')
-                                        ->where('id', $value->image_id)
-                                        ->first();
-                                    $categoryName = DB::table('categories')
-                                        ->where('id', $value->category_id)
-                                        ->first();
-                                    echo asset($path->path_url);
-                                    ?>" alt="" class="img-fluid">
+                                    <img src="{{ asset($value->image->path_url) }}" alt="" class="img-fluid">
                                     <div class="shadoweffect">
                                         <div class="shadow-desc">
                                             <div class="blog-meta">
                                                 <span class="bg-orange">
                                                     <a href="{{ route('findbycategory', $value->category_id) }}"
-                                                        title="">{{ $categoryName->name }}</a>
+                                                        title="">{{ $value->category->name }}</a>
                                                 </span>
                                                 <h4 class="textNamepost">
                                                     <a href="{{ route('getpostbyid', $value->id) }}"
@@ -84,7 +67,7 @@
                                                         : Carbon::parse($value->created_at)->locale('vi')->diffForHumans(null, true) }} trước
                                                 </small>
                                                 <small>
-                                                    <a href="tech-author.html" title="">tac gia</a>
+                                                    <a href="" title="">{{$value->user->name}}</a>
                                                 </small>
                                             </div><!-- end meta -->
                                         </div><!-- end shadow-desc -->
@@ -113,7 +96,7 @@
                             </div>
                             <div
                                 class="col-xl-8 col-md-4 col-sm-4 d-none d-md-block d-lg-block d-xl-block d-xxl-block px-4">
-                                <div class="properties__button mb-4" style="display: flex; overflow: hidden;  justify-content: end;">
+                                <div class="properties__button mb-4" style="display: flex; overflow: hidden;  <?php if(count($categoryMain)<5){echo 'justify-content: center;';} ?>">
                                     <div class="tabs">
                                         @foreach ($categoryMain as $key => $value)
                                             <a <?php if ($key == 0) {
@@ -171,11 +154,7 @@
                                         $postDB = post::where('category_id', $value->id)
                                             ->orderBy('created_at', 'desc')
                                             ->first();
-                                        $postcate = post::where('category_id', $value->id)
-                                            ->orderBy('created_at', 'desc')
-                                            ->skip(1)
-                                            ->take(4)
-                                            ->get();
+                                        $postcate = post::where('category_id', $value->id)->orderBy('created_at', 'desc')->paginate(4);
                                         ?>
                                         <div <?php
                                         if ($key == 0) {
@@ -184,6 +163,7 @@
                                             echo 'class="tab-pane fade "';
                                         }
                                         ?> id="nav{{ $key }}">
+
                                             <div class="row">
                                                 <div class="col-xl-6 px-4">
                                                     <div class="whats-news-single mb-40">
@@ -228,16 +208,13 @@
                                                         @endforeach
                                                     </div>
                                                 </div>
+                                                <div class="mx-auto my-2 more">{{$postcate->appends(request()->all())->links()}}</div>
                                             </div>
                                         </div>
                                     @endforeach
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="banner-one mt-20 mb-30">
-                        <img src="assets/img/gallery/body_card1.png" alt="">
                     </div>
                 </div>
                 <section class="col-lg-4">
