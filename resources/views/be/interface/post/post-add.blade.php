@@ -29,7 +29,7 @@
                             <label>Ảnh bìa</label>
                             <div class="text-input">
                                 <div class="image borderInput p-0">
-                                    <img src="" id="image_id" alt="" appHideMissing>
+                                    <img src="" style="border: 1px solid #e3e6f0;" id="image_id" alt="" appHideMissing>
                                 </div>
                                 <input class="p-1 p-md-2 w-100 border" id="image-upload" name="image_id" accept="image/png, image/jpeg"
                                     type="file" value="select">

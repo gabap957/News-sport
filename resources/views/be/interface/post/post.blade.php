@@ -30,18 +30,8 @@
                     @foreach($list as $item)
                     <tr>
                         <td class="text-center">
-                            <img style="width: auto; height: 120px"
-                        src="
-                        <?php
-                            if($item->image_id){
-                                $url = asset($item->image->path_url);
-                                echo($url);
-                            }
-                            else{
-                                echo(asset('/img/default.jpg'));
-                            }
-                        ?>
-                        ">
+                            <img style="width: auto; height: 120px;border: 1px solid;object-fit: contain;"
+                        src="{{asset($item->image->path_url)}}">
                         </td>
                         <td class="text-center">
                             <div class="mx-auto">
@@ -55,9 +45,9 @@
                             ?>
                             </div>
                         </td>
-                        <td class="text-center">{{$item->category->name}}</td>
-                        <td class="text-center">{{$item->type->name}}</td>
-                        <td class="text-center">
+                        <td class="text-center" style="vertical-align: middle;">{{$item->category->name}}</td>
+                        <td class="text-center" style="vertical-align: middle;">{{$item->type->name}}</td>
+                        <td class="text-center" style="vertical-align: middle;">
                             <a array="{{$item}}" id="{{$item->id}}" href="{{route('admin.post.doedit',['id'=>$item->id])}}" class=" btn btn-warning">Sửa</a>
                             <a class="btn btn-danger" onclick="return confirm('bạn có muốn xóa?')" href="{{route('admin.post.delete',['id'=>$item->id])}}">Xóa</a>
                         </td>

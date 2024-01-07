@@ -10,7 +10,7 @@
                                     <img src="{{asset(Auth::user()->avatar)}}" style="width: 100px;height: 100px;object-fit: cover;" class="img-radius"
                                         alt="User-Profile-Image">
                                 </div>
-                                <h6 class="f-w-600 " style="color: #fff">{{ Auth::user()->name }}</h6>
+                                <h6 class="f-w-600 " style="color: #fff">{{Auth::user()->name }}</h6>
                                 <p style="color: #fff; margin-bottom:10px;">Web Designer</p>
                                 <div data-toggle="modal" data-target="#ModaleditProfile">
                                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -150,9 +150,10 @@
                               <span class="glyphicon glyphicon-camera"></span>
                               <span>Change Image</span>
                             </label>
-                            <input id="file" type="file" name="image" onchange="loadFile(event)" value="select"/>
+                            <input id="file" type="file" name="image" onchange="loadFile(event)" value="{{Auth::user()->avatar}}"/>
                             <img src="{{Auth::user()->avatar}}" id="output" width="200" />
                           </div>
+                          <input type="hidden" name="avatar" value="{{Auth::user()->avatar}}">
                     </div>
                     <div class="form-group">
                         <label for="">Tên</label> <span id="errorname"></span>
