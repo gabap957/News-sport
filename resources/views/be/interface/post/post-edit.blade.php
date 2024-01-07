@@ -37,17 +37,7 @@
                             <label>Ảnh bìa</label>
                             <div class="text-input">
                                 <div class="image borderInput p-0">
-                                    <img src="
-                                    <?php
-                            if($list->image_id){
-                                $url = asset($list->image->path_url);
-                                echo($url);
-                            }
-                            else{
-                                echo(asset('/img/default.jpg'));
-                            }
-                        ?>
-                                    " id="image_id" alt="" appHideMissing>
+                                    <img src="{{asset($list->image->path_url)}}" style="border: 1px solid #e3e6f0;" id="image_id" alt="" appHideMissing>
                                 </div>
                                 <input class="p-1 p-md-2 w-100 border" id="image-upload" name="image-upload"
                                     accept="image/png, image/jpeg" type="file" value="select">
@@ -76,7 +66,7 @@
                     <label for="">Chọn loại tin tức</label> <span id="errortitle"></span><br>
                     <select class="form-control" name="type_id" size="1" onfocus="this.size = 8"
                             onchange="this.blur()" onblur="this.size = 1; this.blur()">
-        
+
                         @foreach($type as $item)
                         <option <?php if ($item->id == $list->type_id) {
                             echo "selected=selected";
