@@ -103,7 +103,7 @@ use App\Models\category;
                         </div>
                     </li>
                     @else
-                    <button type="button" onclick="window.location='{{ route('login')}}'" class="btn header-btn btn-success">Đăng nhập</button>
+                    <button type="button" onclick="window.location='{{ route('login')}}'" class="btn header-btn btn-success ml-3">Đăng nhập</button>
                     @endif
                 </div>
             </div>

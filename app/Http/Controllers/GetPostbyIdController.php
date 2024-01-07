@@ -19,6 +19,7 @@ class GetPostbyIdController extends Controller
                 $commentchildren = commentchildren::where('comment_id',$value['id'])->count();
             }
         }
+        $sumComment = count($comment)+$commentchildren;
         if(!isset($_COOKIE['post'.$id]) ){
             $post['0']['view'] = $post['0']['view']+1;
             $post['0']->save();
@@ -26,7 +27,7 @@ class GetPostbyIdController extends Controller
         }
         $category = category::where('id',$post['0']['category_id'])->get();
         $categoryParent = category::where('parent_id',0)->get();
-       return view('fe.postbyid',compact('post','categoryParent','category','comment','commentchildren'));
+       return view('fe.postbyid',compact('post','categoryParent','category','comment','sumComment'));
     }
     public function reply(Request $request){
         $id = $request->id;

@@ -3,6 +3,7 @@
     <?php
     use App\Models\post;
     use App\Models\category;
+    use Carbon\Carbon;
     $parent = false;
     if ($category->parent_id != 0) {
         $category_parent = category::where('id', $category->parent_id)->first();
@@ -45,130 +46,206 @@
         <section id="main-content" class="blog main-container whats-news-area" role="main">
             <div class="container">
                 <div class="row">
-                    @if ($parent==true)
-                    <div class="col-lg-8 pr-3 sidebar-right">
-                        <?php
-                        $posts = post::where('category_id', $category->id)->orderBy('id','desc')->take(6)->get();
-                        ?>
-                        <div class="main-content-inner category-layout2">
-                            <div class="row container">
-                                <div class="category-main-desc">
-                                    <div class="section-tittle mb-30">
-                                       <a href="{{ route('findbycategory', $category->id)}}">
-                                        <h3 class="ml-3">{{$category->name}}</h3>
-                                       </a>
-                                    </div>
-                                </div>
-                                @foreach ($posts as $post)
-                                <div class="post-block-style row mb-30 ">
-                                    <div class="col-5 px-4">
-                                        <div class="post-media post-image">
-                                            <a href="{{ route('getpostbyid', $post->id)}}">
-                                                <img class="img-fluid"
-                                                    src="{{asset($post->image->path_url)}}"
-                                                    alt=" Best garden wing supplies for the horticu ltural hopeless">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-7 pr-3">
-                                        <div class="post-content">
-                                            <div class="entry-blog-header">
-                                                <h2 class="post-title md">
-                                                    <a
-                                                        href="{{ route('getpostbyid', $post->id)}}">
-                                                        {{$post->name}}
-                                                    </a>
-                                                </h2>
-                                            </div>
-                                            <div class="post-meta">
-                                                <div class="post-meta">
-                                                    <span class="post-author"><i class="ts-icon ts-icon-user-solid"></i>
-                                                        <a
-                                                            href="">tac gia</a></span><span
-                                                        class="post-meta-date">
-                                                        <i class="ts-icon ts-icon-clock-regular"></i>
-                                                        June 30, 2019</span>
-                                                </div>
-                                            </div>
-                                            <div class="entry-blog-summery">
-                                                <?php echo substr($post->title, 0, 100); ?>
-                                                <a
-                                                        class="readmore-btn"
-                                                        href="">
-                                                        Read
-                                                        More
-                                                        <i class="ts-icon ts-icon-arrow-right"></i>
-                                                    </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div><!-- .col-md-8 -->
-                    @else
-                    <div class="col-lg-8 pr-3 sidebar-right">
-                        <div class="main-content-inner category-layout2">
+                    @if ($parent == true)
+                        <div class="col-lg-8 pr-3 sidebar-right">
                             <?php
-                                $categorychilld = category::where('parent_id', $category->id)->orderBy('id','desc')->take(3)->get();
+                            $posts = post::where('category_id', $category->id)
+                                ->orderBy('id', 'desc')
+                                ->take(6)
+                                ->get();
                             ?>
-                            @foreach ($categorychilld as $category)
-                            <div class="row container">
-                                <div class="category-main-desc">
-                                    <div class="section-tittle mb-30">
-                                        <h3 class="ml-3">{{$category->name}}</h3>
-                                    </div>
-                                </div>
-                                <?php
-                                    $posts = post::where('category_id', $category->id)->take(6)->get();
-                                ?>
-                                @foreach ($posts as $post)
-                                <div class="post-block-style row mb-30">
-                                    <div class="col-5 px-4">
-                                        <div class="post-media post-image">
-                                            <a href="{{ route('getpostbyid', $post->id)}}">
-                                                <img class="img-fluid" src="{{asset($post->image->path_url)}}"
-                                                    alt=" Best garden wing supplies for the horticu ltural hopeless">
+                            <div class="main-content-inner category-layout2">
+                                <div class="row container">
+                                    <div class="category-main-desc">
+                                        <div class="section-tittle mb-30">
+                                            <a href="{{ route('findbycategory', $category->id) }}">
+                                                <h3 class="ml-3">{{ $category->name }}</h3>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-7 pr-3">
-                                        <div class="post-content">
-                                            <div class="entry-blog-header">
-                                                <h2 class="post-title md">
-                                                    <a
-                                                        href="{{ route('getpostbyid', $post->id)}}">{{$post->name}}</a>
-                                                </h2>
-                                            </div>
-                                            <div class="post-meta">
-                                                <div class="post-meta">
-                                                    <span class="post-author"><i class="ts-icon ts-icon-user-solid"></i>
-                                                        <a
-                                                            href="">{{$post->user->name}}</a></span><span
-                                                        class="post-meta-date">
-                                                        <i class="ts-icon ts-icon-clock-regular"></i>
-                                                        June 30, 2019</span>
+                                    @foreach ($posts as $post)
+                                        <div class="post-block-style row mb-30 ">
+                                            <div class="col-5 px-4">
+                                                <div class="post-media post-image">
+                                                    <a href="{{ route('getpostbyid', $post->id) }}">
+                                                        <img class="img-fluid" src="{{ asset($post->image->path_url) }}"
+                                                            alt=" Best garden wing supplies for the horticu ltural hopeless">
+                                                    </a>
                                                 </div>
                                             </div>
-                                            <div class="entry-blog-summery">
-                                                <?php echo substr($post->title, 0, 100);?>
-                                                <a
-                                                        class="readmore-btn"
-                                                        href="">
-                                                        Read
-                                                        More
-                                                        <i class="ts-icon ts-icon-arrow-right"></i>
-                                                    </a>
+                                            <div class="col-7 pr-3">
+                                                <div class="post-content">
+                                                    <div class="entry-blog-header">
+                                                        <h2 class="post-title md">
+                                                            <a href="{{ route('getpostbyid', $post->id) }}">
+                                                                {{ $post->name }}
+                                                            </a>
+                                                        </h2>
+                                                    </div>
+                                                    <div class="post-meta">
+                                                        <div class="post-meta">
+                                                            <span class="post-author">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                        width="15" height="15" x="0" y="0"
+                                                                        viewBox="0 0 512 512"
+                                                                        style="enable-background:new 0 0 15 15"
+                                                                        xml:space="preserve" class="">
+                                                                        <g>
+                                                                            <path
+                                                                                d="M256 0c-74.439 0-135 60.561-135 135s60.561 135 135 135 135-60.561 135-135S330.439 0 256 0zM423.966 358.195C387.006 320.667 338.009 300 286 300h-60c-52.008 0-101.006 20.667-137.966 58.195C51.255 395.539 31 444.833 31 497c0 8.284 6.716 15 15 15h420c8.284 0 15-6.716 15-15 0-52.167-20.255-101.461-57.034-138.805z"
+                                                                                fill="#707b8e" opacity="1"
+                                                                                data-original="#000000"></path>
+                                                                        </g>
+                                                                    </svg>
+                                                                <a style="color: #707b8e;font-size: 15px">{{ $post->user->name }}</a></span>
+                                                            <span class="post-meta-date ml-1">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                        width="15" height="15" x="0" y="0"
+                                                                        viewBox="0 0 551.13 551.13"
+                                                                        style="enable-background:new 0 0 20 20"
+                                                                        xml:space="preserve" class="">
+                                                                        <g>
+                                                                            <path
+                                                                                d="m275.531 172.228-.05 120.493c0 4.575 1.816 8.948 5.046 12.177l86.198 86.181 24.354-24.354-81.153-81.136.05-113.361z"
+                                                                                fill="#707b8e" opacity="1"
+                                                                                data-original="#000000" class="">
+                                                                            </path>
+                                                                            <path
+                                                                                d="M310.011 34.445c-121.23 0-221.563 90.033-238.367 206.674H0l86.114 86.114 86.114-86.114h-65.78C122.925 143.53 207.803 68.891 310.011 68.891c113.966 0 206.674 92.707 206.674 206.674s-92.707 206.674-206.674 206.674c-64.064 0-123.469-28.996-162.978-79.555l-27.146 21.192c46.084 58.968 115.379 92.808 190.124 92.808 132.955 0 241.119-108.181 241.119-241.119S442.966 34.446 310.011 34.445z"
+                                                                                fill="#707b8e" opacity="1"
+                                                                                data-original="#000000" class="">
+                                                                            </path>
+                                                                        </g>
+                                                                    </svg>
+                                                                <a title=""
+                                                                    style="color: #707b8e;font-size: 15px"><?php
+                                                                    $date = new DateTime($post->created_at);
+                                                                    echo $date->format('d-m-Y');
+                                                                    ?></a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-blog-summery">
+                                                        <?php echo substr($post->title, 0, 100); ?>
+                                                        <a class="readmore-btn" href="">
+                                                            Read
+                                                            More
+                                                            <i class="ts-icon ts-icon-arrow-right"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
+                            </div>
+                        </div><!-- .col-md-8 -->
+                    @else
+                        <div class="col-lg-8 pr-3 sidebar-right">
+                            <div class="main-content-inner category-layout2">
+                                <?php
+                                $categorychilld = category::where('parent_id', $category->id)
+                                    ->orderBy('id', 'desc')
+                                    ->take(3)
+                                    ->get();
+                                ?>
+                                @foreach ($categorychilld as $category)
+                                    <div class="category-main-desc">
+                                        <div class="section-tittle mb-30">
+                                            <h3 class="ml-3">{{ $category->name }}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row container">
+                                        <?php
+                                        $posts = post::where('category_id', $category->id)
+                                            ->take(6)
+                                            ->get();
+                                        ?>
+                                        @foreach ($posts as $post)
+                                            <div class="post-block-style row container mb-30">
+                                                <div class="col-5 px-4">
+                                                    <div class="post-media post-image text-center"
+                                                        style="border: 1px solid;">
+                                                        <a href="{{ route('getpostbyid', $post->id) }}">
+                                                            <img class="img-fluid imgfindpost"
+                                                                src="{{ asset($post->image->path_url) }}" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-7 pr-3">
+                                                    <div class="post-content">
+                                                        <div class="entry-blog-header">
+                                                            <h2 class="post-title md">
+                                                                <a
+                                                                    href="{{ route('getpostbyid', $post->id) }}">{{ $post->name }}</a>
+                                                            </h2>
+                                                        </div>
+                                                        <div class="post-meta">
+                                                            <div class="post-meta">
+                                                                <span class="post-author">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                        width="15" height="15" x="0" y="0"
+                                                                        viewBox="0 0 512 512"
+                                                                        style="enable-background:new 0 0 15 15"
+                                                                        xml:space="preserve" class="">
+                                                                        <g>
+                                                                            <path
+                                                                                d="M256 0c-74.439 0-135 60.561-135 135s60.561 135 135 135 135-60.561 135-135S330.439 0 256 0zM423.966 358.195C387.006 320.667 338.009 300 286 300h-60c-52.008 0-101.006 20.667-137.966 58.195C51.255 395.539 31 444.833 31 497c0 8.284 6.716 15 15 15h420c8.284 0 15-6.716 15-15 0-52.167-20.255-101.461-57.034-138.805z"
+                                                                                fill="#707b8e" opacity="1"
+                                                                                data-original="#000000"></path>
+                                                                        </g>
+                                                                    </svg>
+                                                                    <a
+                                                                        style="color: #707b8e;font-size: 15px">{{ $post->user->name }}</a></span>
+                                                                <span class="ml-1">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                        width="15" height="15" x="0" y="0"
+                                                                        viewBox="0 0 551.13 551.13"
+                                                                        style="enable-background:new 0 0 20 20"
+                                                                        xml:space="preserve" class="">
+                                                                        <g>
+                                                                            <path
+                                                                                d="m275.531 172.228-.05 120.493c0 4.575 1.816 8.948 5.046 12.177l86.198 86.181 24.354-24.354-81.153-81.136.05-113.361z"
+                                                                                fill="#707b8e" opacity="1"
+                                                                                data-original="#000000" class="">
+                                                                            </path>
+                                                                            <path
+                                                                                d="M310.011 34.445c-121.23 0-221.563 90.033-238.367 206.674H0l86.114 86.114 86.114-86.114h-65.78C122.925 143.53 207.803 68.891 310.011 68.891c113.966 0 206.674 92.707 206.674 206.674s-92.707 206.674-206.674 206.674c-64.064 0-123.469-28.996-162.978-79.555l-27.146 21.192c46.084 58.968 115.379 92.808 190.124 92.808 132.955 0 241.119-108.181 241.119-241.119S442.966 34.446 310.011 34.445z"
+                                                                                fill="#707b8e" opacity="1"
+                                                                                data-original="#000000" class="">
+                                                                            </path>
+                                                                        </g>
+                                                                    </svg>
+                                                                    <a title=""
+                                                                        style="color: #707b8e;font-size: 15px"><?php
+                                                                        $date = new DateTime($post->created_at);
+                                                                        echo $date->format('d-m-Y');
+                                                                        ?></a>
+
+                                                                </span>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="entry-blog-summery">
+                                                            <?php echo substr($post->title, 0, 100); ?>
+                                                            <a class="readmore-btn" href="">
+                                                                Read
+                                                                More
+                                                                <i class="ts-icon ts-icon-arrow-right"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 @endforeach
                             </div>
-                            @endforeach
-                        </div>
-                    </div><!-- .col-md-8 -->
+                        </div><!-- .col-md-8 -->
                     @endif
 
                     <section class="col-lg-4 px-4">
@@ -179,35 +256,45 @@
                                 </div>
                             </div>
                             <?php
-                             $postNew1 = post::orderByDesc('view')->first();
+                            $postNew1 = post::orderByDesc('view')->first();
                             $postNew2 = post::orderByDesc('view')
-                            ->skip(1)
-                            ->limit(2)
-                            ->get();
+                                ->skip(1)
+                                ->limit(2)
+                                ->get();
                             ?>
                             <div class="most-recent mb-40">
                                 <div class="most-recent-img mx-auto">
                                     <img src="{{ asset($postNew1->image->path_url) }}" class="img-fluid" alt="">
                                     <div class="most-recent-cap">
-                                        <a href="{{ route('findbycategory', $postNew1->category_id) }}"><span class="bgbeg">{{ $postNew1->category->name }}</span></a>
-                                        <h4><a href="{{ route('getpostbyid', $postNew1->id) }}">{{ $postNew1->name }}</a></h4>
-                                        <p>Jhon | 2 hours ago</p>
+                                        <a href="{{ route('findbycategory', $postNew1->category_id) }}"><span
+                                                class="bgbeg">{{ $postNew1->category->name }}</span></a>
+                                        <h4><a href="{{ route('getpostbyid', $postNew1->id) }}">{{ $postNew1->name }}</a>
+                                        </h4>
+                                        <p>{{ Carbon::parse($postNew1->created_at)->diffInMinutes() < 1
+                                            ? '1 phút'
+                                            : Carbon::parse($postNew1->created_at)->locale('vi')->diffForHumans(null, true) }}
+                                            trước</p>
                                     </div>
                                 </div>
                             </div>
                             @foreach ($postNew2 as $item)
                                 <div class="most-recent-single">
                                     <div class="most-recent-images">
-                                        <img src="{{ asset($item->image->path_url) }}" style="width: 125px; height: 120px"
-                                            alt="">
+                                        <img src="{{ asset($item->image->path_url) }}"
+                                            style="width: 125px; height: 120px; object-fit: cover" alt="">
                                     </div>
                                     <div class="most-recent-capt">
                                         <a href="{{ route('findbycategory', $item->category_id) }}">
-                                            <span class="bgbeg" style="margin-bottom: 10px">{{ $item->category->name }}</span>
+                                            <span class="bgbeg"
+                                                style="margin-bottom: 10px">{{ $item->category->name }}</span>
                                         </a>
                                         <h4>
                                             <a href="{{ route('getpostbyid', $item->id) }}">{{ $item->name }}</a>
                                         </h4>
+                                        <p>{{ Carbon::parse($item->created_at)->diffInMinutes() < 1
+                                            ? '1 phút'
+                                            : Carbon::parse($item->created_at)->locale('vi')->diffForHumans(null, true) }}
+                                            trước</p>
                                     </div>
                                 </div>
                             @endforeach

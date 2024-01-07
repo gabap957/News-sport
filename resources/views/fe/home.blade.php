@@ -3,6 +3,7 @@
     <?php
     use App\Models\post;
     use Illuminate\Support\Facades\DB;
+    use Carbon\Carbon;
     ?>
 
     <head>
@@ -37,10 +38,11 @@
                                             title="">{{ $tindacbiet[0]->name }}</a>
                                     </h4>
                                     <small>
-                                        <a title=""><?php
-                                        $date = new DateTime($tindacbiet[0]->created_at);
-                                        echo $date->format('d-m-Y');
-                                        ?></a>
+                                        <a title="">
+                                            {{ Carbon::parse($tindacbiet[0]->created_at)->diffInMinutes() < 1
+                                                ? '1 phút'
+                                                : Carbon::parse($tindacbiet[0]->created_at)->locale('vi')->diffForHumans(null, true) }} trước
+                                        </a>
                                     </small>
                                     <small>
                                         <a href="" title="">{{ $userName->name }}</a>
@@ -77,10 +79,9 @@
                                                     </a>
                                                 </h4>
                                                 <small>
-                                                    <a title=""><?php
-                                                    $date = new DateTime($value->created_at);
-                                                    echo $date->format('d-m-Y');
-                                                    ?></a>
+                                                     {{ Carbon::parse($value->created_at)->diffInMinutes() < 1
+                                                        ? '1 phút'
+                                                        : Carbon::parse($value->created_at)->locale('vi')->diffForHumans(null, true) }} trước
                                                 </small>
                                                 <small>
                                                     <a href="tech-author.html" title="">tac gia</a>
@@ -194,8 +195,10 @@
                                                                 <a
                                                                     href="{{ route('getpostbyid', $postDB->id) }}">{{ $postDB->name }}</a>
                                                             </h4>
-                                                            <span>{{ $postDB->created_at }}</span>
-                                                            <p><?php echo $postDB->title; ?></p>
+                                                            <span>{{ Carbon::parse($postDB->created_at)->diffInMinutes() < 1
+                                                                ? '1 phút'
+                                                                : Carbon::parse($postDB->created_at)->locale('vi')->diffForHumans(null, true) }} trước</span>
+                                                            <small>{{ $postDB->user->name}}</small>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -216,7 +219,9 @@
                                                                                 href="{{ route('getpostbyid', $item->id) }}">{{ $item->name }}
                                                                             </a>
                                                                         </h4>
-                                                                        <p>{{ $item->created_at }}</p>
+                                                                        <p> {{ Carbon::parse($item->created_at)->diffInMinutes() < 1
+                                                                            ? '1 phút'
+                                                                            : Carbon::parse($item->created_at)->locale('vi')->diffForHumans(null, true) }} trước</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -260,12 +265,9 @@
                                         <a href="{{ route('getpostbyid', $postNew1->id) }}">{{ $postNew1->name }}
                                         </a>
                                     </h4>
-                                    <p><?php
-                                    $startDate = $postNew1->created_at;
-                                    $endtime = now();
-                                    $diffInHours = $startDate->diffInHours($endtime);
-                                    echo $diffInHours . 'giờ';
-                                    ?></p>
+                                    <p>{{ Carbon::parse($postNew1->created_at)->diffInMinutes() < 1
+                                        ? '1 phút'
+                                        : Carbon::parse($postNew1->created_at)->locale('vi')->diffForHumans(null, true) }} trước</p>
                                 </div>
                             </div>
                         </div>
@@ -273,7 +275,7 @@
                             <div class="most-recent-single">
                                 <div class="most-recent-images"
                                     onclick="window.location='{{ URL::route('getpostbyid', $item->id) }}'">
-                                    <img src="{{ $item->image->path_url }}" style="width: 125px; height: 120px"
+                                    <img src="{{ $item->image->path_url }}" style="width: 125px; height: 120px;object-fit: cover;"
                                         alt="">
                                 </div>
                                 <div class="most-recent-capt">
@@ -281,7 +283,9 @@
                                         onclick="window.location='{{ URL::route('findbycategory', $item->category_id) }}'"
                                         style="margin-bottom: 10px">{{ $item->category->name }}</span>
                                     <h4><a href="{{ route('getpostbyid', $item->id) }}">{{ $item->name }}</a></h4>
-                                    <p>Jhon | 2 hours ago</p>
+                                    <p>{{ Carbon::parse($item->created_at)->diffInMinutes() < 1
+                                        ? '1 phút'
+                                        : Carbon::parse($item->created_at)->locale('vi')->diffForHumans(null, true) }} trước</p>
                                 </div>
                             </div>
                         @endforeach

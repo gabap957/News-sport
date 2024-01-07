@@ -4,10 +4,12 @@
     use App\Models\post;
     use App\Models\commentchildren;
     use App\Models\category;
+    use Carbon\Carbon;
     $category_parent = category::where('id', $category['0']['parent_id'])->first();
     ?>
+
     <head>
-        <link href="{{asset('/homelte/css/comment.css') }}" rel="stylesheet">
+        <link href="{{ asset('/homelte/css/comment.css') }}" rel="stylesheet">
     </head>
     <div class="container">
         <div class="container">
@@ -57,28 +59,74 @@
                                         </a>
                                     </li>
                                     <li class="post-author">
-                                        <img alt=""
-                                            src="https://secure.gravatar.com/avatar/66ac99bcb2f49331067e931de0dba35f?s=55&amp;d=mm&amp;r=g"
-                                            srcset="https://secure.gravatar.com/avatar/66ac99bcb2f49331067e931de0dba35f?s=110&amp;d=mm&amp;r=g 2x"
-                                            class="avatar avatar-55 photo" height="55" width="55" decoding="async">
-                                        <a href="https://demo-themewinter.com/digiqole/blog/author/wptuser/">wptuser</a>
+                                        <img alt="" src="{{ asset($post['0']->user->avatar) }}" class="img-profile"
+                                            decoding="async">
+                                        <a class="ml-2"
+                                            style="font-size: 17px;color: #707b8e">{{ $post['0']->user->name }}</a>
                                     </li>
                                     <li class="post-meta-date">
-                                        <i class="ts-icon ts-icon-clock-regular"></i>
-                                        July 10, 2019
+                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                            style="width: 15px; height: 15px;" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            width="512" height="512" x="0" y="0" viewBox="0 0 443.294 443.294"
+                                            style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                            <g>
+                                                <path
+                                                    d="M221.647 0C99.433 0 0 99.433 0 221.647s99.433 221.647 221.647 221.647 221.647-99.433 221.647-221.647S343.861 0 221.647 0zm0 415.588c-106.941 0-193.941-87-193.941-193.941s87-193.941 193.941-193.941 193.941 87 193.941 193.941-87 193.941-193.941 193.941z"
+                                                    fill="#707b8e" opacity="1" data-original="#000000" class="">
+                                                </path>
+                                                <path
+                                                    d="M235.5 83.118h-27.706v144.265l87.176 87.176 19.589-19.589-79.059-79.059z"
+                                                    fill="#707b8e" opacity="1" data-original="#000000" class="">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                        <a title="" style="color: #707b8e;font-size: 17px;"><?php
+                                        $date = new DateTime($post['0']->created_at);
+                                        echo $date->format('d-m-Y');
+                                        ?></a>
                                     </li>
                                     <li class="post-comment">
-                                        <i class="ts-icon ts-icon-comments"></i>
-                                        <a href="#" class="comments-link">0 </a>
+                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                            style="width:15px;height:15px;" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            width="512" height="512" x="0" y="0" viewBox="0 0 512 512"
+                                            style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                            <g>
+                                                <path
+                                                    d="M303.392 61.393C271.597 41.783 233.92 31 195 31 89.054 31 0 109.933 0 211c0 35.435 11.008 69.404 31.918 98.741l-29.21 91.706C-.378 411.134 6.878 421 17.003 421a14.97 14.97 0 0 0 6.795-1.629l88.832-45.167a203.154 203.154 0 0 0 10.918 4.328C102.981 346.43 92 309.58 92 271c0-114.897 96.678-203.228 211.392-209.607z"
+                                                    fill="#707b8e" opacity="1" data-original="#000000" class="">
+                                                </path>
+                                                <path
+                                                    d="M480.082 369.741C500.992 340.404 512 306.435 512 271c0-101.104-89.092-180-195-180-105.946 0-195 78.933-195 180 0 101.104 89.092 180 195 180 28.417 0 56.732-5.791 82.365-16.798l88.837 45.169a15.001 15.001 0 0 0 21.091-17.923zM256 286c-8.284 0-15-6.716-15-15s6.716-15 15-15 15 6.716 15 15-6.716 15-15 15zm60 0c-8.284 0-15-6.716-15-15s6.716-15 15-15 15 6.716 15 15-6.716 15-15 15zm60 0c-8.284 0-15-6.716-15-15s6.716-15 15-15 15 6.716 15 15-6.716 15-15 15z"
+                                                    fill="#707b8e" opacity="1" data-original="#000000" class="">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                        <a href="#" class="comments-link"
+                                            style="color: #707b8e;font-size: 18px">{{ $sumComment }} </a>
                                     </li>
                                     <li class="meta-post-view">
-                                        <i class="ts-icon ts-icon-fire"></i>
-                                        4952
+                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="width:17px;height:17px; vertical-align: middle;"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0"
+                                            y="0" viewBox="0 0 461.312 461.312" style="enable-background:new 0 0 512 512"
+                                            xml:space="preserve" class="">
+                                            <g>
+                                                <path
+                                                    d="M230.656 156.416c-40.96 0-74.24 33.28-74.24 74.24s33.28 74.24 74.24 74.24 74.24-33.28 74.24-74.24-33.28-74.24-74.24-74.24zm-5.632 52.224c-9.216 0-16.896 7.68-16.896 16.896h-24.576c.512-23.04 18.944-41.472 41.472-41.472v24.576z"
+                                                    fill="#707b8e" opacity="1" data-original="#000000"
+                                                    class=""></path>
+                                                <path
+                                                    d="M455.936 215.296c-25.088-31.232-114.688-133.12-225.28-133.12S30.464 184.064 5.376 215.296c-7.168 8.704-7.168 21.504 0 30.72 25.088 31.232 114.688 133.12 225.28 133.12s200.192-101.888 225.28-133.12c7.168-8.704 7.168-21.504 0-30.72zm-225.28 122.88c-59.392 0-107.52-48.128-107.52-107.52s48.128-107.52 107.52-107.52 107.52 48.128 107.52 107.52-48.128 107.52-107.52 107.52z"
+                                                    fill="#707b8e" opacity="1" data-original="#000000"
+                                                    class=""></path>
+                                            </g>
+                                        </svg>
+                                       <a style="font-size: 18px; color: #707b8e"> {{$post['0']->view }}</a>
                                     </li>
                                     <li class="read-time">
                                         <span class="post-read-time">
                                             <i class="ts-icon ts-icon-eye-solid"></i>
-                                            <span class="read-time">6 minutes read</span>
+                                            <span class="read-time" ><p style="color: #707b8e; font-size: 17px">{{ Carbon::parse($post['0']->created_at)->diffInMinutes() < 1? '1 phút': Carbon::parse($post['0']->created_at)->locale('vi')->diffForHumans(null, true) }}
+                                                trước</p></span>
                                         </span>
                                     </li>
                                 </ul>
@@ -205,18 +253,21 @@
                             </div>
                             <?php
                             $postNew1 = post::orderByDesc('view')->first();
-                           $postNew2 = post::orderByDesc('view')
-                            ->skip(1)
-                            ->limit(2)
-                            ->get();
+                            $postNew2 = post::orderByDesc('view')
+                                ->skip(1)
+                                ->limit(2)
+                                ->get();
                             ?>
                             <div class="most-recent mb-40">
                                 <div class="most-recent-img mx-auto">
                                     <img src="{{ asset($postNew1->image->path_url) }}" class="img-fluid" alt="">
                                     <div class="most-recent-cap">
-                                        <a href="{{ route('findbycategory', $postNew1->category_id) }}"><span class="bgbeg">{{ $postNew1->category->name }}</span></a>
-                                        <h4><a href="{{ route('getpostbyid', $postNew1->id) }}">{{ $postNew1->name }}</a></h4>
-                                        <p>Jhon | 2 hours ago</p>
+                                        <a href="{{ route('findbycategory', $postNew1->category_id) }}"><span
+                                                class="bgbeg">{{ $postNew1->category->name }}</span></a>
+                                        <h4><a href="{{ route('getpostbyid', $postNew1->id) }}">{{ $postNew1->name }}</a>
+                                        </h4>
+                                        <p>{{ Carbon::parse($postNew1->created_at)->diffInMinutes() < 1? '1 phút': Carbon::parse($postNew1->created_at)->locale('vi')->diffForHumans(null, true) }}
+                                            trước</p>
                                     </div>
                                 </div>
                             </div>
@@ -228,12 +279,14 @@
                                     </div>
                                     <div class="most-recent-capt">
                                         <a href="{{ route('findbycategory', $item->category_id) }}">
-                                            <span class="bgbeg" style="margin-bottom: 10px">{{ $item->category->name }}</span>
+                                            <span class="bgbeg"
+                                                style="margin-bottom: 10px">{{ $item->category->name }}</span>
                                         </a>
                                         <h4>
                                             <a href="{{ route('getpostbyid', $item->id) }}">{{ $item->name }}</a>
                                         </h4>
-                                        <p>Jhon | 2 hours ago</p>
+                                        <p>{{ Carbon::parse($item->created_at)->diffInMinutes() < 1? '1 phút': Carbon::parse($item->created_at)->locale('vi')->diffForHumans(null, true) }}
+                                            trước</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -350,70 +403,94 @@
                         <div class="blog-comment">
                             <div class="container">
                                 <div class="section-title mb-30">
-                                    <h4><?php echo count($comment)+$commentchildren;?> Comments</h4>
+                                    <h4>{{ $sumComment }} Bình luận</h4>
                                 </div>
                                 <ul class="list-unstyled media">
                                     @if (Auth::check())
-                                    <form method="post" action="{{route('comment.add')}}">
-                                    @csrf
-                                    <li class="row m-4" id="input-comment">
-                                        <div>
-                                            <a href="#" class="col-1 w-10">
-                                                <img src="{{asset('/img/undraw_profile.svg')}}" alt="" class="rounded">
-                                            </a>
-                                            <h5 class="text-center">
-                                                <a id="userName">{{Auth::user()->name}}</a>
-                                            </h5>
-                                        </div>
-                                        <div class="media-body col-11">
-                                           <div class="d-flex">
-                                            <input type="hidden" name="post_id" value="{{$post[0]->id}}">
-                                            <input class="form-control col-8" style="padding: 7px 10px; font-size: 17px;" placeholder="add comment" name="comment" type="text" required>
-                                            <button class="btn btn-primary ml-2 col-1 comment" type="submit" >Gửi</button>
-                                           </div>
-                                        </div>
-                                    </li>
-                                    </form>
+                                        <form method="post" action="{{ route('comment.add') }}">
+                                            @csrf
+                                            <li class="row m-4" id="input-comment">
+                                                <div>
+                                                    <a href="#" class="col-1 w-10">
+                                                        <img src="{{ asset('/img/undraw_profile.svg') }}" alt=""
+                                                            class="rounded">
+                                                    </a>
+                                                    <h5 class="text-center">
+                                                        <a id="userName">{{ Auth::user()->name }}</a>
+                                                    </h5>
+                                                </div>
+                                                <div class="media-body col-11">
+                                                    <div class="d-flex">
+                                                        <input type="hidden" name="post_id"
+                                                            value="{{ $post[0]->id }}">
+                                                        <input class="form-control col-8"
+                                                            style="padding: 7px 10px; font-size: 17px;"
+                                                            placeholder="add comment" name="comment" type="text"
+                                                            required>
+                                                        <button class="btn btn-primary ml-2 col-1 comment"
+                                                            type="submit">Gửi</button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </form>
                                     @endif
                                     @foreach ($comment as $item)
-                                    <li class="row " id="comment" value="{{$item->id}}">
-                                        <a>
-                                            <img src="{{asset('/img/undraw_profile.svg')}}" alt="" class="rounded">
-                                        </a>
-                                        <div class="media-body col-11">
-                                            <h5><a href="#">{{$item->user->name}}</a></h5>
-                                            <span class="date">{{$item->created_at}}</span>
-                                            <p>{{$item->comment}}</p>
-                                            <a class="reply" onclick="reply({{$item->id}})" id="reply-comment">Reply
-                                                <img srcset="https://img.icons8.com/?size=26&amp;id=39803&amp;format=png 1x, https://img.icons8.com/?size=52&amp;id=39803&amp;format=png 2x," src="https://img.icons8.com/?size=52&amp;id=39803&amp;format=png" alt="Right Arrow" loading="lazy" width="26" height="26" style="width: 26px; height: 26px;" lazy="loaded">
+                                        <li class="row " id="comment" value="{{ $item->id }}">
+                                            <a>
+                                                <img src="{{ asset('/img/undraw_profile.svg') }}" alt=""
+                                                    class="rounded">
                                             </a>
-                                            <?php
-
-                                                $commentchilds = commentchildren::where('comment_id',$item->id)->orderBy('created_at','desc')->get();
-                                            ?>
-                                            <ul class="list-unstyled media">
-                                                @if (count($commentchilds) > 0)
-                                                @foreach ($commentchilds as $commentchild)
-                                                <li class="row mt-3">
-                                                    <a>
-                                                    <img src="{{asset('/img/undraw_profile.svg')}}" alt="" class="rounded">
+                                            <div class="media-body col-11">
+                                                <h5><a href="#">{{ $item->user->name }}</a></h5>
+                                                <span class="date">{{ $item->created_at }}</span>
+                                                <p>{{ $item->comment }}</p>
+                                                <a class="reply" onclick="reply({{ $item->id }})"
+                                                    id="reply-comment">Reply
+                                                    <img srcset="https://img.icons8.com/?size=26&amp;id=39803&amp;format=png 1x, https://img.icons8.com/?size=52&amp;id=39803&amp;format=png 2x,"
+                                                        src="https://img.icons8.com/?size=52&amp;id=39803&amp;format=png"
+                                                        alt="Right Arrow" loading="lazy" width="26" height="26"
+                                                        style="width: 26px; height: 26px;" lazy="loaded">
                                                 </a>
-                                                <div class="media-body col-10">
-                                                        <h5><a href="#">{{$commentchild->user->name}}</a></h5>
-                                                        <span class="date">{{$commentchild->created_at}}</span>
-                                                        <p>{{$commentchild->comment}}</p>
-                                                        <a class="reply" onclick="reply({{$item->id}})" id="reply-comment">Reply
-                                                            <img srcset="https://img.icons8.com/?size=26&amp;id=39803&amp;format=png 1x, https://img.icons8.com/?size=52&amp;id=39803&amp;format=png 2x," src="https://img.icons8.com/?size=52&amp;id=39803&amp;format=png" alt="Right Arrow" loading="lazy" width="26" height="26" style="width: 26px; height: 26px;" lazy="loaded">
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                @endforeach
-                                                @endif
-                                            </ul>
-                                            <ul class="list-unstyled media" id="reply_{{$item->id}}">
-                                            </ul>
-                                        </div>
-                                    </li>
+                                                <?php
+
+                                                $commentchilds = commentchildren::where('comment_id', $item->id)
+                                                    ->orderBy('created_at', 'desc')
+                                                    ->get();
+                                                ?>
+                                                <ul class="list-unstyled media">
+                                                    @if (count($commentchilds) > 0)
+                                                        @foreach ($commentchilds as $commentchild)
+                                                            <li class="row mt-3">
+                                                                <a>
+                                                                    <img src="{{ asset('/img/undraw_profile.svg') }}"
+                                                                        alt="" class="rounded">
+                                                                </a>
+                                                                <div class="media-body col-10">
+                                                                    <h5><a
+                                                                            href="#">{{ $commentchild->user->name }}</a>
+                                                                    </h5>
+                                                                    <span
+                                                                        class="date">{{ $commentchild->created_at }}</span>
+                                                                    <p>{{ $commentchild->comment }}</p>
+                                                                    <a class="reply"
+                                                                        onclick="reply({{ $item->id }})"
+                                                                        id="reply-comment">Reply
+                                                                        <img srcset="https://img.icons8.com/?size=26&amp;id=39803&amp;format=png 1x, https://img.icons8.com/?size=52&amp;id=39803&amp;format=png 2x,"
+                                                                            src="https://img.icons8.com/?size=52&amp;id=39803&amp;format=png"
+                                                                            alt="Right Arrow" loading="lazy"
+                                                                            width="26" height="26"
+                                                                            style="width: 26px; height: 26px;"
+                                                                            lazy="loaded">
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+                                                        @endforeach
+                                                    @endif
+                                                </ul>
+                                                <ul class="list-unstyled media" id="reply_{{ $item->id }}">
+                                                </ul>
+                                            </div>
+                                        </li>
                                     @endforeach
 
                                 </ul>
