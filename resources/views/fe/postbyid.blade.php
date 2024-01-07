@@ -62,7 +62,7 @@
                                         <img alt="" src="{{ asset($post['0']->user->avatar) }}" class="img-profile"
                                             decoding="async">
                                         <a class="ml-2"
-                                            style="font-size: 17px;color: #707b8e">{{ $post['0']->user->name }}</a>
+                                            style="font-size: 17px;font-weight: 600">{{ $post['0']->user->name }}</a>
                                     </li>
                                     <li class="post-meta-date">
                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
