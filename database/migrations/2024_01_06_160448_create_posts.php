@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('type_id');//1:thuong; 2:tin dac biet;
             $table->foreign('type_id')->references('id')->on('types');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id');
             $table->bigInteger('view')->default(0);
             $table->timestamps();
         });
