@@ -15,5 +15,6 @@ Route::prefix('/')->group(function (){
     Route::post('/signup',[AuthController::class,'register'])->name('register');
     Route::post('/comment',[CommentController::class,'add'])->name('comment.add');
     Route::post('/commentchild',[CommentChildController::class,'add'])->name('commentchild.add');
+    Route::post('/profile',[HomeController::class,'profile'])->name('profile.user');
 })
 ?>

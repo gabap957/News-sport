@@ -6,6 +6,7 @@ use App\Models\category;
 use App\Models\image;
 use App\Models\post;
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -50,8 +51,24 @@ class HomeController extends Controller
         return response()->json($post,200);
     }
     public function profile(Request $request){
-        $id = $request->id;
-        $user = User::where('id',$id)->get();
-        return response()->json($user,200);
+        try{
+            $data = $request->all();
+            unset($data['_token']);
+            unset($data['insert']);
+            if($data['image']){
+                $path  = $data['image'];
+                $name = time().$path->getClientOriginalName();
+                $path->storeAs('/avatar', $name, 'public');
+                $urlImage= 'storage/avatar/' . $name;
+                $data['avatar'] = $urlImage;
+                unset($data['image']);
+            }
+             User::where('id',$data['id'])->update($data);
+
+        }
+        catch(Exception $e) {
+            return redirect()->back()->with('error','Cập nhật thất bại');
+        }
+        return redirect()->back()->with('success','Cập nhật thành công');
     }
 }

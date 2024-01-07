@@ -7,12 +7,12 @@
                         <div class="col-sm-4 bg-c-lite-green user-profile px-4">
                             <div class="card-block text-center text-white">
                                 <div class="m-b-25">
-                                    <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius"
+                                    <img src="{{asset(Auth::user()->avatar)}}" style="width: 100px;height: 100px;object-fit: cover;" class="img-radius"
                                         alt="User-Profile-Image">
                                 </div>
                                 <h6 class="f-w-600 " style="color: #fff">{{ Auth::user()->name }}</h6>
                                 <p style="color: #fff; margin-bottom:10px;">Web Designer</p>
-                                <div onclick="editProfile()">
+                                <div data-toggle="modal" data-target="#ModaleditProfile">
                                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0"
                                     viewBox="0 0 512 512" style="enable-background:new 0 0 20 20" xml:space="preserve"
@@ -132,35 +132,51 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="ModaleditProfile" tabindex="-1" role="dialog">
+<div class="modal fade profile-modal"  id="ModaleditProfile" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="{{route('admin.category.edit')}}" method="post" role="form" enctype="multipart/form-data">
+            <form action="{{route('profile.user')}}" method="post" role="form" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <legend>Sửa thông tin Chuyên mục</legend>
+                    <legend>Sửa thông tin Tài Khoản</legend>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="">ID</label>
-                        <input type="text" class="form-control" id="eid" name="id" readonly="">
+                        <input type="hidden" name="id" value="{{Auth::user()->id}}">
                     </div>
-
+                    <div class="form-group" for="image-upload">
+                        <div class="profile-pic">
+                            <label class="-label" for="file">
+                              <span class="glyphicon glyphicon-camera"></span>
+                              <span>Change Image</span>
+                            </label>
+                            <input id="file" type="file" name="image" onchange="loadFile(event)" value="select"/>
+                            <img src="{{Auth::user()->avatar}}" id="output" width="200" />
+                          </div>
+                    </div>
                     <div class="form-group">
                         <label for="">Tên</label> <span id="errorname"></span>
-                        <input type="text" class="form-control" id="ename" name="name" value="" onblur="checkname()" ;
+                        <input type="text" class="form-control" id="ename" name="name" value="{{Auth::user()->name}}" onblur="checkname()" ;
                             Required />
                     </div>
                     <div class="form-group">
-                        <label for="">Địa chỉ URL:</label> <span id="errorurl"></span>
-                        <input type="text" class="form-control" id="eurl" name="cate_url" value="" onblur="checkurl()" ;
+                        <label for="">Email:</label> <span id="errorurl"></span>
+                        <input type="email" class="form-control" id="eemal" name="email" value="{{Auth::user()->email}}" onblur="checkemail()" ;
                             Required />
-
+                    </div>
+                    <div class="form-group">
+                        <label for="">Phone:</label> <span id="errorurl"></span>
+                        <input type="number" class="form-control" id="ephone" name="phone" value="{{Auth::user()->phone}}" onblur="checkphone()" ;
+                            Required />
+                    </div>
+                    <div>
+                    <a href="#" style="font-size: 15px">Thay đổi mật khẩu</a>
+                    <span id="errorurl"></span>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                    <button type="submit" name="insert" class="editcategory btn btn-primary">Sửa</button>
+                    <button type="button" class="btn2 btn-thoat" data-dismiss="modal">Đóng</button>
+                    <button onclick="editProfile({{Auth::user()->id}})" type="submit" name="insert" class="btn2 btn-sua">Sửa</button>
                 </div>
             </form>
         </div>

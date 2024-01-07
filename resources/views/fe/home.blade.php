@@ -107,7 +107,7 @@
                         <div class="row justify-content-between align-items-end">
                             <div class="col-xl-3 col-md-5 col-sm-5 col-auto px-4">
                                 <div class="section-tittle mb-30">
-                                    <h3 class="ml-1">Tin Nóng</h3>
+                                    <h3  class="ml-1">Tin Nóng</h3>
                                 </div>
                             </div>
                             <div
@@ -243,10 +243,10 @@
                             </div>
                         </div>
                         <?php
-                        $postNew1 = post::orderBy('created_at', 'desc')->first();
-                        $postNew2 = post::orderBy('created_at', 'desc')
+                        $postNew1 = post::orderByDesc('view')->first();
+                        $postNew2 = post::orderByDesc('view')
                             ->skip(1)
-                            ->take(2)
+                            ->limit(2)
                             ->get();
                         ?>
                         <div class="most-recent mb-40">

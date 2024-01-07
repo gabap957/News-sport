@@ -9895,7 +9895,7 @@ a:focus {
   overflow-x: hidden;
   transition: 0.7s;
 }
-  
+
 #wrapper #content-wrapper #content {
   flex: 1 0 auto;
 }
@@ -10259,6 +10259,7 @@ a:focus {
 .topbar .nav-item .nav-link .img-profile {
   height: 2rem;
   width: 2rem;
+  object-fit: cover;
 }
 .marginleft{
   margin-left: 220px;
