@@ -320,7 +320,11 @@ a {
 .post-media img {
     width: 100%;
 }
-
+.imgfindpost{
+    width: auto;
+    height: 175px;
+     object-fit: contain;
+}
 
 /* Style the tab */
 
@@ -8501,7 +8505,7 @@ a.post-cat {
   .post .entry-header .post-meta li,
   .post-wrapper .entry-header .post-meta li {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 15px;
   }
   .post .entry-header .post-meta li:last-child,
   .post-wrapper .entry-header .post-meta li:last-child {
