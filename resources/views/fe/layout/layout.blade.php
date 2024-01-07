@@ -100,6 +100,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="{{ asset('/homelte/slick/slick.js') }}"></script>
     <script src="{{ asset('/js/home.js') }}"></script>
+    <script src="{{ asset('/js/showimage.js') }}"></script>
 </body>
 <?php
     use Illuminate\Support\Facades\Auth;

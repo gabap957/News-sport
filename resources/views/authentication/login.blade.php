@@ -44,6 +44,8 @@
                 </div><span class="form__span">Hoặc sử dụng email để đăng ký</span>
                 <input class="form__input" name="name" type="text" placeholder="Name" required>
                 <input class="form__input" name="email" type="email" placeholder="Email" required>
+                <input class="form__input" name="phone" type="text" placeholder="Phone" required>
+                <input type="text" name="avatar" value="img/undraw_profile.svg" hidden>
                 <input class="form__input" name="password" type="password" placeholder="Password" required>
                 <button class="form__button button" type="submit">Đăng Ký</button>
             </form>

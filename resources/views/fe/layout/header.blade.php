@@ -56,7 +56,7 @@ use App\Models\category;
         </div>
         <div class="col-4 col-xl-3 d-none d-lg-block">
             <div class="d-flex">
-                <form class="card card-sm col m-auto">
+                <form class="card card-sm col my-auto">
                     <div class="card-body row no-gutters align-items-center">
                         <!--end of col-->
                         <div class="col">
@@ -74,12 +74,12 @@ use App\Models\category;
                     </div>
                 </form>
 
-                <div class="header-right-btn d-none d-lg-block mr-3 ml-3 col-1">
+                <div class="header-right-btn d-none d-lg-block col-2">
                     @if (Auth::check())
                     <li class="nav-item dropdown no-arrow mt-1 text-center">
-                        <a class="nav-link " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="img-profile ml-2 rounded-circle" src="{{asset(Auth::user()->avatar)}}">
-                            <span class="d-none d-lg-inline text-gray-600 small" style="color: #fff; font-size: 17px">{{ Auth::user()->name }}</span>
+                        <a class="nav-link mx-auto" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <div class="mx-auto"><img class="img-profile  rounded-circle" src="{{asset(Auth::user()->avatar)}}"></div>
+                            <div class="mx-auto"><span class="d-none d-lg-inline text-gray-600 small" style="color: #fff; font-size: 17px">{{ Auth::user()->name }}</span></div>
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

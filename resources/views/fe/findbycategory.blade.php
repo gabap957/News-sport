@@ -179,11 +179,11 @@
                                 </div>
                             </div>
                             <?php
-                            $postNew1 = post::orderBy('created_at', 'desc')->first();
-                            $postNew2 = post::orderBy('created_at', 'desc')
-                                ->skip(1)
-                                ->take(2)
-                                ->get();
+                             $postNew1 = post::orderByDesc('view')->first();
+                            $postNew2 = post::orderByDesc('view')
+                            ->skip(1)
+                            ->limit(2)
+                            ->get();
                             ?>
                             <div class="most-recent mb-40">
                                 <div class="most-recent-img mx-auto">
