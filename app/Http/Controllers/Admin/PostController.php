@@ -19,7 +19,7 @@ class PostController extends Controller implements ICRUD
     //
     public function list()
     {
-        $list = post::paginate(10);
+        $list = post::orderBy('id', 'desc')->paginate(10);
         $categories = category::all();
         return view('be.interface.post.post', compact('list','categories'));
     }
