@@ -48,10 +48,10 @@
                                 <h1 class="post-title lg">
                                     {{ $post['0']->name }}
                                 </h1>
-                                <ul class="post-meta">
+                                <ul class="post-meta mb-0">
                                     <li class="post-category">
-                                        <a class="post-cat"
-                                            href="https://demo-themewinter.com/digiqole/blog/category/lifestyle/tech/"
+                                        <a class="post-cat p-0"
+                                            href="{{route('findbycategory', $post['0']->category->id)}}"
                                             style=" background-color:#007bff;color:#ffffff ">
                                             <span class="before" style="background-color:#007bff;color:#ffffff ">
                                             </span>{{ $post['0']->category->name }}<span class="after"

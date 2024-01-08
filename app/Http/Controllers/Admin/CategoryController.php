@@ -71,8 +71,6 @@ class CategoryController extends Controller implements ICRUD
                      DB::table('images')->where('album_id', $data['parent_id'])->update(['album_id' => $data['id']]);
                  }
                 }
-
-
         }
         catch (\Exception $exception){
             return redirect()->back()->with('error','sửa thất bại!');
