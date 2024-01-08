@@ -62,3 +62,6 @@
     object-fit: cover;
     border-radius: 100%;
 }
+.clearfix p , .clearfix strong, .clearfix{
+    font-size: 17px;
+}
