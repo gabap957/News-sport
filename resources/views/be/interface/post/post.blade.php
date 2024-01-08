@@ -19,9 +19,10 @@
                 <thead>
                     <tr class="text-center">
                         <th class="col-1">Ảnh bìa</th>
-                        <th class="col-2">Tên Bài Viết</th>
-                        <th class="col-1">Tiêu đề</th>
+                        <th class="col-2">Tên bài viết</th>
                         <th class="col-1">Danh mục</th>
+                        <th class="col-1">Tác giả</th>
+                        <th class="col-1">Lượt xem</th>
                         <th class="col-1">Loại tin tức</th>
                         <th class="col-1">Thao tác</th>
                     </tr>
@@ -38,14 +39,9 @@
                             {{$item->name}}
                             </div>
                         </td>
-                        <td>
-                            <div class="title mx-auto">
-                            <?php
-                            echo($item->title)
-                            ?>
-                            </div>
-                        </td>
                         <td class="text-center" style="vertical-align: middle;">{{$item->category->name}}</td>
+                        <td class="text-center" style="vertical-align: middle;">{{$item->user->name}}</td>
+                        <td class="text-center" style="vertical-align: middle;">{{$item->view}}</td>
                         <td class="text-center" style="vertical-align: middle;">{{$item->type->name}}</td>
                         <td class="text-center" style="vertical-align: middle;">
                             <a array="{{$item}}" id="{{$item->id}}" href="{{route('admin.post.doedit',['id'=>$item->id])}}" class=" btn btn-warning">Sửa</a>
