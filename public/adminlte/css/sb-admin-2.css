@@ -10429,7 +10429,10 @@ a:focus {
   min-height: 100vh;
   transition: 0.8s;
 }
-
+.nav-item .active{
+  background-color: #4e73df;
+  color: #fff;
+}
 .sidebar .nav-item {
   position: relative;
 }
@@ -10925,7 +10928,9 @@ a:focus {
 .card .card-header[data-toggle="collapse"].collapsed {
   border-radius: 0.35rem;
 }
-
+.collapsed{
+    color: #fff;
+}
 .card .card-header[data-toggle="collapse"].collapsed::after {
   content: '\f105';
 }

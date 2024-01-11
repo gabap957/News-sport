@@ -174,7 +174,15 @@ use Illuminate\Support\Facades\Auth;
             .catch(error => {
                 console.error(error);
             });
-
+        let tapbar = document.querySelectorAll('.tapbar');
+        for (let i = 0; i < tapbar.length; i++) {
+            tapbar[i].addEventListener('click', function() {
+                for (let j = 0; j < tapbar.length; j++) {
+                    tapbar[j].classList.remove('active');
+                    tapbar[i].classList.add('active');
+                }
+            })
+        }
     </script>
 </body>
 

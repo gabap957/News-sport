@@ -22,10 +22,18 @@ class HomeController extends Controller
             if(count($post[$key])==1){
                 $tindacbiet=$post[$key];
             }
+            else{
+                $tindacbiet=[];
+            }
+            if(count($post[$key])<=4){
+                $tinNoibat=$post[$key];
+            }
+            else{
+                $tinNoibat=[];
+            }
         }
-        $tinNoibat= $post[3];
-        $categoryMain = DB::table('categories')
-        ->whereNotIn('id', function ($query) {
+        $categoryMain = category::
+        whereNotIn('id', function ($query) {
             $query->select('c1.id')
                 ->from('categories as c1')
                 ->join('categories as c2', 'c1.id', '=', 'c2.parent_id');
