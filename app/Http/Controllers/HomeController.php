@@ -18,18 +18,14 @@ class HomeController extends Controller
     public function home(){
         $categoryParent = category::where('parent_id',0)->get();
         $post = post::get()->groupBy('type_id');
+        $tindacbiet=[];
+        $tinNoibat=[];
         foreach ($post as $key => $value) {
             if(count($post[$key])==1){
                 $tindacbiet=$post[$key];
             }
-            else{
-                $tindacbiet=[];
-            }
             if(count($post[$key])<=4){
                 $tinNoibat=$post[$key];
-            }
-            else{
-                $tinNoibat=[];
             }
         }
         $categoryMain = category::
