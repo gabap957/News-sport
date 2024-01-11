@@ -13,6 +13,7 @@
         <div class="container-fluid">
             <div class="masonry-blog clearfix">
                 <div class="first-slot">
+                    @if ($tindacbiet != null)
                     @foreach ($tindacbiet as $value)
                     <div class="masonry-box post-media">
                         <img src="{{ $value->image->path_url }}"alt="">
@@ -42,8 +43,35 @@
                         </div><!-- end shadow -->
                     </div><!-- end post-media -->
                     @endforeach
+                    @else
+                    <div class="masonry-box post-media">
+                        <img src="{{asset('/img/default.jpg')}}"alt="">
+                        <div class="shadoweffect">
+                            <div class="shadow-desc">
+                                <div class="blog-meta">
+                                    <span class="bg-orange">
+                                        <a
+                                            title="">test</a>
+                                    </span>
+                                    <h4>
+                                        <a
+                                            title="">test</a>
+                                    </h4>
+                                    <small>
+                                        <a title="">date
+                                        </a>
+                                    </small>
+                                    <small>
+                                        <a href="" title="">tac gia</a>
+                                    </small>
+                                </div><!-- end meta -->
+                            </div><!-- end shadow-desc -->
+                        </div><!-- end shadow -->
+                    </div><!-- end post-media -->
+                    @endif
                 </div><!-- end first-side -->
                 <div class="row display">
+                    @if ($tinNoibat != null)
                     @foreach ($tinNoibat as $key => $value)
                         <div class="col-6">
                             <div class="second-slot">
@@ -79,6 +107,113 @@
                             <div class="w-100"></div>
                         @endif
                     @endforeach
+                    @else
+                        <div class="col-6">
+                            <div class="second-slot">
+                                <div class="masonry-box post-media">
+                                    <img src="{{asset('/img/default.jpg')}}" alt="" class="img-fluid">
+                                    <div class="shadoweffect">
+                                        <div class="shadow-desc">
+                                            <div class="blog-meta">
+                                                <span class="bg-orange">
+                                                    <a title="">test</a>
+                                                </span>
+                                                <h4 class="textNamepost">
+                                                    <a title="">test
+                                                    </a>
+                                                </h4>
+                                                <small>
+                                                    date
+                                                </small>
+                                                <small>
+                                                    <a href="" title="">tacgia</a>
+                                                </small>
+                                            </div><!-- end meta -->
+                                        </div><!-- end shadow-desc -->
+                                    </div><!-- end shadow -->
+                                </div><!-- end post-media -->
+                            </div><!-- end second-side -->
+                        </div>
+                        <div class="col-6">
+                            <div class="second-slot">
+                                <div class="masonry-box post-media">
+                                    <img src="{{asset('/img/default.jpg')}}" alt="" class="img-fluid">
+                                    <div class="shadoweffect">
+                                        <div class="shadow-desc">
+                                            <div class="blog-meta">
+                                                <span class="bg-orange">
+                                                    <a title="">test</a>
+                                                </span>
+                                                <h4 class="textNamepost">
+                                                    <a title="">test
+                                                    </a>
+                                                </h4>
+                                                <small>
+                                                    date
+                                                </small>
+                                                <small>
+                                                    <a href="" title="">tacgia</a>
+                                                </small>
+                                            </div><!-- end meta -->
+                                        </div><!-- end shadow-desc -->
+                                    </div><!-- end shadow -->
+                                </div><!-- end post-media -->
+                            </div><!-- end second-side -->
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-6">
+                            <div class="second-slot">
+                                <div class="masonry-box post-media">
+                                    <img src="{{asset('/img/default.jpg')}}" alt="" class="img-fluid">
+                                    <div class="shadoweffect">
+                                        <div class="shadow-desc">
+                                            <div class="blog-meta">
+                                                <span class="bg-orange">
+                                                    <a title="">test</a>
+                                                </span>
+                                                <h4 class="textNamepost">
+                                                    <a title="">test
+                                                    </a>
+                                                </h4>
+                                                <small>
+                                                    date
+                                                </small>
+                                                <small>
+                                                    <a href="" title="">tacgia</a>
+                                                </small>
+                                            </div><!-- end meta -->
+                                        </div><!-- end shadow-desc -->
+                                    </div><!-- end shadow -->
+                                </div><!-- end post-media -->
+                            </div><!-- end second-side -->
+                        </div>
+                        <div class="col-6">
+                            <div class="second-slot">
+                                <div class="masonry-box post-media">
+                                    <img src="{{asset('/img/default.jpg')}}" alt="" class="img-fluid">
+                                    <div class="shadoweffect">
+                                        <div class="shadow-desc">
+                                            <div class="blog-meta">
+                                                <span class="bg-orange">
+                                                    <a title="">test</a>
+                                                </span>
+                                                <h4 class="textNamepost">
+                                                    <a title="">test
+                                                    </a>
+                                                </h4>
+                                                <small>
+                                                    date
+                                                </small>
+                                                <small>
+                                                    <a href="" title="">tacgia</a>
+                                                </small>
+                                            </div><!-- end meta -->
+                                        </div><!-- end shadow-desc -->
+                                    </div><!-- end shadow -->
+                                </div><!-- end post-media -->
+                            </div><!-- end second-side -->
+                        </div>
+                    @endif
                 </div>
             </div><!-- end masonry -->
         </div>
@@ -165,6 +300,7 @@
                                         ?> id="nav{{ $key }}">
 
                                             <div class="row">
+                                                @if($postDB)
                                                 <div class="col-xl-6 px-4">
                                                     <div class="whats-news-single mb-40">
                                                         <div class="whates-img">
@@ -182,33 +318,71 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-6 col-lg-12 px-4">
-                                                    <div class="row">
-                                                        @foreach ($postcate as $item)
-                                                            <div
-                                                                class="col-xl-12 col-lg-6 col-md-6 col-sm-10 px-4 px-xl-0">
-                                                                <div class="whats-right-single mb-20">
-                                                                    <div class="whats-right-img">
-                                                                        <img src="{{ $item->image->path_url }}"
-                                                                            style="width: 124px; height: 102px"
-                                                                            alt="">
-                                                                    </div>
-                                                                    <div class="whats-right-cap">
-                                                                        <h4>
-                                                                            <a
-                                                                                href="{{ route('getpostbyid', $item->id) }}">{{ $item->name }}
-                                                                            </a>
-                                                                        </h4>
-                                                                        <p> {{ Carbon::parse($item->created_at)->diffInMinutes() < 1
-                                                                            ? '1 phút'
-                                                                            : Carbon::parse($item->created_at)->locale('vi')->diffForHumans(null, true) }} trước</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        @endforeach
+                                                @else
+                                                <div class="col-xl-6 px-4">
+                                                    <div class="whats-news-single mb-40">
+                                                        <div class="whates-img">
+                                                            <img src="{{asset('/img/default.jpg')}}" alt="">
+                                                        </div>
+                                                        <div class="whates-caption">
+                                                            <h4>
+                                                                <a >Không có bài viết</a>
+                                                            </h4>
+                                                            <span>date</span>
+                                                            <small>tac gia</small>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                @endif
+                                                <div class="col-xl-6 col-lg-12 px-4">
+                                                    <div class="row">
+                                                       @if (count($postcate)>0)
+                                                       @foreach ($postcate as $item)
+                                                       <div
+                                                           class="col-xl-12 col-lg-6 col-md-6 col-sm-10 px-4 px-xl-0">
+                                                           <div class="whats-right-single mb-20">
+                                                               <div class="whats-right-img">
+                                                                   <img src="{{ $item->image->path_url }}"
+                                                                       style="width: 124px; height: 102px"
+                                                                       alt="">
+                                                               </div>
+                                                               <div class="whats-right-cap">
+                                                                   <h4>
+                                                                       <a
+                                                                           href="{{ route('getpostbyid', $item->id) }}">{{ $item->name }}
+                                                                       </a>
+                                                                   </h4>
+                                                                   <p> {{ Carbon::parse($item->created_at)->diffInMinutes() < 1
+                                                                       ? '1 phút'
+                                                                       : Carbon::parse($item->created_at)->locale('vi')->diffForHumans(null, true) }} trước</p>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                   @endforeach
+                                                       @else
+                                                       <div
+                                                           class="col-xl-12 col-lg-6 col-md-6 col-sm-10 px-4 px-xl-0">
+                                                           <div class="whats-right-single mb-20">
+                                                               <div class="whats-right-img">
+                                                                   <img src="{{asset('/img/default.jpg')}}"
+                                                                       style="width: 124px; height: 102px"
+                                                                       alt="">
+                                                               </div>
+                                                               <div class="whats-right-cap">
+                                                                   <h4>
+                                                                       <a>Không có bài viết
+                                                                       </a>
+                                                                   </h4>
+                                                                   <p> date</p>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                       @endif
+                                                    </div>
+                                                </div>
+                                                @if (count($postcate)>0)
                                                 <div class="mx-auto my-2 more">{{$postcate->appends(request()->all())->links()}}</div>
+                                                @endif
                                             </div>
                                         </div>
                                     @endforeach

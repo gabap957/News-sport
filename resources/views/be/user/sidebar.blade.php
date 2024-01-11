@@ -10,7 +10,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item"  onclick="window.location='{{ URL::route('admin.user.list')}}'">
+    <li class="nav-item tapbar"  onclick="window.location='{{ URL::route('admin.user.list')}}'">
         <a class="nav-link">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -25,33 +25,33 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item" onclick="window.location='{{ URL::route('admin.category.list')}}'">
-        <a class="nav-link collapsed" >
+    <li class="nav-item tapbar">
+        <a class="nav-link collapsed" href="{{route('admin.category.list')}}">
             <i class="fa fa-list-alt"></i>
             <span>Quản lý chuyên mục</span>
         </a>
     </li>
-    <li class="nav-item" onclick="window.location='{{ URL::route('admin.type.list')}}'">
-        <a class="nav-link collapsed" >
+    <li class="nav-item tapbar" >
+        <a class="nav-link collapsed" href="{{route('admin.type.list')}}">
             <i class="fa fa-bell"></i>
             <span>Phân loại tin tức </span>
         </a>
     </li>
     <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item" onclick="window.location='{{ URL::route('admin.post.list')}}'">
-        <a class="nav-link collapsed" >
+    <li class="nav-item tapbar">
+        <a class="nav-link collapsed" href="{{route('admin.post.list')}}">
             <i class="fa fa-book"></i>
             <span>Quản lý bài viết </span>
         </a>
     </li>
-    <li class="nav-item" onclick="window.location='{{ URL::route('admin.album.list')}}'">
-        <a class="nav-link collapsed" >
+    <li class="nav-item tapbar">
+        <a class="nav-link collapsed" href="{{route('admin.album.list')}}" >
             <i class="fa fa-folder-open"></i>
             <span>Kho ảnh</span>
         </a>
     </li>
-    <li class="nav-item" onclick="window.location='{{ URL::route('admin.user.list')}}'">
-        <a class="nav-link collapsed" >
+    <li class="nav-item tapbar" >
+        <a class="nav-link collapsed" href="{{route('admin.user.list')}}" >
             <i class="fa fa-user-circle"></i>
             <span>quản lý người dùng</span>
         </a>
@@ -64,5 +64,4 @@
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
-
 </ul>
