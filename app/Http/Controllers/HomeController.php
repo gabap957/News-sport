@@ -24,6 +24,7 @@ class HomeController extends Controller
             if(count($post[$key])==1){
                 $tindacbiet=$post[$key];
             }
+
             if(count($post[$key])<=4&&count($post[$key])>1){
                 $tinNoibat=$post[$key];
             }
