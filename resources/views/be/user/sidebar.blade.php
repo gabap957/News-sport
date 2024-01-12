@@ -53,7 +53,7 @@
     <li class="nav-item tapbar" >
         <a class="nav-link collapsed" href="{{route('admin.user.list')}}" >
             <i class="fa fa-user-circle"></i>
-            <span>quản lý người dùng</span>
+            <span>Quản lý người dùng</span>
         </a>
     </li>
 

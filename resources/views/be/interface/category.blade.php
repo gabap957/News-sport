@@ -25,7 +25,6 @@ use App\Models\category;
                         <th>STT</th>
                         <th>Tên nhánh chính</th>
                         <th>Tên nhánh con</th>
-                        <th>Đường dẫn</th>
                         <th>Thao tác</th>
                     </tr>
                 </thead>
@@ -41,7 +40,6 @@ use App\Models\category;
                             <div>{{$item->name}}</div>
                         </td>
                         <td > </td>
-                        <td>{{$item->cate_url}}</td>
                         <td>
                             <button array="{{$item}}" id="{{$item->id}}" class="editcategory button-33"
                                 style="color: white; background-color: #e0a800">Sửa</button>
@@ -55,9 +53,6 @@ use App\Models\category;
                     <tr class="tr-{{$value['id']}} ml-5">
                         <td class="text-center" >
                             <div>{{$value->name}}</div>
-                        </td>
-                        <td class="text-center">
-                            {{$value->cate_url}}
                         </td>
                         <td class="text-center">
                             <button array='{{$value}}' id="{{$value['id']}}" class="editcategory button-33"
@@ -87,10 +82,6 @@ use App\Models\category;
                     <div class="form-group">
                         <label for="">Tên</label> <span id="errorname"></span>
                         <input type="text" class="form-control" id="name" name="name" value="" Required />
-                    </div>
-                    <div class="form-group">
-                        <label for="">Địa chỉ URL:</label> <span id="errorurl"></span>
-                        <input type="text" class="form-control" id="url" name="cate_url" value="" ; Required />
                     </div>
                     <div class="form-group mb-5">
                         <label for="">Danh mục cha:</label>
@@ -135,11 +126,6 @@ use App\Models\category;
                     <div class="form-group">
                         <label for="">Tên</label> <span id="errorname"></span>
                         <input type="text" class="form-control" id="ename" name="name" value="" onblur="checkname()" ;
-                            Required />
-                    </div>
-                    <div class="form-group">
-                        <label for="">Địa chỉ URL:</label> <span id="errorurl"></span>
-                        <input type="text" class="form-control" id="eurl" name="cate_url" value="" onblur="checkurl()" ;
                             Required />
                     </div>
                     <div class="form-group box mb-5">

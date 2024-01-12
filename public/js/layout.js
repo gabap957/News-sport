@@ -4,6 +4,7 @@ $(document).on('click', '.btnedituser', function () {
     $('#eid').val(obj['id']);
     $('#ename').val(obj['name']);
     $('#eemail').val(obj['email']);
+    $('#elevel').val(obj['level']);
     $("#modalupdate").modal('show');
 });
 $(document).on('click', '.editcategory', function () {
@@ -11,7 +12,6 @@ $(document).on('click', '.editcategory', function () {
     var obj = JSON.parse(array);
     $('#eid').val(obj['id']);
     $('#ename').val(obj['name']);
-    $('#eurl').val(obj['cate_url']);
     $("#eparent_id").val(obj['parent_id']);
     $("#modaleditCategory").modal('show');
 });

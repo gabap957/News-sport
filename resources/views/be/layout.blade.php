@@ -185,5 +185,4 @@ use Illuminate\Support\Facades\Auth;
         }
     </script>
 </body>
-
 </html>
