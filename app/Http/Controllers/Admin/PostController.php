@@ -129,10 +129,10 @@ class PostController extends Controller implements ICRUD
             $postOfType = post::where('type_id', $typeId)->get();
            if(count($postOfType) >= ($typeData)){
                 $postOfType[0]->update(['type_id' => '1']);
-                DB::table('posts')->where('id', '=', $data['id'])->update($data);
+                post::where('id', '=', $data['id'])->update($data);
             }
             else{
-                DB::table('posts')->where('id', '=', $data['id'])->update($data);
+                post::where('id', '=', $data['id'])->update($data);
             }
             DB::commit();
        }
