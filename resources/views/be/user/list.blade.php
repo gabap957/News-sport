@@ -5,10 +5,6 @@
             <div>
                 <h5 class="m-0 font-weight-bold text-primary">Chuyên mục bài viết</h5>
             </div>
-            <div>
-                <button class="button-33" data-toggle="modal" data-target="#modalinsert"
-                    style="color: green; background-color: #c2fbd7;" role="button">Thêm</button>
-            </div>
         </div>
         <div class="card-body">
             <div class="table-responsive col-12 mx-auto">
@@ -19,6 +15,7 @@
                             <th>Tên</th>
                             <th>Email</th>
                             <th>Phone</th>
+                            <th>Vai trò</th>
                             <th class="col-2 text-center">Thao tác</th>
                         </tr>
                     </thead>
@@ -29,6 +26,8 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->phone }}</td>
+                                <td><?php if($item->level == 1) echo "Admin"; else echo "Người dùng"?>
+                                </td>
                                 <td class="text-center">
                                     <button array="{{ $item }}" id="{{ $item->id }}"
                                         class="btnedituser btn btn-warning">Sửa</button>
@@ -42,46 +41,6 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="modalinsert">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="{{ route('admin.user.add') }}" method="post" role="form" enctype="multipart/form-data">
-                    @csrf
-                    <div class="modal-header">
-                        <legend>Thêm thông tin User</legend>
-                    </div>
-                    <div class="modal-body">
-
-                        <div class="form-group">
-                            <label for="">Tên</label> <span id="errorname"></span>
-                            <input type="text" class="form-control" id="name" name="name" value=""
-                                onblur="checkname();" Required />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Email</label> <span id="erroremail"></span>
-                            <input type="text" class="form-control" id="email" name="email" value=""
-                                onblur="checkEmail();" Required>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="">password</label> <span id="errorpassword"></span>
-                            <input type="password" class="form-control" id="password" name="password" value=""
-                                onblur="checkPass();" Required>
-                        </div>
-                        <input class="d-none" name="level" value="1">
-
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                        <button type="submit" name="insert" class="btn btn-primary">Thêm</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
     <div class="modal fade" id="modalupdate">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -89,31 +48,27 @@
                     enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
-                        <legend>Sửa thông tin User</legend>
+                        <legend>Phân quyền người dùng</legend>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="">ID</label>
                             <input type="text" class="form-control" id="eid" name="id" readonly="">
                         </div>
-
                         <div class="form-group">
                             <label for="">Tên</label> <span id="errorname"></span>
-                            <input type="text" class="form-control" id="ename" name="name" value=""
-                                onblur="checkname()"; Required />
+                            <input type="text" class="form-control" id="ename" name="name" disabled/>
                         </div>
-
                         <div class="form-group">
                             <label for="">Email</label> <span id="erroremail"></span>
-                            <input type="text" class="form-control" id="eemail" name="email" value=""
-                                onblur="checkEmail();" Required>
+                            <input type="text" class="form-control" id="eemail" name="email" value=""disabled>
                         </div>
-
-
                         <div class="form-group">
-                            <label for="">password</label> <span id="errorpassword"></span>
-                            <input type="password" class="form-control" id="epassword" name="password" value=""
-                                onblur="checkPass();" Required>
+                            <label for="">Phân quyền</label> <span id="erroremail"></span>
+                            <select class="form-control" name="level" size="1" onfocus="this.size =3">
+                                <option value="1">Admin</option>
+                                <option value="2">Người dùng</option>
+                            </select>
                         </div>
 
                     </div>

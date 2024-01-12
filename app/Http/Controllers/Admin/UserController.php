@@ -52,13 +52,9 @@ class UserController extends Controller implements ICRUD
     {
         try {
             $data = $request->all();
-            $user = Admin::find($data['id']);
-            $data['password'] = Hash::make($data['password']);
-            $user->name = $data['name'];
-            $user->email = $data['email'];
-            $user->password = $data['password'];
-            $user->phone = $data['phone'];
-            $user->save();
+            unset($data['_token']);
+            unset($data['insert']);
+            User::where('id', $data['id'])->update($data);
         }
         catch (Exception $exception){
             return redirect()->back()->with('error','Sửa thất bại!');
