@@ -15,8 +15,8 @@
                 <div class="first-slot">
                     @if ($tindacbiet != null)
                     @foreach ($tindacbiet as $value)
-                    <div class="masonry-box post-media">
-                        <img src="{{ $value->image->path_url }}"alt="">
+                    <div class="masonry-box post-media" style="cursor:pointer" onclick="window.location='{{ route('getpostbyid', $value->id) }}'">
+                        <img src="{{ $value->image->path_url}}"alt="">
                         <div class="shadoweffect">
                             <div class="shadow-desc">
                                 <div class="blog-meta">
@@ -75,9 +75,9 @@
                     @foreach ($tinNoibat as $key => $value)
                         <div class="col-6">
                             <div class="second-slot">
-                                <div class="masonry-box post-media">
-                                    <img src="{{ asset($value->image->path_url) }}" alt="" class="img-fluid">
-                                    <div class="shadoweffect">
+                                <div class="masonry-box post-media" style="cursor:pointer">
+                                        <img src="{{ asset($value->image->path_url) }}" alt="" class="img-fluid">
+                                    <div class="shadoweffect"  onclick="window.location='{{ route('getpostbyid', $value->id) }}'">
                                         <div class="shadow-desc">
                                             <div class="blog-meta">
                                                 <span class="bg-orange">
@@ -302,8 +302,8 @@
                                             <div class="row">
                                                 @if($postDB)
                                                 <div class="col-xl-6 px-4">
-                                                    <div class="whats-news-single mb-40">
-                                                        <div class="whates-img">
+                                                    <div class="whats-news-single mb-40" >
+                                                        <div class="whates-img" style="cursor:pointer"  onclick="window.location='{{ route('getpostbyid', $value->id) }}'">
                                                             <img src="{{ $postDB->image->path_url }}" alt="">
                                                         </div>
                                                         <div class="whates-caption">
@@ -341,7 +341,7 @@
                                                        <div
                                                            class="col-xl-12 col-lg-6 col-md-6 col-sm-10 px-4 px-xl-0">
                                                            <div class="whats-right-single mb-20">
-                                                               <div class="whats-right-img">
+                                                               <div class="whats-right-img" style="cursor: pointer"  onclick="window.location='{{ route('getpostbyid', $item->id) }}'">
                                                                    <img src="{{ $item->image->path_url }}"
                                                                        style="width: 124px; height: 102px"
                                                                        alt="">
@@ -471,7 +471,7 @@
                                     ?> class="slick-slide slick-active"
                                         data-slick-index="{{ $key - 3 }}" aria-hidden="false" style="width: 220px;"
                                         tabindex="-1" role="option" aria-describedby="slick-slide{{ $key + 1 }}">
-                                        <div class="weekly3-img2"
+                                        <div class="weekly3-img2" style="cursor: pointer"
                                             onclick="window.location='{{ URL::route('getpostbyid', $item->id) }}'">
                                             <img src="{{ $item->image->path_url }}" style="width: 230px; height: 150px"
                                                 alt="">

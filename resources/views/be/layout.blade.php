@@ -206,8 +206,8 @@ use Illuminate\Support\Facades\Auth;
                     year: year,
                 },
                 success: function(response) {
-                    var MonthArray = getMonthsOfYear(response[0].year);
-                    console.log(MonthArray);
+                    var MonthArray = getMonthsOfYear(year);
+                    // console.log(MonthArray);
                     var counts = response.map(function(item) {
                         return item.count;
                     });
@@ -218,9 +218,9 @@ use Illuminate\Support\Facades\Auth;
                             datasets: [{
                                 label: 'bài viết',
                                 data: counts,
-                                backgroundColor: ['#66664D', '#991AFF', '#E666FF', '#4DB3FF',
-                                    '#1AB399','#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680',
-                                    '#4D8066', '#809980'
+                                backgroundColor: ["#228B22", "#84FF63", "#8463FF", "#6384FF",
+                                    "#1AB399", "#E666B3", "#33991A", "#CC9999",
+                                    "#B3B31A", "#00E680", "#4D8066", "#809980"
                                 ],
                                 borderWidth: 2
                             }]
@@ -232,7 +232,10 @@ use Illuminate\Support\Facades\Auth;
                                         beginAtZero: true
                                     }
                                 }]
-                            }
+                            },
+                            onHover: function(e) {
+                                $("#myAreaChart").css("cursor", e[0] ? "pointer" : "pointer");
+                            },
                         }
                     });
                 }
@@ -259,9 +262,9 @@ use Illuminate\Support\Facades\Auth;
                             datasets: [{
                                 label: 'bài viết',
                                 data: counts,
-                                backgroundColor: ['#66664D', '#991AFF', '#E666FF', '#4DB3FF',
-                                    '#1AB399','#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680',
-                                    '#4D8066', '#809980'
+                                backgroundColor: ["#228B22", "#84FF63", "#8463FF", "#6384FF",
+                                    "#1AB399", "#E666B3", "#33991A", "#CC9999",
+                                    "#B3B31A", "#00E680", "#4D8066", "#809980"
                                 ],
                                 borderWidth: 1
                             }]
@@ -273,13 +276,64 @@ use Illuminate\Support\Facades\Auth;
                                         beginAtZero: true
                                     }
                                 }]
-                            }
+                            },
+                            onHover: function(e) {
+                                $("#myAreaChart").css("cursor", e[0] ? "pointer" : "pointer");
+                            },
+
                         }
                     });
                 }
             })
         }
+        // chart category of month
+        categorychart({{ date('m') }}, {{ date('Y') }});
 
+        function categorychart(month, year) {
+            console.log(month, year);
+            var ctx = document.getElementById("myPieChart").getContext('2d');
+            $.ajax({
+                url: "{{ route('chartCategory') }}",
+                method: "get",
+                data: {
+                    year: year,
+                    month: month
+                },
+                success: function(response) {
+                    var myChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: response.map(function(item) {
+                                return item.name
+                            }),
+                            datasets: [{
+                                label: 'bài viết',
+                                data: response.map(function(item) {
+                                    return item.count
+                                }),
+                                backgroundColor: ["#228B22", "#84FF63", "#8463FF", "#6384FF",
+                                    "#1AB399", "#E666B3", "#33991A", "#CC9999",
+                                    "#B3B31A", "#00E680", "#4D8066", "#809980"
+                                ],
+                                hoverOffset: 4
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                subtitle: {
+                                    display: true,
+                                    text: '1233',
+                                }
+                            },
+                            onHover: function(e) {
+                                            $("#myPieChart").css("cursor", e[0] ? "pointer" : "pointer");
+                                        },
+                        },
+                    });
+                }
+            })
+        }
+        //ham lấy ra 12 tháng
         function getMonthsOfYear(year) {
             const months = [];
             for (let month = 1; month <= 12; month++) {

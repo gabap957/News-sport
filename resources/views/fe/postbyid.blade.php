@@ -62,7 +62,7 @@
                                         <img alt="" src="{{ asset($post['0']->user->avatar) }}" class="img-profile"
                                             decoding="async">
                                         <a class="ml-2"
-                                            style="font-size: 17px;font-weight: 600">{{ $post['0']->user->name }}</a>
+                                            style="font-size: 17px;font-weight: 600; cursor: pointer" >{{ $post['0']->user->name }}</a>
                                     </li>
                                     <li class="post-meta-date">
                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -132,7 +132,7 @@
                                 </ul>
                             </header><!-- header end -->
 
-                            <div class="post-media post-image mb-30">
+                            <div class=" post-image mb-30">
                                 <img class="img-fluid" src="{{ asset($post['0']->image->path_url) }}"
                                     alt=" Harbour amid a Slowen down in singer city screening">
 
@@ -261,7 +261,7 @@
                             <div class="most-recent mb-40">
                                 <div class="most-recent-img mx-auto">
                                     <img src="{{ asset($postNew1->image->path_url) }}" class="img-fluid" alt="">
-                                    <div class="most-recent-cap">
+                                    <div class="most-recent-cap mr-3">
                                         <a href="{{ route('findbycategory', $postNew1->category_id) }}"><span
                                                 class="bgbeg">{{ $postNew1->category->name }}</span></a>
                                         <h4><a href="{{ route('getpostbyid', $postNew1->id) }}">{{ $postNew1->name }}</a>
@@ -274,8 +274,10 @@
                             @foreach ($postNew2 as $item)
                                 <div class="most-recent-single">
                                     <div class="most-recent-images">
-                                        <img src="{{ asset($item->image->path_url) }}"
+                                        <a href="{{ route('getpostbyid', $item->id) }}">
+                                            <img src="{{ asset($item->image->path_url) }}"
                                             style="width: 125px; height: 120px" alt="">
+                                        </a>
                                     </div>
                                     <div class="most-recent-capt">
                                         <a href="{{ route('findbycategory', $item->category_id) }}">
