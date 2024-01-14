@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GetPostbyIdController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,5 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/search',[HomeController::class,'search'])->name('search');
 Route::get('/reply',[GetPostbyIdController::class,'reply'])->name('reply');
+Route::get('/chartYear',[DashboardController::class,'chartYear'])->name('chartYear');
+Route::get('/chartMonth',[DashboardController::class,'chartMonth'])->name('chartMonth');
+
+
 
 

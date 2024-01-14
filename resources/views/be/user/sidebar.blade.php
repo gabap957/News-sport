@@ -10,7 +10,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item tapbar"  onclick="window.location='{{ URL::route('admin.user.list')}}'">
+    <li class="nav-item tapbar"  onclick="window.location='{{ URL::route('admin.dashboard')}}'">
         <a class="nav-link">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>

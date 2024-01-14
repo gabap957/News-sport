@@ -8,8 +8,12 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\loginController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\DashboardController;
 
 Route::prefix('/admin')->middleware('admin')->group(function (){
+    Route::prefix('/dashboard')->group(function (){
+        Route::get('/',[DashboardController::class, 'dashboard'])->name('admin.dashboard');
+    });
     Route::prefix('/user')->group(function (){
         Route::get('/',[UserController::class, 'list'])->name('admin.user.list');
         Route::post('/add',[UserController::class, 'add'])->name('admin.user.add');
