@@ -27,3 +27,4 @@ class post extends Model
         return $this->belongsTo(User::class);
     }
 }
+
